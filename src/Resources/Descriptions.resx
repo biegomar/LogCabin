@@ -57,4 +57,7 @@
     <data name="BEDROOM" xml:space="preserve">
         <value>Das ist das Schlafzimmer.</value>
     </data>
+    <data name="CELLAR" xml:space="preserve">
+        <value>Das ist der Keller.</value>
+    </data>
 </root>
