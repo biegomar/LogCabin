@@ -54,4 +54,7 @@
     <data name="DOOR_FIRSTLOOK" xml:space="preserve">
         <value>Du drückst die Türklinke nach unten und versuchst die Tür zu öffnen. Sie ist verschlossen und bewegt sich keinen Millimeter.</value>
     </data>
+    <data name="BEDROOM" xml:space="preserve">
+        <value>Das ist das Schlafzimmer.</value>
+    </data>
 </root>

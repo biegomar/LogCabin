@@ -61,6 +61,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Schlafzimmer.
+        /// </summary>
+        internal static string BEDROOM {
+            get {
+                return ResourceManager.GetString("BEDROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wohnstube.
         /// </summary>
         internal static string LIVINGROOM {

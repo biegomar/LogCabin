@@ -10,8 +10,9 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
     public GamePrerequisites AssembleGame()
     {
         var livingRoom = LivingRoomPrerequisites.Get();
+        var bedRoom = BedRoomPrerequisites.Get();
         
-        var map = new LocationMap(new LocationComparer());
+        var map = new LocationMap(new LocationComparer()) { { livingRoom, LivingRoomLocationMap(bedRoom) } };
 
         var activeLocation = livingRoom;
         var activePlayer = PlayerPrerequisites.Get();
@@ -28,5 +29,14 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         };
 
         return result;
+    }
+    
+    private static IEnumerable<DestinationNode> LivingRoomLocationMap(Location bedRoom)
+    {
+        var locationMap = new List<DestinationNode>
+        {
+            new() {Direction = Directions.N, Location = bedRoom},
+        };
+        return locationMap;
     }
 }

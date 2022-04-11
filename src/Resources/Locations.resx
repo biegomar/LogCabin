@@ -21,4 +21,7 @@
     <data name="LIVINGROOM" xml:space="preserve">
         <value>Wohnstube</value>
     </data>
+    <data name="BEDROOM" xml:space="preserve">
+        <value>Schlafzimmer</value>
+    </data>
 </root>

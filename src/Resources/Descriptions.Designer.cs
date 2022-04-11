@@ -61,6 +61,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das ist das Schlafzimmer..
+        /// </summary>
+        internal static string BEDROOM {
+            get {
+                return ResourceManager.GetString("BEDROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. .
         /// </summary>
         internal static string CHEST {
