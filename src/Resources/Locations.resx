@@ -30,4 +30,7 @@
     <data name="ATTIC" xml:space="preserve">
         <value>Dachboden</value>
     </data>
+    <data name="FREEDOM" xml:space="preserve">
+        <value>Freiheit</value>
+    </data>
 </root>

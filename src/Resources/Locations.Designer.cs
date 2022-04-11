@@ -88,6 +88,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Freiheit.
+        /// </summary>
+        internal static string FREEDOM {
+            get {
+                return ResourceManager.GetString("FREEDOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wohnstube.
         /// </summary>
         internal static string LIVINGROOM {

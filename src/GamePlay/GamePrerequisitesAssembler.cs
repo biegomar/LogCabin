@@ -13,10 +13,11 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         var bedRoom = BedRoomPrerequisites.Get();
         var cellar = CellarPrerequisites.Get();
         var attic = AtticPrerequisites.Get();
+        var freedom = FreedomPrerequisites.Get();
         
         var map = new LocationMap(new LocationComparer())
         {
-            { livingRoom, LivingRoomLocationMap(bedRoom, cellar) },
+            { livingRoom, LivingRoomLocationMap(bedRoom, cellar, freedom) },
             { bedRoom, BedRoomLocationMap(livingRoom, attic) },
             { cellar, CellarLocationMap(livingRoom) },
             { attic, AtticLocationMap(bedRoom) }
@@ -39,12 +40,13 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         return result;
     }
     
-    private static IEnumerable<DestinationNode> LivingRoomLocationMap(Location bedRoom, Location cellar)
+    private static IEnumerable<DestinationNode> LivingRoomLocationMap(Location bedRoom, Location cellar, Location freedom)
     {
         var locationMap = new List<DestinationNode>
         {
             new() {Direction = Directions.N, Location = bedRoom},
-            new() {Direction = Directions.DOWN, Location = cellar}
+            new() {Direction = Directions.DOWN, Location = cellar},
+            new() {Direction = Directions.S, Location = freedom}
         };
         return locationMap;
     }

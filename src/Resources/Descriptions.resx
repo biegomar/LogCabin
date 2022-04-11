@@ -63,4 +63,7 @@
     <data name="ATTIC" xml:space="preserve">
         <value>Das ist der Dachboden.</value>
     </data>
+    <data name="FREEDOM" xml:space="preserve">
+        <value>Du bist in Freiheit!</value>
+    </data>
 </root>

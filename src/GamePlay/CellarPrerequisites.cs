@@ -3,7 +3,7 @@ using LogCabin.Resources;
 
 namespace LogCabin.GamePlay;
 
-public class CellarPrerequisites
+internal static class CellarPrerequisites
 {
     internal static Location Get()
     {
