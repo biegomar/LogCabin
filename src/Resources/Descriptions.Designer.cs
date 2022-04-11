@@ -79,6 +79,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eine große weiße Kerze, die bestimmt einige Tage brennen kann. .
+        /// </summary>
+        internal static string CANDLE {
+            get {
+                return ResourceManager.GetString("CANDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auf dem Tisch steht eine brennende Kerze, die ein spärliches Licht in den kalten Raum wirft..
+        /// </summary>
+        internal static string CANDLE_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("CANDLE_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Das ist der Keller..
         /// </summary>
         internal static string CELLAR {
@@ -88,7 +106,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. .
+        ///   Looks up a localized string similar to Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. An der Vorderseite kannst Du ein Schlüsselloch erkennen..
         /// </summary>
         internal static string CHEST {
             get {
@@ -97,7 +115,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Die Truhe wird durch ein Zahlenschloß gesichert..
+        ///   Looks up a localized string similar to Die Truhe ist abgeschlossen..
         /// </summary>
         internal static string CHEST_LOCKED {
             get {
@@ -151,7 +169,16 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Du befindest Dich in einem Wohnraum..
+        ///   Looks up a localized string similar to In das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen..
+        /// </summary>
+        internal static string KEY_HOLE {
+            get {
+                return ResourceManager.GetString("KEY_HOLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt..
         /// </summary>
         internal static string LIVINGROOM {
             get {
@@ -160,16 +187,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Das Nummernschloß hat sechs Ziffern. Einfach eine Nummer zu erraten scheint aussichtslos..
-        /// </summary>
-        internal static string NUMBER_LOCK {
-            get {
-                return ResourceManager.GetString("NUMBER_LOCK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Willkommen in der Waldhütte..
+        ///   Looks up a localized string similar to Langsam öffnest Du die Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens und behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Nun stellst Du Dich hin und unsiche [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OPENING {
             get {
@@ -201,6 +219,15 @@ namespace LogCabin.Resources {
         internal static string QUEST_I {
             get {
                 return ResourceManager.GetString("QUEST_I", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ein massiver Holztisch. Sieht sehr schwer aus..
+        /// </summary>
+        internal static string TABLE {
+            get {
+                return ResourceManager.GetString("TABLE", resourceCulture);
             }
         }
     }

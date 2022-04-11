@@ -19,17 +19,17 @@ namespace LogCabin.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Items {
+    internal class MetaData {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Items() {
+        internal MetaData() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LogCabin.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.Resources.Items", typeof(Items).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.Resources.MetaData", typeof(MetaData).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,20 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kerze.
+        ///   Looks up a localized string similar to Die Blockhütte - ein Abenteuer basierend auf Heretic.InteractiveFiction.
         /// </summary>
-        internal static string CANDLE {
+        internal static string TITLE {
             get {
-                return ResourceManager.GetString("CANDLE", resourceCulture);
+                return ResourceManager.GetString("TITLE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Holztruhe|Truhe|Kiste.
+        ///   Looks up a localized string similar to v0.1.1.
         /// </summary>
-        internal static string CHEST {
+        internal static string VERSION {
             get {
-                return ResourceManager.GetString("CHEST", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Eingangstür|Tür|Holztür.
-        /// </summary>
-        internal static string DOOR {
-            get {
-                return ResourceManager.GetString("DOOR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Eisenschlüssel|Metallschlüssel|Schlüssel.
-        /// </summary>
-        internal static string IRON_KEY {
-            get {
-                return ResourceManager.GetString("IRON_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Schlüsselloch.
-        /// </summary>
-        internal static string KEY_HOLE {
-            get {
-                return ResourceManager.GetString("KEY_HOLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bretter|Bohlen|Holzbohlen.
-        /// </summary>
-        internal static string PLANK {
-            get {
-                return ResourceManager.GetString("PLANK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Holztisch|Tisch.
-        /// </summary>
-        internal static string TABLE {
-            get {
-                return ResourceManager.GetString("TABLE", resourceCulture);
+                return ResourceManager.GetString("VERSION", resourceCulture);
             }
         }
     }

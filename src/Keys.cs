@@ -10,10 +10,12 @@ internal static class Keys
     internal const string LIVINGROOM_WINDOW = "LIVINGROOM_WINDOW";
     internal const string SHUTTER = "SHUTTER";
     internal const string CHEST = "CHEST";
+    internal const string KEY_HOLE = "KEY_HOLE";
+    internal const string IRON_KEY = "IRON_KEY";
     internal const string PLANK = "PLANK";
-    internal const string NUMBER_LOCK = "NUMBER_LOCK";
     internal const string DOOR = "DOOR";
     internal const string TABLE = "TABLE";
+    internal const string NOTE = "NOTE";
     internal const string BOOKSHELF = "BOOKSHELF";
     internal const string BOOK = "BOOK";
     internal const string CHAIR = "CHAIR";

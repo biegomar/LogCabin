@@ -8,7 +8,13 @@ internal sealed class ConsolePrinting: BaseConsolePrintingSubsystem
 {
     public override bool Opening()
     {
-        Console.WriteLine(Descriptions.OPENING);
+        Console.WriteLine($@"{MetaData.TITLE} - {MetaData.VERSION}");
+        this.ForegroundColor = TextColor.DarkCyan;
+        this.Resource(BaseDescriptions.CHANGE_NAME);
+        this.ResetColors();
+        Console.Write(WordWrap(BaseDescriptions.HELLO_STRANGER, this.ConsoleWidth));
+        Console.Write(WordWrap(Descriptions.OPENING, this.ConsoleWidth));
+        Console.WriteLine();
 
         return true;
     }

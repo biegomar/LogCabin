@@ -15,6 +15,7 @@ internal static class LivingRoomPrerequisites
         };
         
         livingRoom.Items.Add(GetChest());
+        livingRoom.Items.Add(GetCandle());
         livingRoom.Items.Add(GetDoor());
         
         AddSurroundings(livingRoom);
@@ -52,31 +53,27 @@ internal static class LivingRoomPrerequisites
             IsClosed = true,
             IsCloseAble = true
         };
-        
-        chest.LinkedTo.Add(GetNumberLock());
-        
+
         return chest;
     }
 
-    private static Item GetNumberLock()
+    private static Item GetCandle()
     {
-        var numberLock = new Item()
+        var candle = new Item()
         {
-            Key = Keys.NUMBER_LOCK,
-            Name = Items.NUMBER_LOCK,
-            Description = Descriptions.NUMBER_LOCK,
-            LinkedToDescription = Descriptions.CHEST_LOCKED,
-            IsPickAble = false,
-            IsHidden = true,
-            IsBreakable = true,
-            Grammar = new Grammars(Genders.Neutrum)
+            Key = Keys.CANDLE,
+            Name = Items.CANDLE,
+            Description = Descriptions.CANDLE,
+            ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
         };
         
-        return numberLock;
+        return candle;
     }
 
     private static void AddSurroundings(Location livingRoom)
     {
         livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
+        livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
+        livingRoom.Surroundings.Add(Keys.TABLE, () => Descriptions.TABLE);
     }
 }

@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="LIVINGROOM" xml:space="preserve">
-        <value>Du befindest Dich in einem Wohnraum.</value>
+        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt.</value>
     </data>
     <data name="PLAYER" xml:space="preserve">
         <value>Das bist Du.</value>
@@ -28,7 +28,7 @@
         <value>Schalte das Licht an.</value>
     </data>
     <data name="OPENING" xml:space="preserve">
-        <value>Willkommen in der Waldhütte.</value>
+        <value>Langsam öffnest Du die Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens und behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Nun stellst Du Dich hin und unsicher schaust Du Dich um. Wo bist Du? Und wie bist Du hier her gekommen?</value>
     </data>
     <data name="CLOSING" xml:space="preserve">
         <value>Vielen Dank, dass Du 'Die Waldhütte' gespielt hast.</value>
@@ -37,16 +37,13 @@
         <value>Geschrieben von Marc Biegota.</value>
     </data>
     <data name="CHEST" xml:space="preserve">
-        <value>Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. </value>
+        <value>Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. An der Vorderseite kannst Du ein Schlüsselloch erkennen.</value>
     </data>
     <data name="PLANK" xml:space="preserve">
         <value>Die Bretter sind aus Eichenholz, grob geschliffen und ansonsten unbehandelt.</value>
     </data>
     <data name="CHEST_LOCKED" xml:space="preserve">
-        <value>Die Truhe wird durch ein Zahlenschloß gesichert.</value>
-    </data>
-    <data name="NUMBER_LOCK" xml:space="preserve">
-        <value>Das Nummernschloß hat sechs Ziffern. Einfach eine Nummer zu erraten scheint aussichtslos.</value>
+        <value>Die Truhe ist abgeschlossen.</value>
     </data>
     <data name="DOOR" xml:space="preserve">
         <value>Die Tür scheint Dein Weg nach Draußen zu sein. Sie besteht aus massiven Holzbohlen, die schon die Idee zu nichte machen, sie mit Gewalt öffnen zu wollen.</value>
@@ -65,5 +62,17 @@
     </data>
     <data name="FREEDOM" xml:space="preserve">
         <value>Du bist in Freiheit!</value>
+    </data>
+    <data name="KEY_HOLE" xml:space="preserve">
+        <value>In das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen.</value>
+    </data>
+    <data name="TABLE" xml:space="preserve">
+        <value>Ein massiver Holztisch. Sieht sehr schwer aus.</value>
+    </data>
+    <data name="CANDLE" xml:space="preserve">
+        <value>Eine große weiße Kerze, die bestimmt einige Tage brennen kann. </value>
+    </data>
+    <data name="CANDLE_CONTAINMENT" xml:space="preserve">
+        <value>Auf dem Tisch steht eine brennende Kerze, die ein spärliches Licht in den kalten Raum wirft.</value>
     </data>
 </root>
