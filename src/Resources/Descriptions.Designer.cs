@@ -61,6 +61,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das ist der Dachboden..
+        /// </summary>
+        internal static string ATTIC {
+            get {
+                return ResourceManager.GetString("ATTIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Das ist das Schlafzimmer..
         /// </summary>
         internal static string BEDROOM {

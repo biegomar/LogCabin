@@ -50,4 +50,7 @@ internal static class Keys
     internal const string TRAP = "TRAP";
     internal const string ROOF_TILE = "ROOF_TILE";
     internal const string CHIMNEY_FLAP = "CHIMNEY_FLAP";
+    
+    //Freedom
+    internal const string FREEDOM = "FREEDOM";
 }

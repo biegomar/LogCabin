@@ -27,4 +27,7 @@
     <data name="CELLAR" xml:space="preserve">
         <value>Keller</value>
     </data>
+    <data name="ATTIC" xml:space="preserve">
+        <value>Dachboden</value>
+    </data>
 </root>

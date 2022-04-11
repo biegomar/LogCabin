@@ -12,12 +12,14 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         var livingRoom = LivingRoomPrerequisites.Get();
         var bedRoom = BedRoomPrerequisites.Get();
         var cellar = CellarPrerequisites.Get();
+        var attic = AtticPrerequisites.Get();
         
         var map = new LocationMap(new LocationComparer())
         {
             { livingRoom, LivingRoomLocationMap(bedRoom, cellar) },
-            { bedRoom, BedRoomLocationMap(livingRoom) },
-            { cellar, CellarLocationMap(livingRoom) }
+            { bedRoom, BedRoomLocationMap(livingRoom, attic) },
+            { cellar, CellarLocationMap(livingRoom) },
+            { attic, AtticLocationMap(bedRoom) }
         };
 
         var activeLocation = livingRoom;
@@ -47,11 +49,12 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         return locationMap;
     }
     
-    private static IEnumerable<DestinationNode> BedRoomLocationMap(Location livingRoom)
+    private static IEnumerable<DestinationNode> BedRoomLocationMap(Location livingRoom, Location attic)
     {
         var locationMap = new List<DestinationNode>
         {
             new() {Direction = Directions.S, Location = livingRoom},
+            new() {Direction = Directions.UP, Location = attic}
         };
         return locationMap;
     }
@@ -61,6 +64,15 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         var locationMap = new List<DestinationNode>
         {
             new() {Direction = Directions.UP, Location = livingRoom},
+        };
+        return locationMap;
+    }
+    
+    private static IEnumerable<DestinationNode> AtticLocationMap(Location bedRoom)
+    {
+        var locationMap = new List<DestinationNode>
+        {
+            new() {Direction = Directions.DOWN, Location = bedRoom},
         };
         return locationMap;
     }

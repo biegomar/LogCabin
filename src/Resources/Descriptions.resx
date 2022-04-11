@@ -60,4 +60,7 @@
     <data name="CELLAR" xml:space="preserve">
         <value>Das ist der Keller.</value>
     </data>
+    <data name="ATTIC" xml:space="preserve">
+        <value>Das ist der Dachboden.</value>
+    </data>
 </root>
