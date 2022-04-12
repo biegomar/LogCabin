@@ -39,4 +39,7 @@
     <data name="CANDLE" xml:space="preserve">
         <value>Kerze</value>
     </data>
+    <data name="STOVE" xml:space="preserve">
+        <value>Küchenherd|Herd|Ofen|Holzofen</value>
+    </data>
 </root>

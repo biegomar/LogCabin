@@ -232,6 +232,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und er besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht..
+        /// </summary>
+        internal static string STOVE {
+            get {
+                return ResourceManager.GetString("STOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt..
+        /// </summary>
+        internal static string STOVE_FIRSTLOOK {
+            get {
+                return ResourceManager.GetString("STOVE_FIRSTLOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ein massiver Holztisch. Sieht sehr schwer aus..
         /// </summary>
         internal static string TABLE {

@@ -20,7 +20,6 @@ internal static class Keys
     internal const string BOOK = "BOOK";
     internal const string CHAIR = "CHAIR";
     internal const string CANDLE = "CANDLE";
-    internal const string MATCHES = "MATCHES";
     internal const string STOVE = "STOVE";
     internal const string CHIMNEY = "CHIMNEY";
     internal const string PILE_OF_WOOD = "PILE_OF_WOOD";

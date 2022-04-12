@@ -16,6 +16,7 @@ internal static class LivingRoomPrerequisites
         
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetCandle(eventProvider));
+        livingRoom.Items.Add(GetStove());
         livingRoom.Items.Add(GetDoor());
         
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -72,6 +73,23 @@ internal static class LivingRoomPrerequisites
         AddAfterTakeEvents(candle, eventProvider);
         
         return candle;
+    }
+    
+    private static Item GetStove()
+    {
+        var stove = new Item()
+        {
+            Key = Keys.STOVE,
+            Name = Items.STOVE,
+            Description = Descriptions.STOVE,
+            FirstLookDescription = Descriptions.STOVE_FIRSTLOOK,
+            IsPickAble = false,
+            IsClosed = true,
+            IsCloseAble = true,
+            Grammar = new Grammars(Genders.Male)
+        };
+
+        return stove;
     }
     
     private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)

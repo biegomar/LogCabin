@@ -115,6 +115,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Küchenherd|Herd|Ofen|Holzofen.
+        /// </summary>
+        internal static string STOVE {
+            get {
+                return ResourceManager.GetString("STOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Holztisch|Tisch.
         /// </summary>
         internal static string TABLE {
