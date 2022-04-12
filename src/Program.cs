@@ -8,9 +8,9 @@ using LogCabin.Printing;
 
 IResourceProvider resourceProvider = new ResourceProvider();
 IPrintingSubsystem printingSubsystem = new ConsolePrinting();
-IGamePrerequisitesAssembler gamePrerequisitesAssembler = new GamePrerequisitesAssembler();
-
 var universe = new Universe(printingSubsystem, resourceProvider);
+var eventProvider = new EventProvider(universe, printingSubsystem);
+IGamePrerequisitesAssembler gamePrerequisitesAssembler = new GamePrerequisitesAssembler(eventProvider);
 var gameLoop = new GameLoop(printingSubsystem, universe, gamePrerequisitesAssembler);
 
 gameLoop.Run();

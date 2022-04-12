@@ -5,7 +5,7 @@ namespace LogCabin.GamePlay;
 
 internal static class LivingRoomPrerequisites
 {
-    internal static Location Get()
+    internal static Location Get(EventProvider eventProvider)
     {
         var livingRoom = new Location()
         {
@@ -15,9 +15,11 @@ internal static class LivingRoomPrerequisites
         };
         
         livingRoom.Items.Add(GetChest());
-        livingRoom.Items.Add(GetCandle());
+        livingRoom.Items.Add(GetCandle(eventProvider));
         livingRoom.Items.Add(GetDoor());
         
+        AddChangeLocationEvents(livingRoom, eventProvider);
+
         AddSurroundings(livingRoom);
 
         return livingRoom;
@@ -57,7 +59,7 @@ internal static class LivingRoomPrerequisites
         return chest;
     }
 
-    private static Item GetCandle()
+    private static Item GetCandle(EventProvider eventProvider)
     {
         var candle = new Item()
         {
@@ -67,7 +69,20 @@ internal static class LivingRoomPrerequisites
             ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
         };
         
+        AddAfterTakeEvents(candle, eventProvider);
+        
         return candle;
+    }
+    
+    private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)
+    {
+        item.AfterTake += eventProvider.TakeCandle;
+        eventProvider.ScoreBoard.Add(nameof(eventProvider.TakeCandle), 1);
+    }
+    
+    private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
+    {
+        room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
     }
 
     private static void AddSurroundings(Location livingRoom)

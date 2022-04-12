@@ -5,7 +5,7 @@ namespace LogCabin.GamePlay;
 
 internal static class AtticPrerequisites
 {
-    internal static Location Get()
+    internal static Location Get(EventProvider eventProvider)
     {
         var attic = new Location()
         {
@@ -15,6 +15,13 @@ internal static class AtticPrerequisites
             Grammar = new Grammars(Genders.Male)
         };
         
+        AddChangeLocationEvents(attic, eventProvider);
+        
         return attic;
     }   
+    
+    private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
+    {
+        room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
+    }
 }

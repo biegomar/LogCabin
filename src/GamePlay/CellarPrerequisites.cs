@@ -5,7 +5,7 @@ namespace LogCabin.GamePlay;
 
 internal static class CellarPrerequisites
 {
-    internal static Location Get()
+    internal static Location Get(EventProvider eventProvider)
     {
         var bedRoom = new Location()
         {
@@ -15,6 +15,13 @@ internal static class CellarPrerequisites
             Grammar = new Grammars(Genders.Male)
         };
         
+        AddChangeLocationEvents(bedRoom, eventProvider);
+        
         return bedRoom;
+    }
+    
+    private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
+    {
+        room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
     }
 }

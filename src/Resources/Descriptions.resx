@@ -75,4 +75,7 @@
     <data name="CANDLE_CONTAINMENT" xml:space="preserve">
         <value>Auf dem Tisch steht eine brennende Kerze, die ein spärliches Licht in den kalten Raum wirft.</value>
     </data>
+    <data name="CANT_LEAVE_ROOM_WITHOUT_LIGHT" xml:space="preserve">
+        <value>Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?</value>
+    </data>
 </root>

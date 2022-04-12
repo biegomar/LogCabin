@@ -7,12 +7,19 @@ namespace LogCabin.GamePlay;
 
 internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
 {
+    private EventProvider eventProvider;
+
+    public GamePrerequisitesAssembler(EventProvider eventProvider)
+    {
+        this.eventProvider = eventProvider;
+    }
+    
     public GamePrerequisites AssembleGame()
     {
-        var livingRoom = LivingRoomPrerequisites.Get();
-        var bedRoom = BedRoomPrerequisites.Get();
-        var cellar = CellarPrerequisites.Get();
-        var attic = AtticPrerequisites.Get();
+        var livingRoom = LivingRoomPrerequisites.Get(this.eventProvider);
+        var bedRoom = BedRoomPrerequisites.Get(this.eventProvider);
+        var cellar = CellarPrerequisites.Get(this.eventProvider);
+        var attic = AtticPrerequisites.Get(this.eventProvider);
         var freedom = FreedomPrerequisites.Get();
         
         var map = new LocationMap(new LocationComparer())

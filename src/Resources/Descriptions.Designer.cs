@@ -97,6 +97,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?.
+        /// </summary>
+        internal static string CANT_LEAVE_ROOM_WITHOUT_LIGHT {
+            get {
+                return ResourceManager.GetString("CANT_LEAVE_ROOM_WITHOUT_LIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Das ist der Keller..
         /// </summary>
         internal static string CELLAR {
