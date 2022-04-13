@@ -40,6 +40,9 @@
         <value>Kerze</value>
     </data>
     <data name="STOVE" xml:space="preserve">
-        <value>Küchenherd|Herd|Ofen|Holzofen</value>
+        <value>Küchenherd|Herd|Ofen|Holzofen|Brennkammer|Kammer</value>
+    </data>
+    <data name="PILE_OF_WOOD" xml:space="preserve">
+        <value>Brennholz|Scheitholz|Holzscheite|Holz</value>
     </data>
 </root>

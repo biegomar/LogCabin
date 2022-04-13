@@ -41,7 +41,8 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
     {
         var result = new List<string>
         {
-            Descriptions.QUEST_I
+            MetaData.QUEST_I,
+            MetaData.QUEST_II
         };
 
         return result;

@@ -24,9 +24,6 @@
     <data name="PLAYER" xml:space="preserve">
         <value>Das bist Du.</value>
     </data>
-    <data name="QUEST_I" xml:space="preserve">
-        <value>Schalte das Licht an.</value>
-    </data>
     <data name="OPENING" xml:space="preserve">
         <value>Langsam öffnest Du die Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens und behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Nun stellst Du Dich hin und unsicher schaust Du Dich um. Wo bist Du? Und wie bist Du hier her gekommen?</value>
     </data>
@@ -83,5 +80,17 @@
     </data>
     <data name="STOVE_FIRSTLOOK" xml:space="preserve">
         <value>Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt.</value>
+    </data>
+    <data name="CANDLE_PICKUP" xml:space="preserve">
+        <value>Als Du die Kerze in die Hand nimmst, fühlt sie sich schwerer an, als Du vermutet hättest. Als wäre etwas im Wachs, das dort nicht hinein gehört.</value>
+    </data>
+    <data name="STOVE_CLOSED" xml:space="preserve">
+        <value>Die Tür zur Brennkammer ist geschlossen.</value>
+    </data>
+    <data name="STOVE_MUST_BE_OPEN" xml:space="preserve">
+        <value>Um an die Brennkammer zu gelangen, musst Du den Ofen erst öffnen.</value>
+    </data>
+    <data name="PILE_OF_WOOD" xml:space="preserve">
+        <value>Das Brennholz ist fein säuberlich im Ofen aufgeschichtet.</value>
     </data>
 </root>

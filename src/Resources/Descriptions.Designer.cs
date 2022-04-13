@@ -97,6 +97,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Als Du die Kerze in die Hand nimmst, fühlt sie sich schwerer an, als Du vermutet hättest. Als wäre etwas im Wachs, das dort nicht hinein gehört..
+        /// </summary>
+        internal static string CANDLE_PICKUP {
+            get {
+                return ResourceManager.GetString("CANDLE_PICKUP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?.
         /// </summary>
         internal static string CANT_LEAVE_ROOM_WITHOUT_LIGHT {
@@ -205,6 +214,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das Brennholz ist fein säuberlich im Ofen aufgeschichtet..
+        /// </summary>
+        internal static string PILE_OF_WOOD {
+            get {
+                return ResourceManager.GetString("PILE_OF_WOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die Bretter sind aus Eichenholz, grob geschliffen und ansonsten unbehandelt..
         /// </summary>
         internal static string PLANK {
@@ -223,15 +241,6 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Schalte das Licht an..
-        /// </summary>
-        internal static string QUEST_I {
-            get {
-                return ResourceManager.GetString("QUEST_I", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und er besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht..
         /// </summary>
         internal static string STOVE {
@@ -241,11 +250,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Die Tür zur Brennkammer ist geschlossen..
+        /// </summary>
+        internal static string STOVE_CLOSED {
+            get {
+                return ResourceManager.GetString("STOVE_CLOSED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt..
         /// </summary>
         internal static string STOVE_FIRSTLOOK {
             get {
                 return ResourceManager.GetString("STOVE_FIRSTLOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Um an die Brennkammer zu gelangen, musst Du den Ofen erst öffnen..
+        /// </summary>
+        internal static string STOVE_MUST_BE_OPEN {
+            get {
+                return ResourceManager.GetString("STOVE_MUST_BE_OPEN", resourceCulture);
             }
         }
         

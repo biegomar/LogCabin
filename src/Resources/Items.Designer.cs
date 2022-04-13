@@ -106,6 +106,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brennholz|Scheitholz|Holzscheite|Holz.
+        /// </summary>
+        internal static string PILE_OF_WOOD {
+            get {
+                return ResourceManager.GetString("PILE_OF_WOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bretter|Bohlen|Holzbohlen.
         /// </summary>
         internal static string PLANK {
@@ -115,7 +124,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Küchenherd|Herd|Ofen|Holzofen.
+        ///   Looks up a localized string similar to Küchenherd|Herd|Ofen|Holzofen|Brennkammer|Kammer.
         /// </summary>
         internal static string STOVE {
             get {

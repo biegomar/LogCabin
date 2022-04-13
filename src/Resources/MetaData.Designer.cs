@@ -61,6 +61,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Schalte das Licht an..
+        /// </summary>
+        internal static string QUEST_I {
+            get {
+                return ResourceManager.GetString("QUEST_I", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mache Feuer..
+        /// </summary>
+        internal static string QUEST_II {
+            get {
+                return ResourceManager.GetString("QUEST_II", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die Blockhütte - ein Abenteuer basierend auf Heretic.InteractiveFiction.
         /// </summary>
         internal static string TITLE {

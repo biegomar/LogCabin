@@ -16,7 +16,7 @@ internal static class LivingRoomPrerequisites
         
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetCandle(eventProvider));
-        livingRoom.Items.Add(GetStove());
+        livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetDoor());
         
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -50,6 +50,7 @@ internal static class LivingRoomPrerequisites
             Key = Keys.CHEST,
             Name = Items.CHEST,
             Description = Descriptions.CHEST,
+            LockDescription = Descriptions.CHEST_LOCKED,
             IsPickAble = false,
             IsSeatAble = true,
             IsLocked = true,
@@ -71,11 +72,12 @@ internal static class LivingRoomPrerequisites
         };
         
         AddAfterTakeEvents(candle, eventProvider);
+        AddUseEvents(candle, eventProvider);
         
         return candle;
     }
     
-    private static Item GetStove()
+    private static Item GetStove(EventProvider eventProvider)
     {
         var stove = new Item()
         {
@@ -83,13 +85,32 @@ internal static class LivingRoomPrerequisites
             Name = Items.STOVE,
             Description = Descriptions.STOVE,
             FirstLookDescription = Descriptions.STOVE_FIRSTLOOK,
+            CloseDescription = Descriptions.STOVE_CLOSED,
             IsPickAble = false,
             IsClosed = true,
             IsCloseAble = true,
             Grammar = new Grammars(Genders.Male)
         };
+        
+        stove.Items.Add(GetPileOfWood(eventProvider));
 
         return stove;
+    }
+
+    private static Item GetPileOfWood(EventProvider eventProvider)
+    {
+        var wood = new Item()
+        {
+            Key = Keys.PILE_OF_WOOD,
+            Name = Items.PILE_OF_WOOD,
+            Description = Descriptions.PILE_OF_WOOD,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        
+        AddUseEvents(wood, eventProvider);
+        
+        return wood;
     }
     
     private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)
@@ -101,6 +122,15 @@ internal static class LivingRoomPrerequisites
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
     {
         room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
+    }
+    
+    private static void AddUseEvents(Item item, EventProvider eventProvider)
+    {
+        item.Use += eventProvider.UseCandleWithPileOfWood;
+        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseCandleWithPileOfWood)))
+        {
+            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseCandleWithPileOfWood), 1);
+        }
     }
 
     private static void AddSurroundings(Location livingRoom)

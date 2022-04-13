@@ -1,6 +1,7 @@
 using Heretic.InteractiveFiction.Exceptions;
 using Heretic.InteractiveFiction.GamePlay.EventSystem.EventArgs;
 using Heretic.InteractiveFiction.Objects;
+using Heretic.InteractiveFiction.Resources;
 using Heretic.InteractiveFiction.Subsystems;
 using LogCabin.Resources;
 
@@ -23,6 +24,7 @@ internal class EventProvider
     {
         if (sender is Item { Key: Keys.CANDLE } candle)
         {
+            printingSubsystem.Resource(Descriptions.CANDLE_PICKUP);
             this.universe.Score += this.universe.ScoreBoard[nameof(this.TakeCandle)];
             candle.AfterTake -= this.TakeCandle;
         }
@@ -35,6 +37,40 @@ internal class EventProvider
             if (this.universe.ActivePlayer.Items.All(x => x.Key != Keys.CANDLE))
             {
                 throw new BeforeChangeLocationException(Descriptions.CANT_LEAVE_ROOM_WITHOUT_LIGHT); 
+            }
+        }
+    }
+
+    internal void UseCandleWithPileOfWood(object sender, UseItemEventArgs eventArgs)
+    {
+        if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
+        {
+            var itemList = new List<Item> { itemOne, itemTwo };
+            var candle = itemList.SingleOrDefault(i => i.Key == Keys.CANDLE);
+            var wood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
+
+            if (candle != default && wood != default)
+            {
+                if (!this.universe.ActivePlayer.Items.Contains(candle))
+                {
+                    throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                }
+                
+                var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+                if (stove is { IsClosed: true })
+                {
+                    throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
+                }
+                
+                candle.Use -= UseCandleWithPileOfWood;
+                wood.Use -= UseCandleWithPileOfWood;
+
+                this.universe.Score += this.universe.ScoreBoard[nameof(UseCandleWithPileOfWood)];
+                this.universe.SolveQuest(MetaData.QUEST_II);
+            }
+            else
+            {
+                throw new UseException(BaseDescriptions.DOES_NOT_WORK);
             }
         }
     }
