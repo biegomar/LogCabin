@@ -39,7 +39,7 @@ namespace LogCabin.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.Resources.Locations", typeof(Locations).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.WithRef.Resources.Locations", typeof(Locations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
