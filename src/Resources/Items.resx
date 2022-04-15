@@ -48,4 +48,16 @@
     <data name="LIVINGROOM_WINDOW" xml:space="preserve">
         <value>Fenster</value>
     </data>
+    <data name="WALL" xml:space="preserve">
+        <value>Wand|Wände</value>
+    </data>
+    <data name="FLOOR" xml:space="preserve">
+        <value>Fußboden|Boden</value>
+    </data>
+    <data name="CEILING" xml:space="preserve">
+        <value>Decke|Zimmerdecke</value>
+    </data>
+    <data name="NOTE" xml:space="preserve">
+        <value>Blatt Papier|Zettel|Brief|Blatt|Papier</value>
+    </data>
 </root>

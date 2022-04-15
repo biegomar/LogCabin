@@ -5,6 +5,12 @@ internal static class Keys
     //Player
     internal static string PLAYER = "PLAYER";
     
+    //Common
+    internal static string WALL = "WALL";
+    internal static string FLOOR = "FLOOR";
+    internal static string CEILING = "CEILING";
+    
+    
     //Livingroom
     internal const string LIVINGROOM = "LIVINGROOM";
     internal const string LIVINGROOM_WINDOW = "LIVINGROOM_WINDOW";

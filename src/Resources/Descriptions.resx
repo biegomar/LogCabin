@@ -96,4 +96,29 @@
     <data name="LIVINGROOM_WINDOW" xml:space="preserve">
         <value>Das Fenster ist geschlossen, aber Du kannst keinen Griff oder sonst einen Mechanismus erkennen, mit dem es sich öffnen lässt. Du siehst, dass von Außen Fensterläden angebracht sind, die aktuell geschlossen sind. Diese sind so dicht, das kein Licht in den Raum dringt.</value>
     </data>
+    <data name="WALL" xml:space="preserve">
+        <value>Die Wände bestehen aus Holzstämmen, die übereinander gestapel das eigentliche Gebäude definieren.</value>
+    </data>
+    <data name="FLOOR" xml:space="preserve">
+        <value>Der Fußboden besteht aus massiven Holzbohlen. </value>
+    </data>
+    <data name="CEILING" xml:space="preserve">
+        <value>Die Zimmerdecke besteht aus den gleichen massiven Holzbohlen wie der Fußboden.</value>
+    </data>
+    <data name="IRON_KEY" xml:space="preserve">
+        <value>Der Schlüssel ist aus Eisen, ungefähr so groß, dass er gerade so auf Deine geöffnete Handfläche passt. Er sieht altmodisch, fast schon antik aus. Zumindest soweit Du das beurteilen kannst. Zumindest scheint er optisch zu dem Schloß in der Kiste zu gehören.</value>
+    </data>
+    <data name="NOTE" xml:space="preserve">
+        <value>Der Zettel ist ein Blatt aus hochwertigem Büttenpapier. </value>
+    </data>
+    <data name="NOTE_LETTER_CONTENT" xml:space="preserve">
+        <value>Hallo Fremder, 
+wir entschuldigen uns schon jetzt für die Unannehmlichkeiten und hoffen, dass Dein Schädel nicht all zu sehr von unserem speziellen Cocktail schmerzt. Sei es drum. Denn scheinbar hattest Du gestern auf unserer Party eine Menge Spaß. 
+Nun, jetzt wollen wir unseren Spaß! Zugegeben: etwas unfair, da Du uns ja überhaupt nicht kennst. Aber was ist schon fair?
+Um es kurz zu machen: bereite uns doch die Freude, Dir dabei zuzuschauen, wie Du versuchst aus diesem kleinen Gefängnis zu entkommen. 
+Vielleicht bist Du ja der Erste, dem es gelingt? Und wenn nicht...na ja, das ist dann halt immer die unangenehme Seite an diesem Vergnügen. Aber Kopf hoch! Einer ist immer der Erste.
+
+Hochachtungsvoll.
+Nuit Macabre</value>
+    </data>
 </root>

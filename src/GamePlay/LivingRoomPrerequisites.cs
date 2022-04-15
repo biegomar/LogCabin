@@ -14,19 +14,19 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.LIVINGROOM,
             FirstLookDescription = Descriptions.CANDLE_CONTAINMENT
         };
-        
+
         livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetDoor());
-        
+
         AddChangeLocationEvents(livingRoom, eventProvider);
 
         AddSurroundings(livingRoom);
 
         return livingRoom;
     }
-    
+
     private static Item GetTable(EventProvider eventProvider)
     {
         var table = new Item()
@@ -39,12 +39,13 @@ internal static class LivingRoomPrerequisites
             IsSurfaceContainer = true,
             Grammar = new Grammars(Genders.Male)
         };
-        
+
         table.Items.Add(GetCandle(eventProvider));
+        table.Items.Add(GetNote());
 
         return table;
     }
-    
+
     private static Item GetCandle(EventProvider eventProvider)
     {
         var candle = new Item()
@@ -54,13 +55,42 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.CANDLE,
             ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
         };
-        
+
         AddAfterTakeEvents(candle, eventProvider);
         AddUseEvents(candle, eventProvider);
-        
+
         return candle;
     }
-    
+
+    private static Item GetNote()
+    {
+        var note = new Item
+        {
+            Key = Keys.NOTE,
+            Name = Items.NOTE,
+            Description = Descriptions.NOTE,
+            IsHidden = true,
+            IsReadable = true,
+            LetterContentDescription = Descriptions.NOTE_LETTER_CONTENT,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        
+        return note;
+    }
+
+    private static Item GetIronKey()
+    {
+        var ironKey = new Item()
+        {
+            Key = Keys.IRON_KEY,
+            Name = Items.IRON_KEY,
+            Description = Descriptions.IRON_KEY,
+            Grammar = new Grammars(Genders.Male)
+        };
+
+        return ironKey;
+    }
+
     private static Item GetDoor()
     {
         var door = new Item()
@@ -111,7 +141,7 @@ internal static class LivingRoomPrerequisites
             IsContainer = true,
             Grammar = new Grammars(Genders.Male)
         };
-        
+
         stove.Items.Add(GetPileOfWood(eventProvider));
 
         return stove;
@@ -127,23 +157,23 @@ internal static class LivingRoomPrerequisites
             IsPickAble = false,
             Grammar = new Grammars(Genders.Neutrum, false)
         };
-        
+
         AddUseEvents(wood, eventProvider);
-        
+
         return wood;
     }
-    
+
     private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)
     {
         item.AfterTake += eventProvider.TakeCandle;
         eventProvider.ScoreBoard.Add(nameof(eventProvider.TakeCandle), 1);
     }
-    
+
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
     {
         room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
     }
-    
+
     private static void AddUseEvents(Item item, EventProvider eventProvider)
     {
         item.Use += eventProvider.UseCandleWithPileOfWood;
@@ -157,5 +187,8 @@ internal static class LivingRoomPrerequisites
     {
         livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
         livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
+        livingRoom.Surroundings.Add(Keys.WALL, () => Descriptions.WALL);
+        livingRoom.Surroundings.Add(Keys.FLOOR, () => Descriptions.FLOOR);
+        livingRoom.Surroundings.Add(Keys.CEILING, () => Descriptions.CEILING);
     }
 }
