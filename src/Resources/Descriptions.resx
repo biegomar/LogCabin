@@ -76,7 +76,7 @@
         <value>Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?</value>
     </data>
     <data name="STOVE" xml:space="preserve">
-        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und er besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht.</value>
+        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht.</value>
     </data>
     <data name="STOVE_FIRSTLOOK" xml:space="preserve">
         <value>Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt.</value>
@@ -85,12 +85,15 @@
         <value>Als Du die Kerze in die Hand nimmst, fühlt sie sich schwerer an, als Du vermutet hättest. Als wäre etwas im Wachs, das dort nicht hinein gehört.</value>
     </data>
     <data name="STOVE_CLOSED" xml:space="preserve">
-        <value>Die Tür zur Brennkammer ist geschlossen.</value>
+        <value>Die Brennkammer ist geschlossen.</value>
     </data>
     <data name="STOVE_MUST_BE_OPEN" xml:space="preserve">
         <value>Um an die Brennkammer zu gelangen, musst Du den Ofen erst öffnen.</value>
     </data>
     <data name="PILE_OF_WOOD" xml:space="preserve">
         <value>Das Brennholz ist fein säuberlich im Ofen aufgeschichtet.</value>
+    </data>
+    <data name="LIVINGROOM_WINDOW" xml:space="preserve">
+        <value>Das Fenster ist geschlossen, aber Du kannst keinen Griff oder sonst einen Mechanismus erkennen, mit dem es sich öffnen lässt. Du siehst, dass von Außen Fensterläden angebracht sind, die aktuell geschlossen sind. Diese sind so dicht, das kein Licht in den Raum dringt.</value>
     </data>
 </root>

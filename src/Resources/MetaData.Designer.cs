@@ -19,7 +19,7 @@ namespace LogCabin.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class MetaData {
@@ -39,7 +39,7 @@ namespace LogCabin.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.WithRef.Resources.MetaData", typeof(MetaData).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LogCabin.Resources.MetaData", typeof(MetaData).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,37 @@ namespace LogCabin.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        /// ,--.--------.  ,--.-,,-,--,    ,----.                     _,.---._         _,---.            _,.----.    ,---.                   .=-.-..-._         
+        ////==/,  -   , -\/==/  /|=|  | ,-.--` , \          _.-.    ,-.&apos; , -  `.   _.=&apos;.&apos;-,  \         .&apos; .&apos; -   \ .--.&apos;  \        _..---.  /==/_ /==/ \  .-._  
+        ///\==\.-.  - ,-./|==|_ ||=|, ||==|-  _.-`        .-,.&apos;|   /==/_,  ,  - \ /==.&apos;-     /        /==/  ,  ,-&apos; \==\-/\ \     .&apos; .&apos;.-. \|==|, ||==|, \/ /, / 
+        /// `--`\==\- \   |==| ,|/=| _||==|   `.-.       |==|, |  |= [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ASCII_TITLE {
+            get {
+                return ResourceManager.GetString("ASCII_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marc Biegota.
+        /// </summary>
+        internal static string AUTHOR {
+            get {
+                return ResourceManager.GetString("AUTHOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (c) by Marc Biegota 2022.
+        /// </summary>
+        internal static string COPYRIGHT {
+            get {
+                return ResourceManager.GetString("COPYRIGHT", resourceCulture);
             }
         }
         
@@ -79,7 +110,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Die Blockhütte - ein Abenteuer basierend auf Heretic.InteractiveFiction.
+        ///   Looks up a localized string similar to Die Blockhütte - Ein Interactive Fiction Abenteuer.
         /// </summary>
         internal static string TITLE {
             get {
@@ -88,7 +119,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to v0.1.1.
+        ///   Looks up a localized string similar to v0.1.2.
         /// </summary>
         internal static string VERSION {
             get {

@@ -8,6 +8,10 @@ internal sealed class ConsolePrinting: BaseConsolePrintingSubsystem
 {
     public override bool Opening()
     {
+        if (!string.IsNullOrEmpty(MetaData.ASCII_TITLE))
+        {
+            Console.WriteLine(MetaData.ASCII_TITLE);
+        }
         Console.WriteLine($@"{MetaData.TITLE} - {MetaData.VERSION}");
         this.ForegroundColor = TextColor.DarkCyan;
         this.Resource(BaseDescriptions.CHANGE_NAME);
@@ -34,8 +38,17 @@ internal sealed class ConsolePrinting: BaseConsolePrintingSubsystem
 
     public override bool Credits()
     {
-        Console.WriteLine(Descriptions.CREDITS);
-        
+        if (!string.IsNullOrEmpty(MetaData.ASCII_TITLE))
+        {
+            Console.WriteLine(MetaData.ASCII_TITLE);
+        }
+        Console.WriteLine($@"{MetaData.TITLE} - {MetaData.VERSION}");
+        Console.WriteLine($@"Written by {MetaData.AUTHOR}");
+        Console.WriteLine(MetaData.COPYRIGHT);
+        Console.WriteLine();
+        Console.WriteLine(GetVersionNumber());
+        Console.WriteLine();
+
         return true;
     }
 }

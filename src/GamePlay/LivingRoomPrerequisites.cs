@@ -11,11 +11,12 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.LIVINGROOM,
             Name = Locations.LIVINGROOM,
-            Description = Descriptions.LIVINGROOM
+            Description = Descriptions.LIVINGROOM,
+            FirstLookDescription = Descriptions.CANDLE_CONTAINMENT
         };
         
+        livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
-        livingRoom.Items.Add(GetCandle(eventProvider));
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetDoor());
         
@@ -24,6 +25,40 @@ internal static class LivingRoomPrerequisites
         AddSurroundings(livingRoom);
 
         return livingRoom;
+    }
+    
+    private static Item GetTable(EventProvider eventProvider)
+    {
+        var table = new Item()
+        {
+            Key = Keys.TABLE,
+            Name = Items.TABLE,
+            Description = Descriptions.TABLE,
+            IsPickAble = false,
+            IsContainer = true,
+            IsSurfaceContainer = true,
+            Grammar = new Grammars(Genders.Male)
+        };
+        
+        table.Items.Add(GetCandle(eventProvider));
+
+        return table;
+    }
+    
+    private static Item GetCandle(EventProvider eventProvider)
+    {
+        var candle = new Item()
+        {
+            Key = Keys.CANDLE,
+            Name = Items.CANDLE,
+            Description = Descriptions.CANDLE,
+            ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
+        };
+        
+        AddAfterTakeEvents(candle, eventProvider);
+        AddUseEvents(candle, eventProvider);
+        
+        return candle;
     }
     
     private static Item GetDoor()
@@ -61,22 +96,6 @@ internal static class LivingRoomPrerequisites
         return chest;
     }
 
-    private static Item GetCandle(EventProvider eventProvider)
-    {
-        var candle = new Item()
-        {
-            Key = Keys.CANDLE,
-            Name = Items.CANDLE,
-            Description = Descriptions.CANDLE,
-            ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
-        };
-        
-        AddAfterTakeEvents(candle, eventProvider);
-        AddUseEvents(candle, eventProvider);
-        
-        return candle;
-    }
-    
     private static Item GetStove(EventProvider eventProvider)
     {
         var stove = new Item()
@@ -89,6 +108,7 @@ internal static class LivingRoomPrerequisites
             IsPickAble = false,
             IsClosed = true,
             IsCloseAble = true,
+            IsContainer = true,
             Grammar = new Grammars(Genders.Male)
         };
         
@@ -105,7 +125,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.PILE_OF_WOOD,
             Description = Descriptions.PILE_OF_WOOD,
             IsPickAble = false,
-            Grammar = new Grammars(Genders.Neutrum)
+            Grammar = new Grammars(Genders.Neutrum, false)
         };
         
         AddUseEvents(wood, eventProvider);
@@ -137,6 +157,5 @@ internal static class LivingRoomPrerequisites
     {
         livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
         livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
-        livingRoom.Surroundings.Add(Keys.TABLE, () => Descriptions.TABLE);
     }
 }

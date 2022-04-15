@@ -19,15 +19,34 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="TITLE" xml:space="preserve">
-        <value>Die Blockhütte - ein Abenteuer basierend auf Heretic.InteractiveFiction</value>
+        <value>Die Blockhütte - Ein Interactive Fiction Abenteuer</value>
     </data>
     <data name="VERSION" xml:space="preserve">
-        <value>v0.1.1</value>
+        <value>v0.1.2</value>
     </data>
     <data name="QUEST_I" xml:space="preserve">
         <value>Schalte das Licht an.</value>
     </data>
     <data name="QUEST_II" xml:space="preserve">
         <value>Mache Feuer.</value>
+    </data>
+    <data name="ASCII_TITLE" xml:space="preserve">
+        <value>
+ ,--.--------.  ,--.-,,-,--,    ,----.                     _,.---._         _,---.            _,.----.    ,---.                   .=-.-..-._         
+/==/,  -   , -\/==/  /|=|  | ,-.--` , \          _.-.    ,-.' , -  `.   _.='.'-,  \         .' .' -   \ .--.'  \        _..---.  /==/_ /==/ \  .-._  
+\==\.-.  - ,-./|==|_ ||=|, ||==|-  _.-`        .-,.'|   /==/_,  ,  - \ /==.'-     /        /==/  ,  ,-' \==\-/\ \     .' .'.-. \|==|, ||==|, \/ /, / 
+ `--`\==\- \   |==| ,|/=| _||==|   `.-.       |==|, |  |==|   .=.     /==/ -   .-'         |==|-   |  . /==/-|_\ |   /==/- '=' /|==|  ||==|-  \|  |  
+      \==\_ \  |==|- `-' _ /==/_ ,    /       |==|- |  |==|_ : ;=:  - |==|_   /_,-.        |==|_   `-' \\==\,   - \  |==|-,   ' |==|- ||==| ,  | -|  
+      |==|- |  |==|  _     |==|    .-'        |==|, |  |==| , '='     |==|  , \_.' )       |==|   _  , |/==/ -   ,|  |==|  .=. \|==| ,||==| -   _ |  
+      |==|, |  |==|   .-. ,\==|_  ,`-._       |==|- `-._\==\ -    ,_ /\==\-  ,    (        \==\.       /==/-  /\ - \ /==/- '=' ,|==|- ||==|  /\ , |  
+      /==/ -/  /==/, //=/  /==/ ,     /       /==/ - , ,/'.='. -   .'  /==/ _  ,  /         `-.`.___.-'\==\ _.\=\.-'|==|   -   //==/. //==/, | |- |  
+      `--`--`  `--`-' `-`--`--`-----``        `--`-----'   `--`--''    `--`------'                      `--`        `-._`.___,' `--`-` `--`./  `--`  
+</value>
+    </data>
+    <data name="AUTHOR" xml:space="preserve">
+        <value>Marc Biegota</value>
+    </data>
+    <data name="COPYRIGHT" xml:space="preserve">
+        <value>(c) by Marc Biegota 2022</value>
     </data>
 </root>
