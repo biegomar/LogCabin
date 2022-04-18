@@ -16,7 +16,9 @@ internal static class Keys
     internal const string LIVINGROOM_WINDOW = "LIVINGROOM_WINDOW";
     internal const string SHUTTER = "SHUTTER";
     internal const string CHEST = "CHEST";
+    internal const string CHEST_LOG = "CHEST_LOG";
     internal const string KEY_HOLE = "KEY_HOLE";
+    internal const string KEY_HOLE_SHIELD = "KEY_HOLE_SHIELD";
     internal const string IRON_KEY = "IRON_KEY";
     internal const string PLANK = "PLANK";
     internal const string DOOR = "DOOR";
@@ -30,7 +32,6 @@ internal static class Keys
     internal const string COMBUSTION_CHAMBER = "COMBUSTION_CHAMBER";
     internal const string CHIMNEY = "CHIMNEY";
     internal const string PILE_OF_WOOD = "PILE_OF_WOOD";
-    internal const string NEWSPAPER = "NEWSPAPER";
     internal const string KITCHEN_CABINET = "KITCHEN_CABINET";
     internal const string SAUSAGE = "SAUSAGE";
     internal const string LAMP_OIL = "LAMP_OIL";

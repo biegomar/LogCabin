@@ -151,11 +151,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Es scheint sich um ein Einlassschloss zu handeln, dass den Deckel der Kiste von unten sichert. .
+        /// </summary>
+        internal static string CHEST_LOG {
+            get {
+                return ResourceManager.GetString("CHEST_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vielen Dank, dass Du &apos;Die Waldhütte&apos; gespielt hast..
         /// </summary>
         internal static string CLOSING {
             get {
                 return ResourceManager.GetString("CLOSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Brennkammer ist ein kleiner Raum, in dem das Holz verbrannt wird, um die erforderliche Energie für den Ofen zu erzeugen..
+        /// </summary>
+        internal static string COMBUSTION_CHAMBER {
+            get {
+                return ResourceManager.GetString("COMBUSTION_CHAMBER", resourceCulture);
             }
         }
         
@@ -205,6 +223,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das Sichtfenster des Ofens ist zwar leicht verrußt, aber es gibt dennoch den Blick frei auf die Brennkammer..
+        /// </summary>
+        internal static string INSPECTION_WINDOW {
+            get {
+                return ResourceManager.GetString("INSPECTION_WINDOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Der Schlüssel ist aus Eisen, ungefähr so groß, dass er gerade so auf Deine geöffnete Handfläche passt. Er sieht altmodisch, fast schon antik aus. Zumindest soweit Du das beurteilen kannst. Zumindest scheint er optisch zu dem Schloß in der Kiste zu gehören..
         /// </summary>
         internal static string IRON_KEY {
@@ -214,11 +241,38 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen..
+        ///   Looks up a localized string similar to Das Schlüsselloch ist der einzige sichtbare Hinweis auf den Schliessmechanismus der Truhe. Es ist mit einem geschnörkelten Schlüsselschild verziert und in das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen..
         /// </summary>
         internal static string KEY_HOLE {
             get {
                 return ResourceManager.GetString("KEY_HOLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hm? So richtig kennst Du Dich mit sowas ja nicht aus, aber die Verzierung könnte eine typische Barock-Arbeit sein..
+        /// </summary>
+        internal static string KEY_HOLE_SHIELD {
+            get {
+                return ResourceManager.GetString("KEY_HOLE_SHIELD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das Regal besteht eigentlich nur aus zwei Brettern, die übereinander angebracht und an den Seiten jeweils verbunden sind..
+        /// </summary>
+        internal static string KITCHEN_CABINET {
+            get {
+                return ResourceManager.GetString("KITCHEN_CABINET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Über dem Ofen hängt ein kleiner offener Küchenschrank, der genug Platz für einige Küchenutensilien bieten könnte. Viel sieht man dort allerdings nicht..
+        /// </summary>
+        internal static string KITCHEN_CABINET_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("KITCHEN_CABINET_CONTAINMENT", resourceCulture);
             }
         }
         
@@ -272,7 +326,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Das Brennholz ist fein säuberlich im Ofen aufgeschichtet..
+        ///   Looks up a localized string similar to Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet..
         /// </summary>
         internal static string PILE_OF_WOOD {
             get {
@@ -299,7 +353,34 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht..
+        ///   Looks up a localized string similar to Ein Stück Dauerwurst, wahrscheinlich Salami. Es sieht schon leicht verdorben aus und Du würdest es nicht mehr essen wollen..
+        /// </summary>
+        internal static string SAUSAGE {
+            get {
+                return ResourceManager.GetString("SAUSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auf einem der Bretter liegt, etwas verloren, ein kleines Stück Wurst..
+        /// </summary>
+        internal static string SAUSAGE_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("SAUSAGE_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Fensterläden sind von Außen geschlossen und es dringt kein Licht in den Raum hinein..
+        /// </summary>
+        internal static string SHUTTER {
+            get {
+                return ResourceManager.GetString("SHUTTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht..
         /// </summary>
         internal static string STOVE {
             get {
@@ -313,6 +394,15 @@ namespace LogCabin.Resources {
         internal static string STOVE_CLOSED {
             get {
                 return ResourceManager.GetString("STOVE_CLOSED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An der östlichen Wand steht ein alter Ofen, der mit Holz befeuert wird. Er dient wohl gleichermaßen zum Heizen, als auch zum Kochen..
+        /// </summary>
+        internal static string STOVE_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("STOVE_CONTAINMENT", resourceCulture);
             }
         }
         
@@ -331,6 +421,15 @@ namespace LogCabin.Resources {
         internal static string STOVE_MUST_BE_OPEN {
             get {
                 return ResourceManager.GetString("STOVE_MUST_BE_OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Brennkammer ist geöffnet..
+        /// </summary>
+        internal static string STOVE_OPEN {
+            get {
+                return ResourceManager.GetString("STOVE_OPEN", resourceCulture);
             }
         }
         

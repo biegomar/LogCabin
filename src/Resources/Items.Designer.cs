@@ -88,6 +88,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Einlassschloss|Schloss|Schloß|Einlassschloß|Kistenschloss|Kistenschloß.
+        /// </summary>
+        internal static string CHEST_LOG {
+            get {
+                return ResourceManager.GetString("CHEST_LOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brennkammer|Kammer.
+        /// </summary>
+        internal static string COMBUSTION_CHAMBER {
+            get {
+                return ResourceManager.GetString("COMBUSTION_CHAMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eingangstür|Tür|Holztür.
         /// </summary>
         internal static string DOOR {
@@ -106,6 +124,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sichtfenster.
+        /// </summary>
+        internal static string INSPECTION_WINDOW {
+            get {
+                return ResourceManager.GetString("INSPECTION_WINDOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eisenschlüssel|Metallschlüssel|Schlüssel.
         /// </summary>
         internal static string IRON_KEY {
@@ -120,6 +147,24 @@ namespace LogCabin.Resources {
         internal static string KEY_HOLE {
             get {
                 return ResourceManager.GetString("KEY_HOLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schlüsselschild.
+        /// </summary>
+        internal static string KEY_HOLE_SHIELD {
+            get {
+                return ResourceManager.GetString("KEY_HOLE_SHIELD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Küchenschrank|Küchenregal.
+        /// </summary>
+        internal static string KITCHEN_CABINET {
+            get {
+                return ResourceManager.GetString("KITCHEN_CABINET", resourceCulture);
             }
         }
         
@@ -160,7 +205,25 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scheiteofen|Küchenherd|Herd|Ofen|Holzofen|Brennkammer|Kammer.
+        ///   Looks up a localized string similar to Wurstzipfel|Wurststück|Wurst|Salami.
+        /// </summary>
+        internal static string SAUSAGE {
+            get {
+                return ResourceManager.GetString("SAUSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fensterläden|Fensterladen.
+        /// </summary>
+        internal static string SHUTTER {
+            get {
+                return ResourceManager.GetString("SHUTTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scheiteofen|Küchenherd|Herd|Ofen|Holzofen.
         /// </summary>
         internal static string STOVE {
             get {

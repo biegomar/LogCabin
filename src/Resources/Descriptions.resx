@@ -61,7 +61,7 @@
         <value>Du bist in Freiheit!</value>
     </data>
     <data name="KEY_HOLE" xml:space="preserve">
-        <value>In das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen.</value>
+        <value>Das Schlüsselloch ist der einzige sichtbare Hinweis auf den Schliessmechanismus der Truhe. Es ist mit einem geschnörkelten Schlüsselschild verziert und in das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen.</value>
     </data>
     <data name="TABLE" xml:space="preserve">
         <value>Ein massiver Holztisch. Sieht sehr schwer aus.</value>
@@ -76,7 +76,7 @@
         <value>Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?</value>
     </data>
     <data name="STOVE" xml:space="preserve">
-        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äussere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht.</value>
+        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht.</value>
     </data>
     <data name="STOVE_FIRSTLOOK" xml:space="preserve">
         <value>Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt.</value>
@@ -91,7 +91,7 @@
         <value>Um an die Brennkammer zu gelangen, musst Du den Ofen erst öffnen.</value>
     </data>
     <data name="PILE_OF_WOOD" xml:space="preserve">
-        <value>Das Brennholz ist fein säuberlich im Ofen aufgeschichtet.</value>
+        <value>Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet.</value>
     </data>
     <data name="LIVINGROOM_WINDOW" xml:space="preserve">
         <value>Das Fenster ist geschlossen, aber Du kannst keinen Griff oder sonst einen Mechanismus erkennen, mit dem es sich öffnen lässt. Du siehst, dass von Außen Fensterläden angebracht sind, die aktuell geschlossen sind. Diese sind so dicht, das kein Licht in den Raum dringt.</value>
@@ -120,5 +120,38 @@ Vielleicht bist Du ja der Erste, dem es gelingt? Und wenn nicht...na ja, das ist
 
 Hochachtungsvoll.
 Nuit Macabre</value>
+    </data>
+    <data name="SHUTTER" xml:space="preserve">
+        <value>Die Fensterläden sind von Außen geschlossen und es dringt kein Licht in den Raum hinein.</value>
+    </data>
+    <data name="INSPECTION_WINDOW" xml:space="preserve">
+        <value>Das Sichtfenster des Ofens ist zwar leicht verrußt, aber es gibt dennoch den Blick frei auf die Brennkammer.</value>
+    </data>
+    <data name="STOVE_CONTAINMENT" xml:space="preserve">
+        <value>An der östlichen Wand steht ein alter Ofen, der mit Holz befeuert wird. Er dient wohl gleichermaßen zum Heizen, als auch zum Kochen.</value>
+    </data>
+    <data name="KITCHEN_CABINET" xml:space="preserve">
+        <value>Das Regal besteht eigentlich nur aus zwei Brettern, die übereinander angebracht und an den Seiten jeweils verbunden sind.</value>
+    </data>
+    <data name="KITCHEN_CABINET_CONTAINMENT" xml:space="preserve">
+        <value>Über dem Ofen hängt ein kleiner offener Küchenschrank, der genug Platz für einige Küchenutensilien bieten könnte. Viel sieht man dort allerdings nicht.</value>
+    </data>
+    <data name="SAUSAGE" xml:space="preserve">
+        <value>Ein Stück Dauerwurst, wahrscheinlich Salami. Es sieht schon leicht verdorben aus und Du würdest es nicht mehr essen wollen.</value>
+    </data>
+    <data name="SAUSAGE_CONTAINMENT" xml:space="preserve">
+        <value>Auf einem der Bretter liegt, etwas verloren, ein kleines Stück Wurst.</value>
+    </data>
+    <data name="CHEST_LOG" xml:space="preserve">
+        <value>Es scheint sich um ein Einlassschloss zu handeln, dass den Deckel der Kiste von unten sichert. </value>
+    </data>
+    <data name="KEY_HOLE_SHIELD" xml:space="preserve">
+        <value>Hm? So richtig kennst Du Dich mit sowas ja nicht aus, aber die Verzierung könnte eine typische Barock-Arbeit sein.</value>
+    </data>
+    <data name="COMBUSTION_CHAMBER" xml:space="preserve">
+        <value>Die Brennkammer ist ein kleiner Raum, in dem das Holz verbrannt wird, um die erforderliche Energie für den Ofen zu erzeugen.</value>
+    </data>
+    <data name="STOVE_OPEN" xml:space="preserve">
+        <value>Die Brennkammer ist geöffnet.</value>
     </data>
 </root>

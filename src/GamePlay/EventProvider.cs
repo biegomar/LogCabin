@@ -41,6 +41,53 @@ internal class EventProvider
         }
     }
 
+    internal void OpenCombustionChamber(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Location { Key: Keys.LIVINGROOM } && eventArgs.ExternalItemKey == Keys.COMBUSTION_CHAMBER)
+        {
+            var item = this.universe.GetObjectFromWorldByKey(Keys.STOVE);
+            if (!item.IsClosed)
+            {
+                printingSubsystem.ItemAlreadyOpen(item);
+            }
+            else
+            {
+                item.IsClosed = false;
+                this.universe.UnveilFirstLevelObjects(item);
+                var result = printingSubsystem.ItemOpen(item);
+            }
+        }
+    }
+    
+    internal void CloseCombustionChamber(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Location { Key: Keys.LIVINGROOM } && eventArgs.ExternalItemKey == Keys.COMBUSTION_CHAMBER)
+        {
+            var item = this.universe.GetObjectFromWorldByKey(Keys.STOVE);
+            if (item.IsClosed)
+            {
+                printingSubsystem.ItemAlreadyClosed(item);
+            }
+            else
+            {
+                item.IsClosed = true;
+                this.HideItemsOnClose(item);
+                printingSubsystem.ItemClosed(item);
+            }
+        }
+    }
+    
+    private void HideItemsOnClose(AHereticObject item)
+    {
+        if (item.IsClosed)
+        {
+            foreach (var child in item.Items.Where(x => x.HideOnContainerClose))
+            {
+                child.IsHidden = true;
+            }
+        }
+    }
+
     internal void UseCandleWithPileOfWood(object sender, UseItemEventArgs eventArgs)
     {
         if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)

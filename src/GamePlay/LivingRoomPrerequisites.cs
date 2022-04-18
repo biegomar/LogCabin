@@ -18,13 +18,49 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
+        livingRoom.Items.Add(GetKitchenCabinet());
         livingRoom.Items.Add(GetDoor());
 
         AddChangeLocationEvents(livingRoom, eventProvider);
-
+        AddOpenEvents(livingRoom, eventProvider);
+        AddCloseEvents(livingRoom, eventProvider);
+        
         AddSurroundings(livingRoom);
 
         return livingRoom;
+    }
+
+    private static Item GetKitchenCabinet()
+    {
+        var cabinet = new Item
+        {
+            Key = Keys.KITCHEN_CABINET,
+            Name = Items.KITCHEN_CABINET,
+            Description = Descriptions.KITCHEN_CABINET,
+            ContainmentDescription = Descriptions.KITCHEN_CABINET_CONTAINMENT,
+            IsPickAble = false,
+            IsContainer = true,
+            Grammar = new Grammars(Genders.Male)
+        };
+        
+        cabinet.Items.Add(GetSausage());
+
+        return cabinet;
+    }
+
+    private static Item GetSausage()
+    {
+        var sausage = new Item
+        {
+            Key = Keys.SAUSAGE,
+            Name = Items.SAUSAGE,
+            Description = Descriptions.SAUSAGE,
+            ContainmentDescription = Descriptions.SAUSAGE_CONTAINMENT,
+            IsHidden = true,
+            Grammar = new Grammars(Genders.Male)
+        };
+        
+        return sausage;
     }
 
     private static Item GetTable(EventProvider eventProvider)
@@ -42,7 +78,7 @@ internal static class LivingRoomPrerequisites
 
         table.Items.Add(GetCandle(eventProvider));
         table.Items.Add(GetNote());
-
+        
         return table;
     }
 
@@ -135,6 +171,8 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.STOVE,
             FirstLookDescription = Descriptions.STOVE_FIRSTLOOK,
             CloseDescription = Descriptions.STOVE_CLOSED,
+            OpenDescription = Descriptions.STOVE_OPEN,
+            ContainmentDescription = Descriptions.STOVE_CONTAINMENT,
             IsPickAble = false,
             IsClosed = true,
             IsCloseAble = true,
@@ -182,13 +220,29 @@ internal static class LivingRoomPrerequisites
             eventProvider.ScoreBoard.Add(nameof(eventProvider.UseCandleWithPileOfWood), 1);
         }
     }
+    
+    private static void AddOpenEvents(Location room, EventProvider eventProvider)
+    {
+        room.Open += eventProvider.OpenCombustionChamber;
+    }
+    
+    private static void AddCloseEvents(Location room, EventProvider eventProvider)
+    {
+        room.Close += eventProvider.CloseCombustionChamber;
+    }
 
     private static void AddSurroundings(Location livingRoom)
     {
         livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
         livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
+        livingRoom.Surroundings.Add(Keys.KEY_HOLE_SHIELD, () => Descriptions.KEY_HOLE_SHIELD);
+        livingRoom.Surroundings.Add(Keys.CHEST_LOG, () => Descriptions.CHEST_LOG);
         livingRoom.Surroundings.Add(Keys.WALL, () => Descriptions.WALL);
         livingRoom.Surroundings.Add(Keys.FLOOR, () => Descriptions.FLOOR);
         livingRoom.Surroundings.Add(Keys.CEILING, () => Descriptions.CEILING);
+        livingRoom.Surroundings.Add(Keys.LIVINGROOM_WINDOW, () => Descriptions.LIVINGROOM_WINDOW);
+        livingRoom.Surroundings.Add(Keys.SHUTTER, () => Descriptions.SHUTTER);
+        livingRoom.Surroundings.Add(Keys.INSPECTION_WINDOW, () => Descriptions.INSPECTION_WINDOW);
+        livingRoom.Surroundings.Add(Keys.COMBUSTION_CHAMBER, () => Descriptions.COMBUSTION_CHAMBER);
     }
 }
