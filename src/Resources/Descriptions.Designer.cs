@@ -79,6 +79,69 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Die Verwandlung.
+        /// </summary>
+        internal static string BOOK_I {
+            get {
+                return ResourceManager.GetString("BOOK_I", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Krieg und Frieden.
+        /// </summary>
+        internal static string BOOK_II {
+            get {
+                return ResourceManager.GetString("BOOK_II", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to De Profundis.
+        /// </summary>
+        internal static string BOOK_III {
+            get {
+                return ResourceManager.GetString("BOOK_III", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Blechtrommel.
+        /// </summary>
+        internal static string BOOK_IV {
+            get {
+                return ResourceManager.GetString("BOOK_IV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Dreigroschenoper.
+        /// </summary>
+        internal static string BOOK_V {
+            get {
+                return ResourceManager.GetString("BOOK_V", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du nimmst Dir wahllos eines der Bücher aus dem Regel. &quot;{0}&quot; - ein weiteres Meisterwerk der Weltliteratur. Mit einem Lächeln im Gesicht steckst Du es zurück an seinen Platz..
+        /// </summary>
+        internal static string BOOKS {
+            get {
+                return ResourceManager.GetString("BOOKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ein altes Bücherregal aus Holz. Neben viel Staub stehen dort nur einige Bücher drin..
+        /// </summary>
+        internal static string BOOKSHELF {
+            get {
+                return ResourceManager.GetString("BOOKSHELF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eine große weiße Kerze, die bestimmt einige Tage brennen kann. .
         /// </summary>
         internal static string CANDLE {
@@ -106,11 +169,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Die Kerze ist zu groß und passt neben den Holzscheiten nicht in den Ofen..
+        /// </summary>
+        internal static string CANT_DROP_CANDLE_IN_STOVE {
+            get {
+                return ResourceManager.GetString("CANT_DROP_CANDLE_IN_STOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?.
         /// </summary>
         internal static string CANT_LEAVE_ROOM_WITHOUT_LIGHT {
             get {
                 return ResourceManager.GetString("CANT_LEAVE_ROOM_WITHOUT_LIGHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Der Ofen ist durch das Feuer so heiß geworden, dass Du lieber die Finger von der Brennkammer lässt..
+        /// </summary>
+        internal static string CANT_OPEN_STOVE_ON_FIRE {
+            get {
+                return ResourceManager.GetString("CANT_OPEN_STOVE_ON_FIRE", resourceCulture);
             }
         }
         
@@ -160,6 +241,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das Ofenrohr ist ein handelsübliches, schwarz lackiertes Edelstahlrohr. Es ist fest mit dem Ofen und der Wand verbunden. Und ein Tipp: eine weitere Betrachtung des Gegenstandes wird Dich nicht weiter bringen!.
+        /// </summary>
+        internal static string CHIMNEY {
+            get {
+                return ResourceManager.GetString("CHIMNEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vielen Dank, dass Du &apos;Die Waldhütte&apos; gespielt hast..
         /// </summary>
         internal static string CLOSING {
@@ -178,6 +268,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut und ermöglicht es, Speisen und andere Dinge zu erhitzen, sobald der Ofen befeuert wird..
+        /// </summary>
+        internal static string COOCKTOP_LINKEDTO {
+            get {
+                return ResourceManager.GetString("COOCKTOP_LINKEDTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut. Ist der Ofen angefeuert, wird auch die Platte heiß. Eine Temperaturregulierung gibt es nicht. Die Temperatur ist einzig und allein von dem prasselnden Feuer des Ofens abhängig..
+        /// </summary>
+        internal static string COOKTOP {
+            get {
+                return ResourceManager.GetString("COOKTOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Geschrieben von Marc Biegota..
         /// </summary>
         internal static string CREDITS {
@@ -187,7 +295,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Die Tür scheint Dein Weg nach Draußen zu sein. Sie besteht aus massiven Holzbohlen, die schon die Idee zu nichte machen, sie mit Gewalt öffnen zu wollen..
+        ///   Looks up a localized string similar to Die Tür scheint Dein Weg nach Draußen zu sein. Sie besteht aus massiven Holzbohlen, die schon die Idee zunichte machen, sie mit Gewalt öffnen zu wollen..
         /// </summary>
         internal static string DOOR {
             get {
@@ -201,6 +309,16 @@ namespace LogCabin.Resources {
         internal static string DOOR_FIRSTLOOK {
             get {
                 return ResourceManager.GetString("DOOR_FIRSTLOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die brennenden Scheite entwickeln schnell eine große Hitze. Damit Du Dich nicht verbrennst, schliesst Du den Ofen wieder. 
+        ///Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärme im Raum breit macht..
+        /// </summary>
+        internal static string FIRE_STARTER {
+            get {
+                return ResourceManager.GetString("FIRE_STARTER", resourceCulture);
             }
         }
         
@@ -277,7 +395,25 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt..
+        ///   Looks up a localized string similar to Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein..
+        /// </summary>
+        internal static string LAMP_OIL_BUCKET {
+            get {
+                return ResourceManager.GetString("LAMP_OIL_BUCKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auf dem oberen Brett steht eine Kanne mit der Aufschrift &apos;Petroleum&apos;..
+        /// </summary>
+        internal static string LAMP_OIL_BUCKET_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("LAMP_OIL_BUCKET_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt. An der westlichen Wand befindet sich ein schmales Bücherregal..
         /// </summary>
         internal static string LIVINGROOM {
             get {
@@ -295,11 +431,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Der Zettel ist ein Blatt aus hochwertigem Büttenpapier. .
+        ///   Looks up a localized string similar to Du hälst die Flamme an das Brennholz, doch diese ist nicht starkt genug, um es zu entzünden. Vielleicht benötigst Du einen leicht entzündlichen Gegenstand, der Dir helfen kann?.
+        /// </summary>
+        internal static string NO_FIRE_ACCELERATOR {
+            get {
+                return ResourceManager.GetString("NO_FIRE_ACCELERATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Der Zettel ist ein Blatt aus hochwertigem Büttenpapier. Es scheint etwas darauf geschrieben zu sein..
         /// </summary>
         internal static string NOTE {
             get {
                 return ResourceManager.GetString("NOTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vorsichtig hälst Du die Flamme an das Papier, das sofort Feuer fängt. Das Blatt entwickelt beim Verbrennen die nötige Hitze, um auch die Scheite zu entfachen. Super! Das hat funktioniert!.
+        /// </summary>
+        internal static string NOTE_BURNED {
+            get {
+                return ResourceManager.GetString("NOTE_BURNED", resourceCulture);
             }
         }
         
@@ -322,6 +476,24 @@ namespace LogCabin.Resources {
         internal static string OPENING {
             get {
                 return ResourceManager.GetString("OPENING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das Petroleum eignet sich wunderbar dafür, in eine entsprechende Lampe gefüllt zu werden. Aber auch als direkter Brandbeschleuniger kann es benutzt werden..
+        /// </summary>
+        internal static string PETROLEUM {
+            get {
+                return ResourceManager.GetString("PETROLEUM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vorsichtig hälst Du die Flamme an die mit Petroleum überschütteten Holzscheite, die sofort Feuer fangen. Das Petroleum entwickelt beim Verbrennen die nötige Hitze, um auch die Scheite zu entfachen. Super! Das hat funktioniert!.
+        /// </summary>
+        internal static string PETROLEUM_BURNED {
+            get {
+                return ResourceManager.GetString("PETROLEUM_BURNED", resourceCulture);
             }
         }
         
@@ -380,7 +552,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht..
+        ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht. Ein Ofenrohr ist mit dem Ofen verbunden und wird durch die Holzwand nach draußen geführt. Vermutlich führt es dort in einen Kamin, der dafür sorgt, dass der Rauch gut abziehen kann..
         /// </summary>
         internal static string STOVE {
             get {

@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="LIVINGROOM" xml:space="preserve">
-        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt.</value>
+        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt. An der westlichen Wand befindet sich ein schmales Bücherregal.</value>
     </data>
     <data name="PLAYER" xml:space="preserve">
         <value>Das bist Du.</value>
@@ -43,7 +43,7 @@
         <value>Die Truhe ist abgeschlossen.</value>
     </data>
     <data name="DOOR" xml:space="preserve">
-        <value>Die Tür scheint Dein Weg nach Draußen zu sein. Sie besteht aus massiven Holzbohlen, die schon die Idee zu nichte machen, sie mit Gewalt öffnen zu wollen.</value>
+        <value>Die Tür scheint Dein Weg nach Draußen zu sein. Sie besteht aus massiven Holzbohlen, die schon die Idee zunichte machen, sie mit Gewalt öffnen zu wollen.</value>
     </data>
     <data name="DOOR_FIRSTLOOK" xml:space="preserve">
         <value>Du drückst die Türklinke nach unten und versuchst die Tür zu öffnen. Sie ist verschlossen und bewegt sich keinen Millimeter.</value>
@@ -76,7 +76,7 @@
         <value>Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?</value>
     </data>
     <data name="STOVE" xml:space="preserve">
-        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Das Kochfeld besteht aus einer Gusseisenplatte und der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht.</value>
+        <value>Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht. Ein Ofenrohr ist mit dem Ofen verbunden und wird durch die Holzwand nach draußen geführt. Vermutlich führt es dort in einen Kamin, der dafür sorgt, dass der Rauch gut abziehen kann.</value>
     </data>
     <data name="STOVE_FIRSTLOOK" xml:space="preserve">
         <value>Du kannst deutlich erkennen, dass in der Brennkammer bereits Feuerholz liegt.</value>
@@ -109,7 +109,7 @@
         <value>Der Schlüssel ist aus Eisen, ungefähr so groß, dass er gerade so auf Deine geöffnete Handfläche passt. Er sieht altmodisch, fast schon antik aus. Zumindest soweit Du das beurteilen kannst. Zumindest scheint er optisch zu dem Schloß in der Kiste zu gehören.</value>
     </data>
     <data name="NOTE" xml:space="preserve">
-        <value>Der Zettel ist ein Blatt aus hochwertigem Büttenpapier. </value>
+        <value>Der Zettel ist ein Blatt aus hochwertigem Büttenpapier. Es scheint etwas darauf geschrieben zu sein.</value>
     </data>
     <data name="NOTE_LETTER_CONTENT" xml:space="preserve">
         <value>Hallo Fremder, 
@@ -153,5 +153,63 @@ Nuit Macabre</value>
     </data>
     <data name="STOVE_OPEN" xml:space="preserve">
         <value>Die Brennkammer ist geöffnet.</value>
+    </data>
+    <data name="BOOKSHELF" xml:space="preserve">
+        <value>Ein altes Bücherregal aus Holz. Neben viel Staub stehen dort nur einige Bücher drin.</value>
+    </data>
+    <data name="BOOKS" xml:space="preserve">
+        <value>Du nimmst Dir wahllos eines der Bücher aus dem Regel. "{0}" - ein weiteres Meisterwerk der Weltliteratur. Mit einem Lächeln im Gesicht steckst Du es zurück an seinen Platz.</value>
+    </data>
+    <data name="BOOK_I" xml:space="preserve">
+        <value>Die Verwandlung</value>
+    </data>
+    <data name="BOOK_II" xml:space="preserve">
+        <value>Krieg und Frieden</value>
+    </data>
+    <data name="BOOK_III" xml:space="preserve">
+        <value>De Profundis</value>
+    </data>
+    <data name="BOOK_IV" xml:space="preserve">
+        <value>Die Blechtrommel</value>
+    </data>
+    <data name="BOOK_V" xml:space="preserve">
+        <value>Die Dreigroschenoper</value>
+    </data>
+    <data name="LAMP_OIL_BUCKET" xml:space="preserve">
+        <value>Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein.</value>
+    </data>
+    <data name="LAMP_OIL_BUCKET_CONTAINMENT" xml:space="preserve">
+        <value>Auf dem oberen Brett steht eine Kanne mit der Aufschrift 'Petroleum'.</value>
+    </data>
+    <data name="PETROLEUM" xml:space="preserve">
+        <value>Das Petroleum eignet sich wunderbar dafür, in eine entsprechende Lampe gefüllt zu werden. Aber auch als direkter Brandbeschleuniger kann es benutzt werden.</value>
+    </data>
+    <data name="CANT_DROP_CANDLE_IN_STOVE" xml:space="preserve">
+        <value>Die Kerze ist zu groß und passt neben den Holzscheiten nicht in den Ofen.</value>
+    </data>
+    <data name="NO_FIRE_ACCELERATOR" xml:space="preserve">
+        <value>Du hälst die Flamme an das Brennholz, doch diese ist nicht starkt genug, um es zu entzünden. Vielleicht benötigst Du einen leicht entzündlichen Gegenstand, der Dir helfen kann?</value>
+    </data>
+    <data name="NOTE_BURNED" xml:space="preserve">
+        <value>Vorsichtig hälst Du die Flamme an das Papier, das sofort Feuer fängt. Das Blatt entwickelt beim Verbrennen die nötige Hitze, um auch die Scheite zu entfachen. Super! Das hat funktioniert!</value>
+    </data>
+    <data name="PETROLEUM_BURNED" xml:space="preserve">
+        <value>Vorsichtig hälst Du die Flamme an die mit Petroleum überschütteten Holzscheite, die sofort Feuer fangen. Das Petroleum entwickelt beim Verbrennen die nötige Hitze, um auch die Scheite zu entfachen. Super! Das hat funktioniert!</value>
+    </data>
+    <data name="FIRE_STARTER" xml:space="preserve">
+        <value>Die brennenden Scheite entwickeln schnell eine große Hitze. Damit Du Dich nicht verbrennst, schliesst Du den Ofen wieder. 
+Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärme im Raum breit macht.</value>
+    </data>
+    <data name="CANT_OPEN_STOVE_ON_FIRE" xml:space="preserve">
+        <value>Der Ofen ist durch das Feuer so heiß geworden, dass Du lieber die Finger von der Brennkammer lässt.</value>
+    </data>
+    <data name="CHIMNEY" xml:space="preserve">
+        <value>Das Ofenrohr ist ein handelsübliches, schwarz lackiertes Edelstahlrohr. Es ist fest mit dem Ofen und der Wand verbunden. Und ein Tipp: eine weitere Betrachtung des Gegenstandes wird Dich nicht weiter bringen!</value>
+    </data>
+    <data name="COOKTOP" xml:space="preserve">
+        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut. Ist der Ofen angefeuert, wird auch die Platte heiß. Eine Temperaturregulierung gibt es nicht. Die Temperatur ist einzig und allein von dem prasselnden Feuer des Ofens abhängig.</value>
+    </data>
+    <data name="COOCKTOP_LINKEDTO" xml:space="preserve">
+        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut und ermöglicht es, Speisen und andere Dinge zu erhitzen, sobald der Ofen befeuert wird.</value>
     </data>
 </root>

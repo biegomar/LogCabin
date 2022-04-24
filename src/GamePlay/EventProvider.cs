@@ -77,6 +77,16 @@ internal class EventProvider
         }
     }
     
+    internal void ReadNote(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.NOTE } note)
+        {
+            this.universe.Score += this.universe.ScoreBoard[nameof(this.ReadNote)];
+            note.AfterTake -= this.ReadNote;
+        }
+    }
+    
+    
     private void HideItemsOnClose(AHereticObject item)
     {
         if (item.IsClosed)
@@ -109,6 +119,31 @@ internal class EventProvider
                     throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
                 }
                 
+                if (!stove.Items.Any(i => i.Key is (Keys.NOTE or Keys.PETROLEUM)))
+                {
+                    throw new UseException(Descriptions.NO_FIRE_ACCELERATOR);
+                }
+                
+                if (stove.Items.Any(i => i.Key is Keys.NOTE))
+                {
+                    stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.NOTE));
+                    printingSubsystem.Resource(Descriptions.NOTE_BURNED);
+                }
+                else if (stove.Items.Any(i => i.Key is Keys.PETROLEUM))
+                {
+                    stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.PETROLEUM));
+                    printingSubsystem.Resource(Descriptions.PETROLEUM_BURNED);
+                }
+
+                printingSubsystem.Resource(Descriptions.FIRE_STARTER);
+                stove.IsClosed = true;
+                stove.BeforeOpen += this.CantOpenStoveOnFire;
+
+                var combustionChamber = this.universe.GetObjectFromWorldByKey(Keys.COMBUSTION_CHAMBER);
+                combustionChamber.BeforeOpen += this.CantOpenStoveOnFire;
+
+                this.universe.ActiveLocation.Open -= this.OpenCombustionChamber;
+                
                 candle.Use -= UseCandleWithPileOfWood;
                 wood.Use -= UseCandleWithPileOfWood;
 
@@ -121,5 +156,22 @@ internal class EventProvider
             }
         }
     }
+
+    internal void CantDropCandleInStove(object sender, DropItemEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.CANDLE } && eventArgs.ItemContainer.Key == Keys.STOVE)
+        {
+            throw new DropException(Descriptions.CANT_DROP_CANDLE_IN_STOVE);
+        }
+    }
+    
+    private void CantOpenStoveOnFire(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.STOVE or Keys.COMBUSTION_CHAMBER})
+        {
+            throw new OpenException(Descriptions.CANT_OPEN_STOVE_ON_FIRE);
+        }
+    }
+    
     
 }

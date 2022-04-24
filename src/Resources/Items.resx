@@ -67,7 +67,7 @@
         <value>Sichtfenster</value>
     </data>
     <data name="KITCHEN_CABINET" xml:space="preserve">
-        <value>Küchenschrank|Küchenregal</value>
+        <value>Küchenschrank|Küchenregal|Schrank</value>
     </data>
     <data name="SAUSAGE" xml:space="preserve">
         <value>Wurstzipfel|Wurststück|Wurst|Salami</value>
@@ -80,5 +80,23 @@
     </data>
     <data name="COMBUSTION_CHAMBER" xml:space="preserve">
         <value>Brennkammer|Kammer</value>
+    </data>
+    <data name="BOOKSHELF" xml:space="preserve">
+        <value>Bücherregal|Regal</value>
+    </data>
+    <data name="BOOKS" xml:space="preserve">
+        <value>Buch|Bücher</value>
+    </data>
+    <data name="LAMP_OIL_BUCKET" xml:space="preserve">
+        <value>Ölkanne|Blechkanne|Kanne</value>
+    </data>
+    <data name="PETROLEUM" xml:space="preserve">
+        <value>Petroleum|Öl|Lampenöl</value>
+    </data>
+    <data name="CHIMNEY" xml:space="preserve">
+        <value>Ofenrohr|Rohr|Kamin</value>
+    </data>
+    <data name="COOKTOP" xml:space="preserve">
+        <value>Kochfeld|Kochplatte</value>
     </data>
 </root>

@@ -53,8 +53,8 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         var locationMap = new List<DestinationNode>
         {
             new() {Direction = Directions.N, Location = bedRoom},
-            new() {Direction = Directions.DOWN, Location = cellar},
-            new() {Direction = Directions.S, Location = freedom}
+            new() {Direction = Directions.DOWN, Location = cellar, IsHidden = true},
+            new() {Direction = Directions.S, Location = freedom, IsHidden = true}
         };
         return locationMap;
     }

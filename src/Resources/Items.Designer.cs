@@ -61,6 +61,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buch|Bücher.
+        /// </summary>
+        internal static string BOOKS {
+            get {
+                return ResourceManager.GetString("BOOKS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bücherregal|Regal.
+        /// </summary>
+        internal static string BOOKSHELF {
+            get {
+                return ResourceManager.GetString("BOOKSHELF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kerze.
         /// </summary>
         internal static string CANDLE {
@@ -97,11 +115,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ofenrohr|Rohr|Kamin.
+        /// </summary>
+        internal static string CHIMNEY {
+            get {
+                return ResourceManager.GetString("CHIMNEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Brennkammer|Kammer.
         /// </summary>
         internal static string COMBUSTION_CHAMBER {
             get {
                 return ResourceManager.GetString("COMBUSTION_CHAMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kochfeld|Kochplatte.
+        /// </summary>
+        internal static string COOKTOP {
+            get {
+                return ResourceManager.GetString("COOKTOP", resourceCulture);
             }
         }
         
@@ -160,11 +196,20 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Küchenschrank|Küchenregal.
+        ///   Looks up a localized string similar to Küchenschrank|Küchenregal|Schrank.
         /// </summary>
         internal static string KITCHEN_CABINET {
             get {
                 return ResourceManager.GetString("KITCHEN_CABINET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ölkanne|Blechkanne|Kanne.
+        /// </summary>
+        internal static string LAMP_OIL_BUCKET {
+            get {
+                return ResourceManager.GetString("LAMP_OIL_BUCKET", resourceCulture);
             }
         }
         
@@ -183,6 +228,15 @@ namespace LogCabin.Resources {
         internal static string NOTE {
             get {
                 return ResourceManager.GetString("NOTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Petroleum|Öl|Lampenöl.
+        /// </summary>
+        internal static string PETROLEUM {
+            get {
+                return ResourceManager.GetString("PETROLEUM", resourceCulture);
             }
         }
         

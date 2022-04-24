@@ -25,16 +25,18 @@ internal static class Keys
     internal const string TABLE = "TABLE";
     internal const string NOTE = "NOTE";
     internal const string BOOKSHELF = "BOOKSHELF";
-    internal const string BOOK = "BOOK";
+    internal const string BOOKS = "BOOKS";
     internal const string CHAIR = "CHAIR";
     internal const string CANDLE = "CANDLE";
     internal const string STOVE = "STOVE";
     internal const string COMBUSTION_CHAMBER = "COMBUSTION_CHAMBER";
     internal const string CHIMNEY = "CHIMNEY";
+    internal const string COOKTOP = "COOKTOP";
     internal const string PILE_OF_WOOD = "PILE_OF_WOOD";
     internal const string KITCHEN_CABINET = "KITCHEN_CABINET";
     internal const string SAUSAGE = "SAUSAGE";
-    internal const string LAMP_OIL = "LAMP_OIL";
+    internal const string PETROLEUM = "PETROLEUM";
+    internal const string LAMP_OIL_BUCKET = "LAMP_OIL_BUCKET";
     internal const string INSPECTION_WINDOW = "INSPECTION_WINDOW";
 
     //Bedroom
