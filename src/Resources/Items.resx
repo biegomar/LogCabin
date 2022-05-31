@@ -72,7 +72,7 @@
     <data name="SAUSAGE" xml:space="preserve">
         <value>Wurstzipfel|Wurststück|Wurst|Salami</value>
     </data>
-    <data name="CHEST_LOG" xml:space="preserve">
+    <data name="CHEST_LOCK" xml:space="preserve">
         <value>Einlassschloss|Schloss|Schloß|Einlassschloß|Kistenschloss|Kistenschloß</value>
     </data>
     <data name="KEY_HOLE_SHIELD" xml:space="preserve">

@@ -108,9 +108,9 @@ namespace LogCabin.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Einlassschloss|Schloss|Schloß|Einlassschloß|Kistenschloss|Kistenschloß.
         /// </summary>
-        internal static string CHEST_LOG {
+        internal static string CHEST_LOCK {
             get {
-                return ResourceManager.GetString("CHEST_LOG", resourceCulture);
+                return ResourceManager.GetString("CHEST_LOCK", resourceCulture);
             }
         }
         

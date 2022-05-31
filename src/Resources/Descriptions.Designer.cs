@@ -223,20 +223,20 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Es scheint sich um ein Einlassschloss zu handeln, dass den Deckel der Kiste von unten sichert. .
+        /// </summary>
+        internal static string CHEST_LOCK {
+            get {
+                return ResourceManager.GetString("CHEST_LOCK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die Truhe ist abgeschlossen..
         /// </summary>
         internal static string CHEST_LOCKED {
             get {
                 return ResourceManager.GetString("CHEST_LOCKED", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Es scheint sich um ein Einlassschloss zu handeln, dass den Deckel der Kiste von unten sichert. .
-        /// </summary>
-        internal static string CHEST_LOG {
-            get {
-                return ResourceManager.GetString("CHEST_LOG", resourceCulture);
             }
         }
         

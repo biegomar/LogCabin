@@ -142,7 +142,7 @@ Nuit Macabre</value>
     <data name="SAUSAGE_CONTAINMENT" xml:space="preserve">
         <value>Auf einem der Bretter liegt, etwas verloren, ein kleines Stück Wurst.</value>
     </data>
-    <data name="CHEST_LOG" xml:space="preserve">
+    <data name="CHEST_LOCK" xml:space="preserve">
         <value>Es scheint sich um ein Einlassschloss zu handeln, dass den Deckel der Kiste von unten sichert. </value>
     </data>
     <data name="KEY_HOLE_SHIELD" xml:space="preserve">

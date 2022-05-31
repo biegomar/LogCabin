@@ -16,7 +16,7 @@ internal static class Keys
     internal const string LIVINGROOM_WINDOW = "LIVINGROOM_WINDOW";
     internal const string SHUTTER = "SHUTTER";
     internal const string CHEST = "CHEST";
-    internal const string CHEST_LOG = "CHEST_LOG";
+    internal const string CHEST_LOCK = "CHEST_LOCK";
     internal const string KEY_HOLE = "KEY_HOLE";
     internal const string KEY_HOLE_SHIELD = "KEY_HOLE_SHIELD";
     internal const string IRON_KEY = "IRON_KEY";

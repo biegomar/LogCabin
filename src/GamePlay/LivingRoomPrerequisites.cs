@@ -299,21 +299,165 @@ internal static class LivingRoomPrerequisites
 
     private static void AddSurroundings(Location livingRoom)
     {
-        livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
-        livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
-        livingRoom.Surroundings.Add(Keys.KEY_HOLE_SHIELD, () => Descriptions.KEY_HOLE_SHIELD);
-        livingRoom.Surroundings.Add(Keys.CHEST_LOG, () => Descriptions.CHEST_LOG);
-        livingRoom.Surroundings.Add(Keys.WALL, () => Descriptions.WALL);
-        livingRoom.Surroundings.Add(Keys.FLOOR, () => Descriptions.FLOOR);
-        livingRoom.Surroundings.Add(Keys.CEILING, () => Descriptions.CEILING);
-        livingRoom.Surroundings.Add(Keys.LIVINGROOM_WINDOW, () => Descriptions.LIVINGROOM_WINDOW);
-        livingRoom.Surroundings.Add(Keys.SHUTTER, () => Descriptions.SHUTTER);
-        livingRoom.Surroundings.Add(Keys.INSPECTION_WINDOW, () => Descriptions.INSPECTION_WINDOW);
-        livingRoom.Surroundings.Add(Keys.COMBUSTION_CHAMBER, () => Descriptions.COMBUSTION_CHAMBER);
-        livingRoom.Surroundings.Add(Keys.BOOKSHELF, () => Descriptions.BOOKSHELF);
+        var plank = new Item()
+        {
+            Key = Keys.PLANK,
+            Name = Items.PLANK,
+            Description = Descriptions.PLANK,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Female, false)
+        };
+        livingRoom.Items.Add(plank);
+
+        var keyHole = new Item()
+        {
+            Key = Keys.KEY_HOLE,
+            Name = Items.KEY_HOLE,
+            Description = Descriptions.KEY_HOLE,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(keyHole);
+        
+        var keyHoleShield = new Item()
+        {
+            Key = Keys.KEY_HOLE_SHIELD,
+            Name = Items.KEY_HOLE_SHIELD,
+            Description = Descriptions.KEY_HOLE_SHIELD,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(keyHoleShield);
+        
+        var chestLock = new Item()
+        {
+            Key = Keys.CHEST_LOCK,
+            Name = Items.CHEST_LOCK,
+            Description = Descriptions.CHEST_LOCK,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(chestLock);
+        
+        var wall = new Item()
+        {
+            Key = Keys.WALL,
+            Name = Items.WALL,
+            Description = Descriptions.WALL,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars()
+        };
+        livingRoom.Items.Add(wall);
+        
+        var floor = new Item()
+        {
+            Key = Keys.FLOOR,
+            Name = Items.FLOOR,
+            Description = Descriptions.FLOOR,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Male)
+        };
+        livingRoom.Items.Add(floor);
+        
+        var ceiling = new Item()
+        {
+            Key = Keys.CEILING,
+            Name = Items.CEILING,
+            Description = Descriptions.CEILING,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars()
+        };
+        livingRoom.Items.Add(ceiling);
+        
+        var livingRoomWindows = new Item()
+        {
+            Key = Keys.LIVINGROOM_WINDOW,
+            Name = Items.LIVINGROOM_WINDOW,
+            Description = Descriptions.LIVINGROOM_WINDOW,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(livingRoomWindows);
+        
+        var shutter = new Item()
+        {
+            Key = Keys.SHUTTER,
+            Name = Items.SHUTTER,
+            Description = Descriptions.SHUTTER,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(isSingular:false)
+        };
+        livingRoom.Items.Add(shutter);
+        
+        var inspectionWindows = new Item()
+        {
+            Key = Keys.INSPECTION_WINDOW,
+            Name = Items.INSPECTION_WINDOW,
+            Description = Descriptions.INSPECTION_WINDOW,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(inspectionWindows);
+        
+        var combustionChamber = new Item()
+        {
+            Key = Keys.COMBUSTION_CHAMBER,
+            Name = Items.COMBUSTION_CHAMBER,
+            Description = Descriptions.COMBUSTION_CHAMBER,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars()
+        };
+        livingRoom.Items.Add(combustionChamber);
+        
+        var bookShelf = new Item()
+        {
+            Key = Keys.BOOKSHELF,
+            Name = Items.BOOKSHELF,
+            Description = Descriptions.BOOKSHELF,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(bookShelf);
+        
+        var chimney = new Item()
+        {
+            Key = Keys.CHIMNEY,
+            Name = Items.CHIMNEY,
+            Description = Descriptions.CHIMNEY,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Male)
+        };
+        livingRoom.Items.Add(chimney);
+        
+        //livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
+        //livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
+        //livingRoom.Surroundings.Add(Keys.KEY_HOLE_SHIELD, () => Descriptions.KEY_HOLE_SHIELD);
+        //livingRoom.Surroundings.Add(Keys.CHEST_LOCK, () => Descriptions.CHEST_LOCK);
+        //livingRoom.Surroundings.Add(Keys.WALL, () => Descriptions.WALL);
+        //livingRoom.Surroundings.Add(Keys.FLOOR, () => Descriptions.FLOOR);
+        //livingRoom.Surroundings.Add(Keys.CEILING, () => Descriptions.CEILING);
+        //livingRoom.Surroundings.Add(Keys.LIVINGROOM_WINDOW, () => Descriptions.LIVINGROOM_WINDOW);
+        //livingRoom.Surroundings.Add(Keys.SHUTTER, () => Descriptions.SHUTTER);
+        //livingRoom.Surroundings.Add(Keys.INSPECTION_WINDOW, () => Descriptions.INSPECTION_WINDOW);
+        //livingRoom.Surroundings.Add(Keys.COMBUSTION_CHAMBER, () => Descriptions.COMBUSTION_CHAMBER);
+        //livingRoom.Surroundings.Add(Keys.BOOKSHELF, () => Descriptions.BOOKSHELF);
         livingRoom.Surroundings.Add(Keys.BOOKS, () => string.Format(Descriptions.BOOKS, GetBookTitle()));
-        livingRoom.Surroundings.Add(Keys.CHIMNEY, () => Descriptions.CHIMNEY);
+        //livingRoom.Surroundings.Add(Keys.CHIMNEY, () => Descriptions.CHIMNEY);
     }
+
     
     private static string GetBookTitle()
     {
