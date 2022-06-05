@@ -442,20 +442,16 @@ internal static class LivingRoomPrerequisites
         };
         livingRoom.Items.Add(chimney);
         
-        //livingRoom.Surroundings.Add(Keys.PLANK, () => Descriptions.PLANK);
-        //livingRoom.Surroundings.Add(Keys.KEY_HOLE, () => Descriptions.KEY_HOLE);
-        //livingRoom.Surroundings.Add(Keys.KEY_HOLE_SHIELD, () => Descriptions.KEY_HOLE_SHIELD);
-        //livingRoom.Surroundings.Add(Keys.CHEST_LOCK, () => Descriptions.CHEST_LOCK);
-        //livingRoom.Surroundings.Add(Keys.WALL, () => Descriptions.WALL);
-        //livingRoom.Surroundings.Add(Keys.FLOOR, () => Descriptions.FLOOR);
-        //livingRoom.Surroundings.Add(Keys.CEILING, () => Descriptions.CEILING);
-        //livingRoom.Surroundings.Add(Keys.LIVINGROOM_WINDOW, () => Descriptions.LIVINGROOM_WINDOW);
-        //livingRoom.Surroundings.Add(Keys.SHUTTER, () => Descriptions.SHUTTER);
-        //livingRoom.Surroundings.Add(Keys.INSPECTION_WINDOW, () => Descriptions.INSPECTION_WINDOW);
-        //livingRoom.Surroundings.Add(Keys.COMBUSTION_CHAMBER, () => Descriptions.COMBUSTION_CHAMBER);
-        //livingRoom.Surroundings.Add(Keys.BOOKSHELF, () => Descriptions.BOOKSHELF);
-        livingRoom.Surroundings.Add(Keys.BOOKS, () => string.Format(Descriptions.BOOKS, GetBookTitle()));
-        //livingRoom.Surroundings.Add(Keys.CHIMNEY, () => Descriptions.CHIMNEY);
+        var books = new Item(() => string.Format(Descriptions.BOOKS, GetBookTitle()))
+        {
+            Key = Keys.BOOKS,
+            Name = Items.BOOKS,
+            Description = Descriptions.CHIMNEY,
+            IsSurrounding = true,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        livingRoom.Items.Add(books);
     }
 
     
