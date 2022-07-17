@@ -446,7 +446,6 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.BOOKS,
             Name = Items.BOOKS,
-            Description = Descriptions.CHIMNEY,
             IsSurrounding = true,
             IsPickAble = false,
             Grammar = new Grammars(Genders.Neutrum)
