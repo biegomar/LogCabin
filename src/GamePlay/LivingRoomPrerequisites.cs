@@ -442,10 +442,11 @@ internal static class LivingRoomPrerequisites
         };
         livingRoom.Items.Add(chimney);
         
-        var books = new Item(() => string.Format(Descriptions.BOOKS, GetBookTitle()))
+        var books = new Item()
         {
             Key = Keys.BOOKS,
             Name = Items.BOOKS,
+            Description = GetBookTitle(),
             IsSurrounding = true,
             IsPickAble = false,
             Grammar = new Grammars(Genders.Neutrum)
@@ -454,7 +455,7 @@ internal static class LivingRoomPrerequisites
     }
 
     
-    private static string GetBookTitle()
+    private static Func<string> GetBookTitle()
     {
         var bookList = new List<string>
         {
@@ -464,6 +465,6 @@ internal static class LivingRoomPrerequisites
         
         var rnd = new Random();
         
-        return bookList[rnd.Next(0, bookList.Count)];
+        return () => string.Format(Descriptions.BOOKS, bookList[rnd.Next(0, bookList.Count)]);
     }
 }
