@@ -82,7 +82,7 @@ internal class EventProvider
         if (sender is Item { Key: Keys.NOTE } note)
         {
             this.universe.Score += this.universe.ScoreBoard[nameof(this.ReadNote)];
-            note.AfterTake -= this.ReadNote;
+            note.AfterRead -= this.ReadNote;
         }
     }
     
