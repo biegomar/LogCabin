@@ -28,7 +28,7 @@ twitter_username: biegomar
 github_username:  biegomar
 
 # Build settings
-theme: jekyll-theme-cayman
+theme: jekyll-theme-merlot
 plugins:
   - jekyll-feed
 
