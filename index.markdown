@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+Dies ist ein einfacher Text!
