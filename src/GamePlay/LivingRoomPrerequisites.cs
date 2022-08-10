@@ -24,6 +24,7 @@ internal static class LivingRoomPrerequisites
         AddChangeLocationEvents(livingRoom, eventProvider);
         AddOpenEvents(livingRoom, eventProvider);
         AddCloseEvents(livingRoom, eventProvider);
+        AddWaitEvents(livingRoom, eventProvider);
         
         AddSurroundings(livingRoom);
 
@@ -274,6 +275,11 @@ internal static class LivingRoomPrerequisites
         {
             eventProvider.ScoreBoard.Add(nameof(eventProvider.UseCandleWithPileOfWood), 1);
         }
+    }
+    
+    private static void AddWaitEvents(Location room, EventProvider eventProvider)
+    {
+        room.Wait += eventProvider.WaitInLivingRoom;
     }
     
     private static void AddBeforeDropEvents(Item candle, EventProvider eventProvider)

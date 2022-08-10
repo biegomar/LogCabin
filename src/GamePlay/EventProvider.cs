@@ -58,6 +58,20 @@ internal class EventProvider
             }
         }
     }
+
+    internal void WaitInLivingRoom(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Location {Key: Keys.LIVINGROOM})
+        {
+            var candle = this.universe.GetObjectFromWorldByKey(Keys.CANDLE);
+            if (candle is { IsHidden: false })
+            {
+                throw new WaitException("Die Kerze brennt ein kleines Stückchen weiter herunter.");
+            }
+        }
+        
+        throw new WaitException(BaseDescriptions.TIME_GOES_BY);
+    }
     
     internal void CloseCombustionChamber(object sender, ContainerObjectEventArgs eventArgs)
     {
