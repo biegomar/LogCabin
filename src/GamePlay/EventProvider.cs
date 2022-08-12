@@ -66,7 +66,7 @@ internal class EventProvider
             var candle = this.universe.GetObjectFromWorldByKey(Keys.CANDLE);
             if (candle is { IsHidden: false })
             {
-                throw new WaitException("Die Kerze brennt ein kleines Stückchen weiter herunter.");
+                throw new WaitException(Descriptions.LIVINGROOM_WAIT);
             }
         }
         
@@ -176,6 +176,14 @@ internal class EventProvider
         if (sender is Item { Key: Keys.CANDLE } && eventArgs.ItemContainer is Item {Key: Keys.STOVE})
         {
             throw new DropException(Descriptions.CANT_DROP_CANDLE_IN_STOVE);
+        }
+    }
+    
+    internal void CantTakePetroleum(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.PETROLEUM})
+        {
+            throw new TakeException(Descriptions.CANT_TAKE_PETROLEUM);
         }
     }
     

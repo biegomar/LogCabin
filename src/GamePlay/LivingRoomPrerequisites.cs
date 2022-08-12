@@ -18,7 +18,7 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
-        livingRoom.Items.Add(GetKitchenCabinet());
+        livingRoom.Items.Add(GetKitchenCabinet(eventProvider));
         livingRoom.Items.Add(GetDoor());
 
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -31,7 +31,7 @@ internal static class LivingRoomPrerequisites
         return livingRoom;
     }
 
-    private static Item GetKitchenCabinet()
+    private static Item GetKitchenCabinet(EventProvider eventProvider)
     {
         var cabinet = new Item
         {
@@ -45,7 +45,7 @@ internal static class LivingRoomPrerequisites
         };
         
         cabinet.Items.Add(GetSausage());
-        cabinet.Items.Add(GetLampOilBucket());
+        cabinet.Items.Add(GetLampOilBucket(eventProvider));
 
         return cabinet;
     }
@@ -65,7 +65,7 @@ internal static class LivingRoomPrerequisites
         return sausage;
     }
 
-    private static Item GetLampOilBucket()
+    private static Item GetLampOilBucket(EventProvider eventProvider)
     {
         var lampOilBucket = new Item
         {
@@ -76,12 +76,12 @@ internal static class LivingRoomPrerequisites
             IsHidden = true
         };
         
-        lampOilBucket.Items.Add(GetPetroleum());
+        lampOilBucket.Items.Add(GetPetroleum(eventProvider));
 
         return lampOilBucket;
     }
 
-    private static Item GetPetroleum()
+    private static Item GetPetroleum(EventProvider eventProvider)
     {
         var petroleum = new Item
         {
@@ -89,11 +89,16 @@ internal static class LivingRoomPrerequisites
             Name = Items.PETROLEUM,
             Description = Descriptions.PETROLEUM,
             IsHidden = true,
-            IsPickAble = false,
-            Grammar = new Grammars(Genders.Neutrum)
+            Grammar = new Grammars(Genders.Neutrum, isSingular: false)
         };
 
+        AddTakeEvents(petroleum, eventProvider);
         return petroleum;
+    }
+
+    private static void AddTakeEvents(Item petroleum, EventProvider eventProvider)
+    {
+        petroleum.BeforeTake += eventProvider.CantTakePetroleum;
     }
 
     private static Item GetTable(EventProvider eventProvider)
