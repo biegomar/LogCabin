@@ -176,7 +176,7 @@ Nuit Macabre</value>
         <value>Die Dreigroschenoper</value>
     </data>
     <data name="LAMP_OIL_BUCKET" xml:space="preserve">
-        <value>Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein.</value>
+        <value>Die Kanne ist aus Weißblech und fasst ca. einen halben Liter Flüssigkeit.</value>
     </data>
     <data name="LAMP_OIL_BUCKET_CONTAINMENT" xml:space="preserve">
         <value>Auf dem oberen Brett steht eine Kanne mit der Aufschrift 'Petroleum'.</value>
@@ -217,5 +217,8 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     </data>
     <data name="CANT_TAKE_PETROLEUM" xml:space="preserve">
         <value>Da das Petroleum flüssig ist, kannst Du es nicht einfach nehmen.</value>
+    </data>
+    <data name="LAMP_OIL_BUCKET_FIRSTLOOK" xml:space="preserve">
+        <value>Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein.</value>
     </data>
 </root>

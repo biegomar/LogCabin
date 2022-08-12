@@ -403,7 +403,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein..
+        ///   Looks up a localized string similar to Die Kanne ist aus Weißblech und fasst ca. einen halben Liter Flüssigkeit..
         /// </summary>
         internal static string LAMP_OIL_BUCKET {
             get {
@@ -417,6 +417,15 @@ namespace LogCabin.Resources {
         internal static string LAMP_OIL_BUCKET_CONTAINMENT {
             get {
                 return ResourceManager.GetString("LAMP_OIL_BUCKET_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein..
+        /// </summary>
+        internal static string LAMP_OIL_BUCKET_FIRSTLOOK {
+            get {
+                return ResourceManager.GetString("LAMP_OIL_BUCKET_FIRSTLOOK", resourceCulture);
             }
         }
         
