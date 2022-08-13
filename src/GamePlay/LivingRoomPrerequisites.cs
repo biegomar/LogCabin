@@ -1,3 +1,4 @@
+using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
 
@@ -15,6 +16,9 @@ internal static class LivingRoomPrerequisites
             FirstLookDescription = Descriptions.CANDLE_CONTAINMENT
         };
 
+        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
+        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+        
         livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
@@ -94,6 +98,7 @@ internal static class LivingRoomPrerequisites
         };
 
         AddTakeEvents(petroleum, eventProvider);
+        AddPoorEvents(petroleum, eventProvider);
         return petroleum;
     }
 
@@ -154,6 +159,7 @@ internal static class LivingRoomPrerequisites
         };
         
         AddReadEvents(note, eventProvider);
+        AddDropEvents(note, eventProvider);
         
         return note;
     }
@@ -226,6 +232,8 @@ internal static class LivingRoomPrerequisites
             Grammar = new Grammars(Genders.Male)
         };
 
+        AddPoorEvents(stove, eventProvider);
+        
         stove.Items.Add(GetPileOfWood(eventProvider));
         stove.LinkedTo.Add(GetCookTop(eventProvider));
 
@@ -244,6 +252,7 @@ internal static class LivingRoomPrerequisites
         };
 
         AddUseEvents(wood, eventProvider);
+        AddPoorEvents(wood, eventProvider);
 
         return wood;
     }
@@ -283,6 +292,11 @@ internal static class LivingRoomPrerequisites
         }
     }
     
+    private static void AddPoorEvents(Item item, EventProvider eventProvider)
+    {
+        item.Use += eventProvider.PoorPetroleumInStove;
+    }
+    
     private static void AddWaitEvents(Location room, EventProvider eventProvider)
     {
         room.Wait += eventProvider.WaitInLivingRoom;
@@ -307,6 +321,11 @@ internal static class LivingRoomPrerequisites
     {
         note.AfterRead += eventProvider.ReadNote;
         eventProvider.ScoreBoard.Add(nameof(eventProvider.ReadNote), 1);
+    }
+    
+    private static void AddDropEvents(Item note, EventProvider eventProvider)
+    {
+        note.BeforeDrop += eventProvider.PutNoteInStove;
     }
 
     private static void AddSurroundings(Location livingRoom)

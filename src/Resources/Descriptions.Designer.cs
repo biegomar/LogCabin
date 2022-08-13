@@ -497,11 +497,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Was soll das bringen?.
+        /// </summary>
+        internal static string NOTHING_TO_HOLD {
+            get {
+                return ResourceManager.GetString("NOTHING_TO_HOLD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OPENING {
             get {
                 return ResourceManager.GetString("OPENING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es ist schon das Papier im Ofen. Das genügt für ein ordentliches Feuer!.
+        /// </summary>
+        internal static string PAPER_IN_STOVE {
+            get {
+                return ResourceManager.GetString("PAPER_IN_STOVE", resourceCulture);
             }
         }
         
@@ -524,11 +542,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Es ist schon ausreichend Petroleum auf dem Feuerholz vorhanden. Das genügt für ein ordentliches Feuer!.
+        /// </summary>
+        internal static string PETROLEUM_IN_STOVE {
+            get {
+                return ResourceManager.GetString("PETROLEUM_IN_STOVE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet..
         /// </summary>
         internal static string PILE_OF_WOOD {
             get {
                 return ResourceManager.GetString("PILE_OF_WOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet und ordentlich mit Petroleum benetzt..
+        /// </summary>
+        internal static string PILE_OF_WOOD_WITH_PETROLEUM {
+            get {
+                return ResourceManager.GetString("PILE_OF_WOOD_WITH_PETROLEUM", resourceCulture);
             }
         }
         
@@ -547,6 +583,15 @@ namespace LogCabin.Resources {
         internal static string PLAYER {
             get {
                 return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du schüttest einen Teil des Petroleums über die Scheite..
+        /// </summary>
+        internal static string POOR_PETROLEUM_OVER_WOOD {
+            get {
+                return ResourceManager.GetString("POOR_PETROLEUM_OVER_WOOD", resourceCulture);
             }
         }
         

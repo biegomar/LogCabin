@@ -43,7 +43,7 @@
         <value>Scheiteofen|Küchenherd|Herd|Ofen|Holzofen</value>
     </data>
     <data name="PILE_OF_WOOD" xml:space="preserve">
-        <value>Brennholz|Scheitholz|Holzscheite|Holz|Feuerholz</value>
+        <value>Brennholz|Scheitholz|Holzscheite|Holz|Feuerholz|Scheite|Scheit</value>
     </data>
     <data name="LIVINGROOM_WINDOW" xml:space="preserve">
         <value>Fenster</value>

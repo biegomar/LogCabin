@@ -11,6 +11,8 @@ internal class EventProvider
 {
     private readonly Universe universe;
     private readonly IPrintingSubsystem printingSubsystem;
+    private bool isPaperInStove;
+    private bool isPetroleumInStove;
 
     internal IDictionary<string, int> ScoreBoard => this.universe.ScoreBoard;
 
@@ -100,6 +102,19 @@ internal class EventProvider
         }
     }
     
+    internal void PutNoteInStove(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.NOTE })
+        {
+            if (this.isPetroleumInStove)
+            {
+                throw new DropException(Descriptions.PETROLEUM_IN_STOVE);
+            }
+            
+            this.isPaperInStove = true;
+        }
+    }
+    
     
     private void HideItemsOnClose(AHereticObject item)
     {
@@ -112,6 +127,55 @@ internal class EventProvider
         }
     }
 
+    internal void PoorPetroleumInStove(object sender, UseItemEventArgs eventArgs)
+    {
+        if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
+        {
+            var itemList = new List<Item> { itemOne, itemTwo };
+            var petroleum = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM);
+            var destinationItem = itemList.SingleOrDefault(i => i.Key == Keys.STOVE);
+
+            if (destinationItem == default)
+            {
+                destinationItem = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
+            }
+
+            if (petroleum != default && destinationItem != default)
+            {
+                if (!this.universe.ActivePlayer.OwnsItem(petroleum))
+                {
+                    throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                }
+                
+                var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+                if (stove is { IsClosed: true })
+                {
+                    throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
+                }
+
+                if (this.isPetroleumInStove)
+                {
+                    throw new UseException(Descriptions.PETROLEUM_IN_STOVE);
+                }
+                
+                if (this.isPaperInStove)
+                {
+                    throw new UseException(Descriptions.PAPER_IN_STOVE);
+                }
+
+                PreparePileOfWoodWithPetroleum();
+            }
+        }
+    }
+
+    private void PreparePileOfWoodWithPetroleum()
+    {
+        var pileOfWood = this.universe.ActiveLocation.GetItemByKey(Keys.PILE_OF_WOOD);
+        pileOfWood.Description = Descriptions.PILE_OF_WOOD_WITH_PETROLEUM;
+        this.isPetroleumInStove = true;
+        printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_OVER_WOOD);
+    }
+
     internal void UseCandleWithPileOfWood(object sender, UseItemEventArgs eventArgs)
     {
         if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
@@ -122,7 +186,7 @@ internal class EventProvider
 
             if (candle != default && wood != default)
             {
-                if (!this.universe.ActivePlayer.Items.Contains(candle))
+                if (!this.universe.ActivePlayer.OwnsItem(candle))
                 {
                     throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
                 }
@@ -133,7 +197,7 @@ internal class EventProvider
                     throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
                 }
                 
-                if (!stove.Items.Any(i => i.Key is (Keys.NOTE or Keys.PETROLEUM)))
+                if (!this.isPetroleumInStove && !this.isPaperInStove)
                 {
                     throw new UseException(Descriptions.NO_FIRE_ACCELERATOR);
                 }

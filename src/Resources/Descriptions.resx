@@ -221,4 +221,19 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="LAMP_OIL_BUCKET_FIRSTLOOK" xml:space="preserve">
         <value>Du riechst an der mit Flüßigkeit gut gefüllten Kanne. Es scheint sich tatsächlich um Petroleum zu handeln. Das wird Dir bestimmt noch nützlich sein.</value>
     </data>
+    <data name="PILE_OF_WOOD_WITH_PETROLEUM" xml:space="preserve">
+        <value>Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet und ordentlich mit Petroleum benetzt.</value>
+    </data>
+    <data name="NOTHING_TO_HOLD" xml:space="preserve">
+        <value>Was soll das bringen?</value>
+    </data>
+    <data name="PETROLEUM_IN_STOVE" xml:space="preserve">
+        <value>Es ist schon ausreichend Petroleum auf dem Feuerholz vorhanden. Das genügt für ein ordentliches Feuer!</value>
+    </data>
+    <data name="PAPER_IN_STOVE" xml:space="preserve">
+        <value>Es ist schon das Papier im Ofen. Das genügt für ein ordentliches Feuer!</value>
+    </data>
+    <data name="POOR_PETROLEUM_OVER_WOOD" xml:space="preserve">
+        <value>Du schüttest einen Teil des Petroleums über die Scheite.</value>
+    </data>
 </root>
