@@ -240,6 +240,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Petroleumlampe|Öllampe|Lampe.
+        /// </summary>
+        internal static string PETROLEUM_LAMP {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Brennholz|Scheitholz|Holzscheite|Holz|Feuerholz|Scheite|Scheit.
         /// </summary>
         internal static string PILE_OF_WOOD {

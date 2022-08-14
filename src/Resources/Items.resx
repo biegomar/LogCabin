@@ -99,4 +99,7 @@
     <data name="COOKTOP" xml:space="preserve">
         <value>Kochfeld|Kochplatte</value>
     </data>
+    <data name="PETROLEUM_LAMP" xml:space="preserve">
+        <value>Petroleumlampe|Öllampe|Lampe</value>
+    </data>
 </root>

@@ -47,7 +47,7 @@ internal static class Keys
     internal const string WARDROBE = "WARDROBE";
     internal const string OLD_SHOES = "OLD_SHOES";
     internal const string SHOE_LACES = "SHOE_LACES";
-    internal const string OIL_LAMP = "OIL_LAMP";
+    internal const string PETROLEUM_LAMP = "PETROLEUM_LAMP";
     internal const string WASH_BASIN = "WASH_BASIN";
     
     //Cellar

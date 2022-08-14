@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
 
@@ -15,13 +17,60 @@ internal static class BedRoomPrerequisites
             Grammar = new Grammars(Genders.Neutrum)
         };
         
+        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
+        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.KINDLE, string.Empty);
+        
+        bedRoom.Items.Add(GetPetroleumLamp(eventProvider));
+        
         AddChangeLocationEvents(bedRoom, eventProvider);
         
         return bedRoom;
     }
     
+    private static Item GetPetroleumLamp(EventProvider eventProvider)
+    {
+        var lamp = new Item()
+        {
+            Key = Keys.PETROLEUM_LAMP,
+            Name = Items.PETROLEUM_LAMP,
+            Description = Descriptions.PETROLEUM_LAMP,
+            FirstLookDescription = Descriptions.PETROLEUM_LAMP_FIRSTLOOK,
+            IsLighter = true,
+            LighterSwitchedOffDescription = Descriptions.LIGHTER_OFF,
+            LighterSwitchedOnDescription = Descriptions.LIGHTER_ON
+        };
+
+        AddUseEvents(lamp, eventProvider);
+        AddPoorEvents(lamp, eventProvider);
+        
+        return lamp;
+    }
+    
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
     {
         room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
+    }
+    
+    private static void AddUseEvents(Item item, EventProvider eventProvider)
+    {
+        item.Use += eventProvider.UseLightersOnThings;
+        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
+        {
+            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);
+        }
+        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.StartPetroleumLampWithCandle)))
+        {
+            eventProvider.ScoreBoard.Add(nameof(eventProvider.StartPetroleumLampWithCandle), 1);
+        }
+    }
+    
+    private static void AddPoorEvents(Item item, EventProvider eventProvider)
+    {
+        item.Use += eventProvider.PoorPetroleumInPetroleumLamp;
+        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.PoorPetroleumInPetroleumLamp)))
+        {
+            eventProvider.ScoreBoard.Add(nameof(eventProvider.PoorPetroleumInPetroleumLamp), 1);
+        }
     }
 }

@@ -24,4 +24,10 @@
     <data name="HOLD" xml:space="preserve">
         <value>Halt|Halte</value>
     </data>
+    <data name="KINDLE" xml:space="preserve">
+        <value>Zünde|Zünd|Zuende|Zuend|Entzünde|Entzünd|Entzuende|Entzuend</value>
+    </data>
+    <data name="PUT" xml:space="preserve">
+        <value>Stelle|Stell</value>
+    </data>
 </root>

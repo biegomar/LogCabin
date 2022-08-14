@@ -236,4 +236,40 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="POOR_PETROLEUM_OVER_WOOD" xml:space="preserve">
         <value>Du schüttest einen Teil des Petroleums über die Scheite.</value>
     </data>
+    <data name="PETROLEUM_LAMP" xml:space="preserve">
+        <value>Eine alte und offensichtlich schon stark beanspruchte Petroleumlampe, die man als Lichtquelle gut nutzen kann. </value>
+    </data>
+    <data name="PETROLEUM_LAMP_FIRSTLOOK" xml:space="preserve">
+        <value>Du erkennst, dass die Lampe im Moment leer ist.</value>
+    </data>
+    <data name="BURN_NOTE" xml:space="preserve">
+        <value>Du hälst {0} an das Papier, das sofort lichterlohn in Flammen steht. Geistesgegewärtig lässt Du es los und es schwebt, getragen durch die Hitze des Feuers, eine kurze Zeit in der Luft. Ein letztes Mal flammt das Papier noch auf, das Feuer erstirbt und ein paar unbedeutende Aschekrümel fallen auf den Boden.</value>
+    </data>
+    <data name="ENOUGH_PETROLEUM_IN_LAMP" xml:space="preserve">
+        <value>Es ist bereits genug Petroleum in der Lamp.</value>
+    </data>
+    <data name="POOR_PETROLEUM_IN_LAMP" xml:space="preserve">
+        <value>Du füllst etwas Petroleum in die Lampe. Nun sollte man sie wieder benutzen können.</value>
+    </data>
+    <data name="PETROLEUM_LAMP_NOT_BURNING" xml:space="preserve">
+        <value>{0} brennt scheinbar gar nicht.</value>
+    </data>
+    <data name="NO_PETROLEUM_IN_LAMP" xml:space="preserve">
+        <value>Die Lampe ist leer. Um zu funktionieren benötigt sie etwas Petroleum.</value>
+    </data>
+    <data name="PETROLEUM_LAMP_IS_BURNING" xml:space="preserve">
+        <value>Die Lampe brennt bereits.</value>
+    </data>
+    <data name="PETROLEUM_LAMP_SWITCH_ON" xml:space="preserve">
+        <value>Du hälst die Flamme an den Docht der Lampe und dieser fängt sofort an zu brennen. Die Lampe ist an!</value>
+    </data>
+    <data name="LIGHTER_ON" xml:space="preserve">
+        <value>Sie brennt.</value>
+    </data>
+    <data name="LIGHTER_OFF" xml:space="preserve">
+        <value>Sie brennt gerade nicht.</value>
+    </data>
+    <data name="PETROLEUM_LAMP_FIRSTLOOK_POORED" xml:space="preserve">
+        <value>Du hast sie gut mit Petroleum gefüllt.</value>
+    </data>
 </root>

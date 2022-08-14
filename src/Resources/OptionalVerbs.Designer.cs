@@ -69,11 +69,29 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zünde|Zünd|Zuende|Zuend|Entzünde|Entzünd|Entzuende|Entzuend.
+        /// </summary>
+        internal static string KINDLE {
+            get {
+                return ResourceManager.GetString("KINDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Schütte|Schütt|Schuette|Schuett|Kipp|Kippe|Füll|Fülle|Fuell|Fuelle|Giesse|Giess|Gieße|Gieß.
         /// </summary>
         internal static string POOR {
             get {
                 return ResourceManager.GetString("POOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stelle|Stell.
+        /// </summary>
+        internal static string PUT {
+            get {
+                return ResourceManager.GetString("PUT", resourceCulture);
             }
         }
     }

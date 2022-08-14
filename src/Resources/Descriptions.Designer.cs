@@ -141,6 +141,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Du hälst {0} an das Papier, das sofort lichterlohn in Flammen steht. Geistesgegewärtig lässt Du es los und es schwebt, getragen durch die Hitze des Feuers, eine kurze Zeit in der Luft. Ein letztes Mal flammt das Papier noch auf, das Feuer erstirbt und ein paar unbedeutende Aschekrümel fallen auf den Boden..
+        /// </summary>
+        internal static string BURN_NOTE {
+            get {
+                return ResourceManager.GetString("BURN_NOTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eine große weiße Kerze, die bestimmt einige Tage brennen kann. .
         /// </summary>
         internal static string CANDLE {
@@ -321,6 +330,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Es ist bereits genug Petroleum in der Lamp..
+        /// </summary>
+        internal static string ENOUGH_PETROLEUM_IN_LAMP {
+            get {
+                return ResourceManager.GetString("ENOUGH_PETROLEUM_IN_LAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die brennenden Scheite entwickeln schnell eine große Hitze. Damit Du Dich nicht verbrennst, schliesst Du den Ofen wieder. 
         ///Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärme im Raum breit macht..
         /// </summary>
@@ -430,6 +448,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sie brennt gerade nicht..
+        /// </summary>
+        internal static string LIGHTER_OFF {
+            get {
+                return ResourceManager.GetString("LIGHTER_OFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sie brennt..
+        /// </summary>
+        internal static string LIGHTER_ON {
+            get {
+                return ResourceManager.GetString("LIGHTER_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt. An der westlichen Wand befindet sich ein schmales Bücherregal..
         /// </summary>
         internal static string LIVINGROOM {
@@ -462,6 +498,15 @@ namespace LogCabin.Resources {
         internal static string NO_FIRE_ACCELERATOR {
             get {
                 return ResourceManager.GetString("NO_FIRE_ACCELERATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Lampe ist leer. Um zu funktionieren benötigt sie etwas Petroleum..
+        /// </summary>
+        internal static string NO_PETROLEUM_IN_LAMP {
+            get {
+                return ResourceManager.GetString("NO_PETROLEUM_IN_LAMP", resourceCulture);
             }
         }
         
@@ -551,6 +596,60 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eine alte und offensichtlich schon stark beanspruchte Petroleumlampe, die man als Lichtquelle gut nutzen kann. .
+        /// </summary>
+        internal static string PETROLEUM_LAMP {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du erkennst, dass die Lampe im Moment leer ist..
+        /// </summary>
+        internal static string PETROLEUM_LAMP_FIRSTLOOK {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP_FIRSTLOOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du hast sie gut mit Petroleum gefüllt..
+        /// </summary>
+        internal static string PETROLEUM_LAMP_FIRSTLOOK_POORED {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP_FIRSTLOOK_POORED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Lampe brennt bereits..
+        /// </summary>
+        internal static string PETROLEUM_LAMP_IS_BURNING {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP_IS_BURNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} brennt scheinbar gar nicht..
+        /// </summary>
+        internal static string PETROLEUM_LAMP_NOT_BURNING {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP_NOT_BURNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du hälst die Flamme an den Docht der Lampe und dieser fängt sofort an zu brennen. Die Lampe ist an!.
+        /// </summary>
+        internal static string PETROLEUM_LAMP_SWITCH_ON {
+            get {
+                return ResourceManager.GetString("PETROLEUM_LAMP_SWITCH_ON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die Scheite aus Buchenholz sind fein säuberlich im Ofen aufgeschichtet..
         /// </summary>
         internal static string PILE_OF_WOOD {
@@ -583,6 +682,15 @@ namespace LogCabin.Resources {
         internal static string PLAYER {
             get {
                 return ResourceManager.GetString("PLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du füllst etwas Petroleum in die Lampe. Nun sollte man sie wieder benutzen können..
+        /// </summary>
+        internal static string POOR_PETROLEUM_IN_LAMP {
+            get {
+                return ResourceManager.GetString("POOR_PETROLEUM_IN_LAMP", resourceCulture);
             }
         }
         

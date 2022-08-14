@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Heretic.InteractiveFiction.Exceptions;
 using Heretic.InteractiveFiction.GamePlay.EventSystem.EventArgs;
 using Heretic.InteractiveFiction.Objects;
@@ -13,6 +14,7 @@ internal class EventProvider
     private readonly IPrintingSubsystem printingSubsystem;
     private bool isPaperInStove;
     private bool isPetroleumInStove;
+    private bool isPetroleumInLamp;
 
     internal IDictionary<string, int> ScoreBoard => this.universe.ScoreBoard;
 
@@ -36,27 +38,9 @@ internal class EventProvider
     {
         if (sender is Location)
         {
-            if (this.universe.ActivePlayer.Items.All(x => x.Key != Keys.CANDLE))
+            if (!this.universe.ActivePlayer.Items.Any(x => x.IsLighter && x.IsLighterSwitchedOn))
             {
                 throw new BeforeChangeLocationException(Descriptions.CANT_LEAVE_ROOM_WITHOUT_LIGHT); 
-            }
-        }
-    }
-
-    internal void OpenCombustionChamber(object sender, ContainerObjectEventArgs eventArgs)
-    {
-        if (sender is Location { Key: Keys.LIVINGROOM } && eventArgs.ExternalItemKey == Keys.COMBUSTION_CHAMBER)
-        {
-            var item = this.universe.GetObjectFromWorldByKey(Keys.STOVE);
-            if (!item.IsClosed)
-            {
-                printingSubsystem.ItemAlreadyOpen(item);
-            }
-            else
-            {
-                item.IsClosed = false;
-                this.universe.UnveilFirstLevelObjects(item);
-                var result = printingSubsystem.ItemOpen(item);
             }
         }
     }
@@ -73,24 +57,6 @@ internal class EventProvider
         }
         
         throw new WaitException(BaseDescriptions.TIME_GOES_BY);
-    }
-    
-    internal void CloseCombustionChamber(object sender, ContainerObjectEventArgs eventArgs)
-    {
-        if (sender is Location { Key: Keys.LIVINGROOM } && eventArgs.ExternalItemKey == Keys.COMBUSTION_CHAMBER)
-        {
-            var item = this.universe.GetObjectFromWorldByKey(Keys.STOVE);
-            if (item.IsClosed)
-            {
-                printingSubsystem.ItemAlreadyClosed(item);
-            }
-            else
-            {
-                item.IsClosed = true;
-                this.HideItemsOnClose(item);
-                printingSubsystem.ItemClosed(item);
-            }
-        }
     }
     
     internal void ReadNote(object sender, ContainerObjectEventArgs eventArgs)
@@ -112,18 +78,6 @@ internal class EventProvider
             }
             
             this.isPaperInStove = true;
-        }
-    }
-    
-    
-    private void HideItemsOnClose(AHereticObject item)
-    {
-        if (item.IsClosed)
-        {
-            foreach (var child in item.Items.Where(x => x.HideOnContainerClose))
-            {
-                child.IsHidden = true;
-            }
         }
     }
 
@@ -168,6 +122,34 @@ internal class EventProvider
         }
     }
 
+    internal void PoorPetroleumInPetroleumLamp(object sender, UseItemEventArgs eventArgs)
+    {
+        if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
+        {
+            var itemList = new List<Item> { itemOne, itemTwo };
+            var petroleum = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM);
+            var destinationItem = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
+
+            if (petroleum != default && destinationItem != default)
+            {
+                if (!this.universe.ActivePlayer.OwnsItem(petroleum) || !this.universe.ActivePlayer.OwnsItem(petroleum))
+                {
+                    throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                }
+
+                if (isPetroleumInLamp)
+                {
+                    throw new UseException(Descriptions.ENOUGH_PETROLEUM_IN_LAMP);
+                }
+
+                isPetroleumInLamp = true;
+                destinationItem.FirstLookDescription = Descriptions.PETROLEUM_LAMP_FIRSTLOOK_POORED;
+                printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_IN_LAMP);
+                this.universe.Score += this.universe.ScoreBoard[nameof(this.PoorPetroleumInPetroleumLamp)];
+            }
+        }
+    }
+
     private void PreparePileOfWoodWithPetroleum()
     {
         var pileOfWood = this.universe.ActiveLocation.GetItemByKey(Keys.PILE_OF_WOOD);
@@ -176,62 +158,126 @@ internal class EventProvider
         printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_OVER_WOOD);
     }
 
-    internal void UseCandleWithPileOfWood(object sender, UseItemEventArgs eventArgs)
+    internal void UseLightersOnThings(object sender, UseItemEventArgs eventArgs)
     {
         if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
         {
             var itemList = new List<Item> { itemOne, itemTwo };
+            
+            //Candle and...
             var candle = itemList.SingleOrDefault(i => i.Key == Keys.CANDLE);
-            var wood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
-
-            if (candle != default && wood != default)
+            if (candle != default)
             {
                 if (!this.universe.ActivePlayer.OwnsItem(candle))
                 {
-                    throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                    throw new UseException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candle.AccusativeArticleName.LowerFirstChar()));     
                 }
                 
-                var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
-                if (stove is { IsClosed: true })
+                //... pile of wood
+                var pileOfWood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
+                if (pileOfWood != default)
                 {
-                    throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
+                    StartFireInStoveWithLighterAndWood();
                 }
-                
-                if (!this.isPetroleumInStove && !this.isPaperInStove)
+                else
                 {
-                    throw new UseException(Descriptions.NO_FIRE_ACCELERATOR);
+                    //... note
+                    var note = itemList.SingleOrDefault(i => i.Key == Keys.NOTE);
+                    if (note != default)
+                    {
+                        StartFireInStoveWithLighterAndNote(candle, note);
+                    }
+                    else
+                    {
+                        //... petroleum lamp
+                        var lamp = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
+                        if (lamp != default)
+                        {
+                            StartPetroleumLampWithCandle(lamp);
+                        }
+                    }
                 }
-                
-                if (stove.Items.Any(i => i.Key is Keys.NOTE))
-                {
-                    stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.NOTE));
-                    printingSubsystem.Resource(Descriptions.NOTE_BURNED);
-                }
-                else if (stove.Items.Any(i => i.Key is Keys.PETROLEUM))
-                {
-                    stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.PETROLEUM));
-                    printingSubsystem.Resource(Descriptions.PETROLEUM_BURNED);
-                }
-
-                printingSubsystem.Resource(Descriptions.FIRE_STARTER);
-                stove.IsClosed = true;
-                stove.BeforeOpen += this.CantOpenStoveOnFire;
-
-                var combustionChamber = this.universe.GetObjectFromWorldByKey(Keys.COMBUSTION_CHAMBER);
-                combustionChamber.BeforeOpen += this.CantOpenStoveOnFire;
-
-                this.universe.ActiveLocation.Open -= this.OpenCombustionChamber;
-                
-                candle.Use -= UseCandleWithPileOfWood;
-                wood.Use -= UseCandleWithPileOfWood;
-
-                this.universe.Score += this.universe.ScoreBoard[nameof(UseCandleWithPileOfWood)];
-                this.universe.SolveQuest(MetaData.QUEST_II);
             }
             else
             {
-                throw new UseException(BaseDescriptions.DOES_NOT_WORK);
+                //Petroleum lamp and...
+                var petroleumLamp = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
+                if (petroleumLamp != default)
+                {
+                    if (!this.universe.ActivePlayer.OwnsItem(petroleumLamp))
+                    {
+                        throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                    }
+                    
+                    if (!petroleumLamp.IsLighterSwitchedOn)
+                    {
+                        throw new UseException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLamp.AccusativeArticleName));
+                    }
+                
+                    //... pile of wood
+                    var pileOfWood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
+                    if (pileOfWood != default)
+                    {
+                        StartFireInStoveWithLighterAndWood();
+                    }
+                    else
+                    {
+                        //... note
+                        var note = itemList.SingleOrDefault(i => i.Key == Keys.NOTE);
+                        if (note != default)
+                        {
+                            StartFireInStoveWithLighterAndNote(petroleumLamp, note);
+                        }
+                    } 
+                }
             }
+        }
+    }
+
+    internal void StartPetroleumLampWithCandle(Item lamp)
+    {
+        if (!this.isPetroleumInLamp)
+        {
+            throw new UseException(Descriptions.NO_PETROLEUM_IN_LAMP);
+        }
+
+        if (lamp.IsLighterSwitchedOn)
+        {
+            throw new UseException(Descriptions.PETROLEUM_LAMP_IS_BURNING);
+        }
+
+        lamp.IsLighterSwitchedOn = true;
+        printingSubsystem.Resource(Descriptions.PETROLEUM_LAMP_SWITCH_ON);
+        this.universe.Score += this.universe.ScoreBoard[nameof(StartPetroleumLampWithCandle)];
+    }
+
+    private void StartFireInStoveWithLighterAndNote(Item lighter, Item note)
+    {
+        if (this.isPaperInStove)
+        {
+            CheckIfStoveIsOpen();
+            
+            RemovePaperFromStove();
+            
+            printingSubsystem.Resource(Descriptions.NOTE_BURNED);
+            printingSubsystem.Resource(Descriptions.FIRE_STARTER);
+        
+            CloseStoveBecauseItIsToHot();
+
+            AssignEventForCombustionChamber();
+        
+            this.universe.Score += this.universe.ScoreBoard[nameof(UseLightersOnThings)];
+            this.universe.SolveQuest(MetaData.QUEST_II);
+        }
+        else
+        {
+            if (!this.universe.ActivePlayer.OwnsItem(note))
+            {
+                throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+            }
+
+            this.universe.ActivePlayer.RemoveItem(note);
+            printingSubsystem.FormattedResource(Descriptions.BURN_NOTE, lighter.AccusativeArticleName, true);
         }
     }
 
@@ -259,5 +305,67 @@ internal class EventProvider
         }
     }
     
+    private void StartFireInStoveWithLighterAndWood()
+    {
+        CheckIfStoveIsOpen();
+
+        CheckForFireStarters();
+                
+        if (this.isPaperInStove)
+        {
+            RemovePaperFromStove();
+            printingSubsystem.Resource(Descriptions.NOTE_BURNED);
+        }
+        else if (this.isPetroleumInStove)
+        {
+            printingSubsystem.Resource(Descriptions.PETROLEUM_BURNED);
+        }
+        
+        printingSubsystem.Resource(Descriptions.FIRE_STARTER);
+        
+        CloseStoveBecauseItIsToHot();
+
+        AssignEventForCombustionChamber();
+        
+        this.universe.Score += this.universe.ScoreBoard[nameof(UseLightersOnThings)];
+        this.universe.SolveQuest(MetaData.QUEST_II);
+    }
+
+    private void AssignEventForCombustionChamber()
+    {
+        var combustionChamber = this.universe.GetObjectFromWorldByKey(Keys.COMBUSTION_CHAMBER);
+        combustionChamber.BeforeOpen += this.CantOpenStoveOnFire;
+    }
+
+    private void CloseStoveBecauseItIsToHot()
+    {
+        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        stove.IsClosed = true;
+        stove.BeforeOpen += this.CantOpenStoveOnFire;
+    }
+
+    private void CheckForFireStarters()
+    {
+        if (!this.isPetroleumInStove && !this.isPaperInStove)
+        {
+            throw new UseException(Descriptions.NO_FIRE_ACCELERATOR);
+        }
+    }
+
+    private void CheckIfStoveIsOpen()
+    {
+        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        if (stove is { IsClosed: true })
+        {
+            throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
+        }
+    }
+
+    private void RemovePaperFromStove()
+    {
+        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.NOTE));
+        this.isPaperInStove = false;
+    }
     
 }

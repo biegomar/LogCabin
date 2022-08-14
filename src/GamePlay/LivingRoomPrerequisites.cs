@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
@@ -18,6 +19,8 @@ internal static class LivingRoomPrerequisites
 
         livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
         livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.KINDLE, string.Empty);
+        livingRoom.AddOptionalVerb(VerbKeys.DROP, OptionalVerbs.PUT, string.Empty);
         
         livingRoom.Items.Add(GetTable(eventProvider));
         livingRoom.Items.Add(GetChest());
@@ -26,8 +29,6 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetDoor());
 
         AddChangeLocationEvents(livingRoom, eventProvider);
-        AddOpenEvents(livingRoom, eventProvider);
-        AddCloseEvents(livingRoom, eventProvider);
         AddWaitEvents(livingRoom, eventProvider);
         
         AddSurroundings(livingRoom);
@@ -133,7 +134,10 @@ internal static class LivingRoomPrerequisites
             Key = Keys.CANDLE,
             Name = Items.CANDLE,
             Description = Descriptions.CANDLE,
-            ContainmentDescription = Descriptions.CANDLE_CONTAINMENT
+            ContainmentDescription = Descriptions.CANDLE_CONTAINMENT,
+            IsLighter = true,
+            IsLighterSwitchedOn = true,
+            LighterSwitchedOnDescription = Descriptions.LIGHTER_ON
         };
         
         candle.Items.Add(GetIronKey());
@@ -160,6 +164,7 @@ internal static class LivingRoomPrerequisites
         
         AddReadEvents(note, eventProvider);
         AddDropEvents(note, eventProvider);
+        AddUseEvents(note, eventProvider);
         
         return note;
     }
@@ -285,16 +290,17 @@ internal static class LivingRoomPrerequisites
 
     private static void AddUseEvents(Item item, EventProvider eventProvider)
     {
-        item.Use += eventProvider.UseCandleWithPileOfWood;
-        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseCandleWithPileOfWood)))
+        item.Use += eventProvider.UseLightersOnThings;
+        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
         {
-            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseCandleWithPileOfWood), 1);
+            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);
         }
     }
-    
+
     private static void AddPoorEvents(Item item, EventProvider eventProvider)
     {
         item.Use += eventProvider.PoorPetroleumInStove;
+        item.Use += eventProvider.PoorPetroleumInPetroleumLamp;
     }
     
     private static void AddWaitEvents(Location room, EventProvider eventProvider)
@@ -305,16 +311,6 @@ internal static class LivingRoomPrerequisites
     private static void AddBeforeDropEvents(Item candle, EventProvider eventProvider)
     {
         candle.BeforeDrop += eventProvider.CantDropCandleInStove;
-    }
-    
-    private static void AddOpenEvents(Location room, EventProvider eventProvider)
-    {
-        room.Open += eventProvider.OpenCombustionChamber;
-    }
-    
-    private static void AddCloseEvents(Location room, EventProvider eventProvider)
-    {
-        room.Close += eventProvider.CloseCombustionChamber;
     }
     
     private static void AddReadEvents(Item note, EventProvider eventProvider)
