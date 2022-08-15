@@ -11,7 +11,10 @@ internal static class FreedomPrerequisites
         {
             Key = Keys.FREEDOM,
             Name = Locations.FREEDOM,
-            Description = Descriptions.FREEDOM
+            Description = Descriptions.FREEDOM,
+            IsLocked = true,
+            IsLockAble = true,
+            LockDescription = Descriptions.FREEDOM_LOCK_DESCRIPTION
         };
         
         return freedom;

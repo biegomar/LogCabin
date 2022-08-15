@@ -1,4 +1,3 @@
-using System.ComponentModel.Design;
 using Heretic.InteractiveFiction.Exceptions;
 using Heretic.InteractiveFiction.GamePlay.EventSystem.EventArgs;
 using Heretic.InteractiveFiction.Objects;
@@ -22,6 +21,15 @@ internal class EventProvider
     {
         this.printingSubsystem = printingSubsystem;
         this.universe = universe;
+    }
+
+    internal void UnhideMainEntrance(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.DOOR})
+        {
+            var destination = this.universe.GetDestinationNodeFromActiveLocationByDirection(Directions.S);
+            destination.IsHidden = false;
+        }
     }
     
     internal void TakeCandle(object sender, ContainerObjectEventArgs eventArgs)

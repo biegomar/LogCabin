@@ -204,7 +204,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Da das Petroleum flüssig ist, kannst Du es nicht einfach nehmen..
+        ///   Looks up a localized string similar to Da Petroleum flüssig ist, kannst Du es nicht einfach nehmen..
         /// </summary>
         internal static string CANT_TAKE_PETROLEUM {
             get {
@@ -363,6 +363,24 @@ namespace LogCabin.Resources {
         internal static string FREEDOM {
             get {
                 return ResourceManager.GetString("FREEDOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Der Weg in die Freiheit liegt scheinbar Richtung Süden..
+        /// </summary>
+        internal static string FREEDOM_DESTINATION_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("FREEDOM_DESTINATION_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doch die massive Holztür versperrt Dir den Weg..
+        /// </summary>
+        internal static string FREEDOM_LOCK_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("FREEDOM_LOCK_DESCRIPTION", resourceCulture);
             }
         }
         
@@ -569,7 +587,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Das Petroleum eignet sich wunderbar dafür, in eine entsprechende Lampe gefüllt zu werden. Aber auch als direkter Brandbeschleuniger kann es benutzt werden..
+        ///   Looks up a localized string similar to Petroleum eignet sich wunderbar dafür, in eine entsprechende Lampe gefüllt zu werden. Aber auch als direkter Brandbeschleuniger kann es benutzt werden..
         /// </summary>
         internal static string PETROLEUM {
             get {

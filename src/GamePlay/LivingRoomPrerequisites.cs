@@ -26,7 +26,7 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetKitchenCabinet(eventProvider));
-        livingRoom.Items.Add(GetDoor());
+        livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
         AddWaitEvents(livingRoom, eventProvider);
@@ -95,7 +95,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.PETROLEUM,
             Description = Descriptions.PETROLEUM,
             IsHidden = true,
-            Grammar = new Grammars(Genders.Neutrum, isSingular: false)
+            Grammar = new Grammars(Genders.Neutrum, isAbstract: true)
         };
 
         AddTakeEvents(petroleum, eventProvider);
@@ -184,7 +184,7 @@ internal static class LivingRoomPrerequisites
         return ironKey;
     }
 
-    private static Item GetDoor()
+    private static Item GetDoor(EventProvider eventProvider)
     {
         var door = new Item()
         {
@@ -197,8 +197,15 @@ internal static class LivingRoomPrerequisites
             IsClosed = true,
             IsCloseAble = true
         };
+        
+        AddLookEvents(door, eventProvider);
 
         return door;
+    }
+
+    private static void AddLookEvents(Item door, EventProvider eventProvider)
+    {
+        door.Look += eventProvider.UnhideMainEntrance;
     }
 
     private static Item GetChest()

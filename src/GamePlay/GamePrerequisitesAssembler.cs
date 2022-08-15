@@ -54,7 +54,7 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         {
             new() {Direction = Directions.N, Location = bedRoom},
             new() {Direction = Directions.DOWN, Location = cellar, IsHidden = true},
-            new() {Direction = Directions.S, Location = freedom, IsHidden = true}
+            new() {Direction = Directions.S, Location = freedom, IsHidden = true, DestinationDescription = Descriptions.FREEDOM_DESTINATION_DESCRIPTION}
         };
         return locationMap;
     }

@@ -20,6 +20,7 @@ internal static class BedRoomPrerequisites
         bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
         bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
         bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.KINDLE, string.Empty);
+        bedRoom.AddOptionalVerb(VerbKeys.DROP, OptionalVerbs.PUT, string.Empty);
         
         bedRoom.Items.Add(GetPetroleumLamp(eventProvider));
         
