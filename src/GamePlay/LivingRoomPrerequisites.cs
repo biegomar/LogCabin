@@ -278,6 +278,7 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.COOKTOP,
             LinkedToDescription = Descriptions.COOCKTOP_LINKEDTO,
             IsPickAble = false,
+            IsContainer = true,
             Grammar = new Grammars(Genders.Neutrum)
         };
 

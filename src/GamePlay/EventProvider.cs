@@ -57,7 +57,7 @@ internal class EventProvider
     {
         if (sender is Location {Key: Keys.LIVINGROOM})
         {
-            var candle = this.universe.GetObjectFromWorldByKey(Keys.CANDLE);
+            var candle = this.universe.GetObjectFromWorld(Keys.CANDLE);
             if (candle is { IsHidden: false })
             {
                 throw new WaitException(Descriptions.LIVINGROOM_WAIT);
@@ -109,7 +109,7 @@ internal class EventProvider
                     throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
                 }
                 
-                var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+                var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
                 if (stove is { IsClosed: true })
                 {
                     throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
@@ -160,7 +160,7 @@ internal class EventProvider
 
     private void PreparePileOfWoodWithPetroleum()
     {
-        var pileOfWood = this.universe.ActiveLocation.GetItemByKey(Keys.PILE_OF_WOOD);
+        var pileOfWood = this.universe.ActiveLocation.GetItem(Keys.PILE_OF_WOOD);
         pileOfWood.Description = Descriptions.PILE_OF_WOOD_WITH_PETROLEUM;
         this.isPetroleumInStove = true;
         printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_OVER_WOOD);
@@ -341,13 +341,13 @@ internal class EventProvider
 
     private void AssignEventForCombustionChamber()
     {
-        var combustionChamber = this.universe.GetObjectFromWorldByKey(Keys.COMBUSTION_CHAMBER);
+        var combustionChamber = this.universe.GetObjectFromWorld(Keys.COMBUSTION_CHAMBER);
         combustionChamber.BeforeOpen += this.CantOpenStoveOnFire;
     }
 
     private void CloseStoveBecauseItIsToHot()
     {
-        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
         stove.IsClosed = true;
         stove.BeforeOpen += this.CantOpenStoveOnFire;
     }
@@ -362,7 +362,7 @@ internal class EventProvider
 
     private void CheckIfStoveIsOpen()
     {
-        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
         if (stove is { IsClosed: true })
         {
             throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
@@ -371,7 +371,7 @@ internal class EventProvider
 
     private void RemovePaperFromStove()
     {
-        var stove = this.universe.ActiveLocation.GetItemByKey(Keys.STOVE);
+        var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
         stove.Items.Remove(stove.Items.Single(i => i.Key is Keys.NOTE));
         this.isPaperInStove = false;
     }
