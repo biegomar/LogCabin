@@ -339,6 +339,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Du willst wirklich {0} mit {1} anzünden? Wie soll das gehen?.
+        /// </summary>
+        internal static string FIRE_FIRE_WITH_FIRE {
+            get {
+                return ResourceManager.GetString("FIRE_FIRE_WITH_FIRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Die brennenden Scheite entwickeln schnell eine große Hitze. Damit Du Dich nicht verbrennst, schliesst Du den Ofen wieder. 
         ///Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärme im Raum breit macht..
         /// </summary>
@@ -381,6 +390,15 @@ namespace LogCabin.Resources {
         internal static string FREEDOM_LOCK_DESCRIPTION {
             get {
                 return ResourceManager.GetString("FREEDOM_LOCK_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wie genau möchtest Du das tun?.
+        /// </summary>
+        internal static string HOW_TO_DO {
+            get {
+                return ResourceManager.GetString("HOW_TO_DO", resourceCulture);
             }
         }
         
@@ -569,7 +587,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbig setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OPENING {
             get {

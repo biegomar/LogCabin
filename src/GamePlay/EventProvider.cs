@@ -240,6 +240,18 @@ internal class EventProvider
                 }
             }
         }
+
+        if (eventArgs.ItemToUse == default)
+        {
+            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+            return;
+        }
+
+        if (sender is Item senderItem && eventArgs.ItemToUse is Item itemToUse && senderItem.Key == itemToUse.Key)
+        {
+            printingSubsystem.Resource(string.Format(Descriptions.FIRE_FIRE_WITH_FIRE, senderItem.AccusativeArticleName.LowerFirstChar(),
+                itemToUse.DativeArticleName.LowerFirstChar()));
+        }
     }
 
     internal void StartPetroleumLampWithCandle(Item lamp)

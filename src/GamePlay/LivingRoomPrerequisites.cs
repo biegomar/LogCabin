@@ -260,7 +260,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.PILE_OF_WOOD,
             Description = Descriptions.PILE_OF_WOOD,
             IsPickAble = false,
-            Grammar = new Grammars(Genders.Neutrum, false)
+            Grammar = new Grammars(Genders.Neutrum, isAbstract: true)
         };
 
         AddUseEvents(wood, eventProvider);

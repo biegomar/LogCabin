@@ -25,7 +25,7 @@
         <value>Das bist Du.</value>
     </data>
     <data name="OPENING" xml:space="preserve">
-        <value>Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbigt setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst Du Dich auf und stehst nun auf wackeligen Beinen. Wo bist Du? Und wie bist Du hier her gekommen?</value>
+        <value>Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbig setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst Du Dich auf und stehst nun auf wackeligen Beinen. Wo bist Du? Und wie bist Du hier her gekommen?</value>
     </data>
     <data name="CLOSING" xml:space="preserve">
         <value>Vielen Dank, dass Du 'Die Waldhütte' gespielt hast.</value>
@@ -277,5 +277,11 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     </data>
     <data name="FREEDOM_LOCK_DESCRIPTION" xml:space="preserve">
         <value>Doch die massive Holztür versperrt Dir den Weg.</value>
+    </data>
+    <data name="HOW_TO_DO" xml:space="preserve">
+        <value>Wie genau möchtest Du das tun?</value>
+    </data>
+    <data name="FIRE_FIRE_WITH_FIRE" xml:space="preserve">
+        <value>Du willst wirklich {0} mit {1} anzünden? Wie soll das gehen?</value>
     </data>
 </root>
