@@ -122,7 +122,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to v0.1.5.
+        ///   Looks up a localized string similar to v0.1.6.
         /// </summary>
         internal static string VERSION {
             get {

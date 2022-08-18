@@ -22,6 +22,8 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         var attic = AtticPrerequisites.Get(this.eventProvider);
         var freedom = FreedomPrerequisites.Get();
         
+        this.eventProvider.AddEventsForUniverse();
+        
         var map = new LocationMap(new LocationComparer())
         {
             { livingRoom, LivingRoomLocationMap(bedRoom, cellar, freedom) },

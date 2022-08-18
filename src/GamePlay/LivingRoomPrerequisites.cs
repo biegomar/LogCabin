@@ -29,7 +29,6 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
-        AddWaitEvents(livingRoom, eventProvider);
         
         AddSurroundings(livingRoom);
 
@@ -118,6 +117,7 @@ internal static class LivingRoomPrerequisites
             IsPickAble = false,
             IsContainer = true,
             IsSurfaceContainer = true,
+            IsShownInObjectList = false,
             Grammar = new Grammars(Genders.Male)
         };
 
@@ -309,11 +309,6 @@ internal static class LivingRoomPrerequisites
     {
         item.Use += eventProvider.PoorPetroleumInStove;
         item.Use += eventProvider.PoorPetroleumInPetroleumLamp;
-    }
-    
-    private static void AddWaitEvents(Location room, EventProvider eventProvider)
-    {
-        room.Wait += eventProvider.WaitInLivingRoom;
     }
     
     private static void AddBeforeDropEvents(Item candle, EventProvider eventProvider)

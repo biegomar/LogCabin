@@ -14,6 +14,7 @@ internal class EventProvider
     private bool isPaperInStove;
     private bool isPetroleumInStove;
     private bool isPetroleumInLamp;
+    private int waitCounter;
 
     internal IDictionary<string, int> ScoreBoard => this.universe.ScoreBoard;
 
@@ -21,6 +22,7 @@ internal class EventProvider
     {
         this.printingSubsystem = printingSubsystem;
         this.universe = universe;
+        this.waitCounter = 0;
     }
 
     internal void UnhideMainEntrance(object sender, ContainerObjectEventArgs eventArgs)
@@ -53,24 +55,61 @@ internal class EventProvider
         }
     }
 
-    internal void WaitInLivingRoom(object sender, ContainerObjectEventArgs eventArgs)
+    internal void AddEventsForUniverse()
     {
-        if (sender is Location {Key: Keys.LIVINGROOM})
+        this.universe.PeriodicEvents += this.WaitForCandleToMelt;
+        this.ScoreBoard.Add(nameof(WaitForCandleToMelt), 1);
+    }
+
+    internal void WaitForCandleToMelt(object sender, PeriodicEventArgs eventArgs)
+    {
+        if (sender is Universe)
         {
             var candle = this.universe.GetObjectFromWorld(Keys.CANDLE);
-            if (candle is { IsHidden: false })
+            var cookTop = this.universe.GetObjectFromWorld(Keys.COOKTOP);
+
+            if (cookTop.IsLighterSwitchedOn && cookTop.OwnsItem((Item)candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
             {
-                throw new WaitException(Descriptions.LIVINGROOM_WAIT);
+                switch (waitCounter)
+                {
+                    case 0:
+                    {
+                        waitCounter++;
+                        throw new PeriodicException(Descriptions.MELT_CANDLE_I);
+                    }
+                    case 1:
+                    {
+                        waitCounter++;
+                        throw new PeriodicException(Descriptions.MELT_CANDLE_II);
+                    }
+                    case 2:
+                    {
+                        this.universe.PeriodicEvents -= WaitForCandleToMelt;
+                        
+                        var ironKey = candle.Items.Single(i => i.Key == Keys.IRON_KEY);
+                        ironKey.IsHidden = false;
+                        candle.RemoveItem(ironKey);
+                        
+                        cookTop.Items.Add(ironKey);
+                        cookTop.RemoveItem((Item)candle);
+                        
+                        this.universe.Score += this.universe.ScoreBoard[nameof(this.WaitForCandleToMelt)];
+                        
+                        throw new PeriodicException(Descriptions.MELT_CANDLE_III);
+                    }
+                }
             }
         }
-        
-        throw new WaitException(BaseDescriptions.TIME_GOES_BY);
     }
     
     internal void ReadNote(object sender, ContainerObjectEventArgs eventArgs)
     {
         if (sender is Item { Key: Keys.NOTE } note)
         {
+            printingSubsystem.ForegroundColor = TextColor.Magenta;
+            printingSubsystem.Resource(Descriptions.CENTRAL_MESSAGE_UNDERSTOOD);
+            printingSubsystem.ResetColors();
+            
             this.universe.Score += this.universe.ScoreBoard[nameof(this.ReadNote)];
             note.AfterRead -= this.ReadNote;
         }
@@ -284,6 +323,8 @@ internal class EventProvider
         
             CloseStoveBecauseItIsToHot();
 
+            IndicateThatCookingTopIsHot();
+
             AssignEventForCombustionChamber();
         
             this.universe.Score += this.universe.ScoreBoard[nameof(UseLightersOnThings)];
@@ -316,7 +357,7 @@ internal class EventProvider
             throw new TakeException(Descriptions.CANT_TAKE_PETROLEUM);
         }
     }
-    
+
     private void CantOpenStoveOnFire(object sender, ContainerObjectEventArgs eventArgs)
     {
         if (sender is Item { Key: Keys.STOVE or Keys.COMBUSTION_CHAMBER})
@@ -345,6 +386,8 @@ internal class EventProvider
         
         CloseStoveBecauseItIsToHot();
 
+        IndicateThatCookingTopIsHot();
+
         AssignEventForCombustionChamber();
         
         this.universe.Score += this.universe.ScoreBoard[nameof(UseLightersOnThings)];
@@ -362,6 +405,12 @@ internal class EventProvider
         var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
         stove.IsClosed = true;
         stove.BeforeOpen += this.CantOpenStoveOnFire;
+    }
+
+    private void IndicateThatCookingTopIsHot()
+    {
+        var cookTop = this.universe.ActiveLocation.GetItem(Keys.COOKTOP);
+        cookTop.IsLighterSwitchedOn = true;
     }
 
     private void CheckForFireStarters()

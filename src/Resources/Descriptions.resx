@@ -284,4 +284,16 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="FIRE_FIRE_WITH_FIRE" xml:space="preserve">
         <value>Du willst wirklich {0} mit {1} anzünden? Wie soll das gehen?</value>
     </data>
+    <data name="MELT_CANDLE_I" xml:space="preserve">
+        <value>Die Kerze beginnt durch die große Hitze der Platte zu schmelzen.</value>
+    </data>
+    <data name="MELT_CANDLE_II" xml:space="preserve">
+        <value>Das Wachs der Kerze zerfliesst ziemlich schnell und Du kannst plötzlich etwas durch die weiche, schmilzende Masse erkennen...</value>
+    </data>
+    <data name="MELT_CANDLE_III" xml:space="preserve">
+        <value>Das Wachs ist nun vollständig verflüssigt und fliesst hinweg. Übrig bleibt ein großer Schlüssel aus Eisen.</value>
+    </data>
+    <data name="CENTRAL_MESSAGE_UNDERSTOOD" xml:space="preserve">
+        <value>Nun gut. Zumindest weißt Du nun schon mal, um WAS es hier geht. Doch wer die Typen sind weißt Du noch immer nicht. Oh Gott, was passiert, wenn Du hier nicht rauskommst...?</value>
+    </data>
 </root>

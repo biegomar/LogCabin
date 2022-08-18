@@ -231,6 +231,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nun gut. Zumindest weißt Du nun schon mal, um WAS es hier geht. Doch wer die Typen sind weißt Du noch immer nicht. Oh Gott, was passiert, wenn Du hier nicht rauskommst...?.
+        /// </summary>
+        internal static string CENTRAL_MESSAGE_UNDERSTOOD {
+            get {
+                return ResourceManager.GetString("CENTRAL_MESSAGE_UNDERSTOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bei der Truhe handelt es sich um eine massive Kiste aus dicken, naturbelassenen Brettern. Der breite Deckel bietet genug Platz, um sich darauf zu setzen. An der Vorderseite kannst Du ein Schlüsselloch erkennen..
         /// </summary>
         internal static string CHEST {
@@ -525,6 +534,33 @@ namespace LogCabin.Resources {
         internal static string LIVINGROOM_WINDOW {
             get {
                 return ResourceManager.GetString("LIVINGROOM_WINDOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die Kerze beginnt durch die große Hitze der Platte zu schmelzen..
+        /// </summary>
+        internal static string MELT_CANDLE_I {
+            get {
+                return ResourceManager.GetString("MELT_CANDLE_I", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das Wachs der Kerze zerfliesst ziemlich schnell und Du kannst plötzlich etwas durch die weiche, schmilzende Masse erkennen....
+        /// </summary>
+        internal static string MELT_CANDLE_II {
+            get {
+                return ResourceManager.GetString("MELT_CANDLE_II", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das Wachs ist nun vollständig verflüssigt und fliesst hinweg. Übrig bleibt ein großer Schlüssel aus Eisen..
+        /// </summary>
+        internal static string MELT_CANDLE_III {
+            get {
+                return ResourceManager.GetString("MELT_CANDLE_III", resourceCulture);
             }
         }
         
