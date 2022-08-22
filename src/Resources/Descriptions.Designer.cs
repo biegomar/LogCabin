@@ -141,6 +141,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An der westlichen Wand befindet sich ein schmales Bücherregal..
+        /// </summary>
+        internal static string BOOKSHELF_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("BOOKSHELF_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Du hälst {0} an das Papier, das sofort lichterlohn in Flammen steht. Geistesgegewärtig lässt Du es los und es schwebt, getragen durch die Hitze des Feuers, eine kurze Zeit in der Luft. Ein letztes Mal flammt das Papier noch auf, das Feuer erstirbt und ein paar unbedeutende Aschekrümel fallen auf den Boden..
         /// </summary>
         internal static string BURN_NOTE {
@@ -511,7 +520,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt. An der westlichen Wand befindet sich ein schmales Bücherregal..
+        ///   Looks up a localized string similar to Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt..
         /// </summary>
         internal static string LIVINGROOM {
             get {

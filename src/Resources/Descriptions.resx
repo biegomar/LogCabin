@@ -19,7 +19,7 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="LIVINGROOM" xml:space="preserve">
-        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt. An der westlichen Wand befindet sich ein schmales Bücherregal.</value>
+        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt.</value>
     </data>
     <data name="PLAYER" xml:space="preserve">
         <value>Das bist Du.</value>
@@ -295,5 +295,8 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     </data>
     <data name="CENTRAL_MESSAGE_UNDERSTOOD" xml:space="preserve">
         <value>Nun gut. Zumindest weißt Du nun schon mal, um WAS es hier geht. Doch wer die Typen sind weißt Du noch immer nicht. Oh Gott, was passiert, wenn Du hier nicht rauskommst...?</value>
+    </data>
+    <data name="BOOKSHELF_CONTAINMENT" xml:space="preserve">
+        <value>An der westlichen Wand befindet sich ein schmales Bücherregal.</value>
     </data>
 </root>

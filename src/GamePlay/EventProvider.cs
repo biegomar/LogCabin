@@ -358,6 +358,28 @@ internal class EventProvider
         }
     }
 
+    internal void ReadBooks(object sender, ReadItemEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.BOOKS})
+        {
+            Description desc = this.GetBookTitle();
+            throw new ReadException(desc);
+        }
+    }
+    
+    internal Func<string> GetBookTitle()
+    {
+        var bookList = new List<string>
+        {
+            Descriptions.BOOK_I, Descriptions.BOOK_II, Descriptions.BOOK_III,
+            Descriptions.BOOK_IV, Descriptions.BOOK_V
+        }; 
+        
+        var rnd = new Random();
+        
+        return () => string.Format(Descriptions.BOOKS, bookList[rnd.Next(0, bookList.Count)]);
+    }
+
     private void CantOpenStoveOnFire(object sender, ContainerObjectEventArgs eventArgs)
     {
         if (sender is Item { Key: Keys.STOVE or Keys.COMBUSTION_CHAMBER})

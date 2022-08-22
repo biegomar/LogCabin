@@ -26,6 +26,7 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetKitchenCabinet(eventProvider));
+        livingRoom.Items.Add(GetBookShelf(eventProvider));
         livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -283,6 +284,46 @@ internal static class LivingRoomPrerequisites
 
         return cookTop;
     }
+    
+    private static Item GetBooks(EventProvider eventProvider)
+    {
+        var books = new Item()
+        {
+            Key = Keys.BOOKS,
+            Name = Items.BOOKS,
+            Description = eventProvider.GetBookTitle(),
+            IsSurrounding = true,
+            IsPickAble = false,
+            IsReadable = true,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        
+        AddReadBookEvents(books, eventProvider);
+        
+        return books;
+    }
+
+    private static Item GetBookShelf(EventProvider eventProvider)
+    {
+        var bookShelf = new Item()
+        {
+            Key = Keys.BOOKSHELF,
+            Name = Items.BOOKSHELF,
+            Description = Descriptions.BOOKSHELF,
+            ContainmentDescription = Descriptions.BOOKSHELF_CONTAINMENT,
+            IsPickAble = false,
+            Grammar = new Grammars(Genders.Neutrum)
+        };
+        
+        bookShelf.Items.Add(GetBooks(eventProvider));
+        
+        return bookShelf;
+    }
+
+    private static void AddReadBookEvents(Item item, EventProvider eventProvider)
+    {
+        item.BeforeRead += eventProvider.ReadBooks;
+    }
 
     private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)
     {
@@ -448,18 +489,7 @@ internal static class LivingRoomPrerequisites
             Grammar = new Grammars()
         };
         livingRoom.Items.Add(combustionChamber);
-        
-        var bookShelf = new Item()
-        {
-            Key = Keys.BOOKSHELF,
-            Name = Items.BOOKSHELF,
-            Description = Descriptions.BOOKSHELF,
-            IsSurrounding = true,
-            IsPickAble = false,
-            Grammar = new Grammars(Genders.Neutrum)
-        };
-        livingRoom.Items.Add(bookShelf);
-        
+
         var chimney = new Item()
         {
             Key = Keys.CHIMNEY,
@@ -470,30 +500,5 @@ internal static class LivingRoomPrerequisites
             Grammar = new Grammars(Genders.Male)
         };
         livingRoom.Items.Add(chimney);
-        
-        var books = new Item()
-        {
-            Key = Keys.BOOKS,
-            Name = Items.BOOKS,
-            Description = GetBookTitle(),
-            IsSurrounding = true,
-            IsPickAble = false,
-            Grammar = new Grammars(Genders.Neutrum)
-        };
-        livingRoom.Items.Add(books);
-    }
-
-    
-    private static Func<string> GetBookTitle()
-    {
-        var bookList = new List<string>
-        {
-            Descriptions.BOOK_I, Descriptions.BOOK_II, Descriptions.BOOK_III,
-            Descriptions.BOOK_IV, Descriptions.BOOK_V
-        }; 
-        
-        var rnd = new Random();
-        
-        return () => string.Format(Descriptions.BOOKS, bookList[rnd.Next(0, bookList.Count)]);
     }
 }
