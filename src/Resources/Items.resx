@@ -58,7 +58,7 @@
         <value>Decke|Zimmerdecke</value>
     </data>
     <data name="NOTE" xml:space="preserve">
-        <value>Blatt Papier|Zettel|Brief|Blatt|Papier</value>
+        <value>Notiz|Zettel|Brief|Blatt|Papier|Büttenpapier</value>
     </data>
     <data name="SHUTTER" xml:space="preserve">
         <value>Fensterläden|Fensterladen</value>

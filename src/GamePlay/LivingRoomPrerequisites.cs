@@ -158,8 +158,7 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.NOTE,
             IsHidden = true,
             IsReadable = true,
-            LetterContentDescription = Descriptions.NOTE_LETTER_CONTENT,
-            Grammar = new Grammars(Genders.Neutrum)
+            LetterContentDescription = Descriptions.NOTE_LETTER_CONTENT
         };
         
         AddReadEvents(note, eventProvider);

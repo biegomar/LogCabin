@@ -222,7 +222,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blatt Papier|Zettel|Brief|Blatt|Papier.
+        ///   Looks up a localized string similar to Notiz|Zettel|Brief|Blatt|Papier|Büttenpapier.
         /// </summary>
         internal static string NOTE {
             get {
