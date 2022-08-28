@@ -13,7 +13,7 @@ internal static class FreedomPrerequisites
             Name = Locations.FREEDOM,
             Description = Descriptions.FREEDOM,
             IsLocked = true,
-            IsLockAble = true,
+            IsLockable = true,
             LockDescription = Descriptions.FREEDOM_LOCK_DESCRIPTION
         };
         

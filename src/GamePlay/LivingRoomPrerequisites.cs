@@ -44,7 +44,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.KITCHEN_CABINET,
             Description = Descriptions.KITCHEN_CABINET,
             ContainmentDescription = Descriptions.KITCHEN_CABINET_CONTAINMENT,
-            IsPickAble = false,
+            IsPickable = false,
             IsContainer = true,
             Grammar = new Grammars(Genders.Male)
         };
@@ -115,7 +115,7 @@ internal static class LivingRoomPrerequisites
             Key = Keys.TABLE,
             Name = Items.TABLE,
             Description = Descriptions.TABLE,
-            IsPickAble = false,
+            IsPickable = false,
             IsContainer = true,
             IsSurfaceContainer = true,
             IsShownInObjectList = false,
@@ -177,7 +177,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.IRON_KEY,
             Description = Descriptions.IRON_KEY,
             IsHidden = true,
-            IsUnveilAble = false,
+            IsUnveilable = false,
             Grammar = new Grammars(Genders.Male)
         };
 
@@ -192,10 +192,10 @@ internal static class LivingRoomPrerequisites
             Name = Items.DOOR,
             Description = Descriptions.DOOR,
             FirstLookDescription = Descriptions.DOOR_FIRSTLOOK,
-            IsPickAble = false,
+            IsPickable = false,
             IsLocked = true,
             IsClosed = true,
-            IsCloseAble = true
+            IsCloseable = true
         };
         
         AddLookEvents(door, eventProvider);
@@ -216,11 +216,11 @@ internal static class LivingRoomPrerequisites
             Name = Items.CHEST,
             Description = Descriptions.CHEST,
             LockDescription = Descriptions.CHEST_LOCKED,
-            IsPickAble = false,
-            IsSeatAble = true,
+            IsPickable = false,
+            IsSeatable = true,
             IsLocked = true,
             IsClosed = true,
-            IsCloseAble = true
+            IsCloseable = true
         };
 
         return chest;
@@ -237,9 +237,9 @@ internal static class LivingRoomPrerequisites
             CloseDescription = Descriptions.STOVE_CLOSED,
             OpenDescription = Descriptions.STOVE_OPEN,
             ContainmentDescription = Descriptions.STOVE_CONTAINMENT,
-            IsPickAble = false,
+            IsPickable = false,
             IsClosed = true,
-            IsCloseAble = true,
+            IsCloseable = true,
             IsContainer = true,
             Grammar = new Grammars(Genders.Male)
         };
@@ -259,7 +259,7 @@ internal static class LivingRoomPrerequisites
             Key = Keys.PILE_OF_WOOD,
             Name = Items.PILE_OF_WOOD,
             Description = Descriptions.PILE_OF_WOOD,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum, isAbstract: true)
         };
 
@@ -277,7 +277,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.COOKTOP,
             Description = Descriptions.COOKTOP,
             LinkedToDescription = Descriptions.COOCKTOP_LINKEDTO,
-            IsPickAble = false,
+            IsPickable = false,
             IsContainer = true,
             Grammar = new Grammars(Genders.Neutrum)
         };
@@ -293,7 +293,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.BOOKS,
             Description = eventProvider.GetBookTitle(),
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             IsReadable = true,
             Grammar = new Grammars(Genders.Neutrum)
         };
@@ -311,7 +311,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.BOOKSHELF,
             Description = Descriptions.BOOKSHELF,
             ContainmentDescription = Descriptions.BOOKSHELF_CONTAINMENT,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         
@@ -375,7 +375,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.PLANK,
             Description = Descriptions.PLANK,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Female, false)
         };
         livingRoom.Items.Add(plank);
@@ -386,7 +386,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.KEY_HOLE,
             Description = Descriptions.KEY_HOLE,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         livingRoom.Items.Add(keyHole);
@@ -397,7 +397,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.KEY_HOLE_SHIELD,
             Description = Descriptions.KEY_HOLE_SHIELD,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         livingRoom.Items.Add(keyHoleShield);
@@ -408,7 +408,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.CHEST_LOCK,
             Description = Descriptions.CHEST_LOCK,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         livingRoom.Items.Add(chestLock);
@@ -419,7 +419,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.WALL,
             Description = Descriptions.WALL,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars()
         };
         livingRoom.Items.Add(wall);
@@ -430,7 +430,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.FLOOR,
             Description = Descriptions.FLOOR,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Male)
         };
         livingRoom.Items.Add(floor);
@@ -441,7 +441,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.CEILING,
             Description = Descriptions.CEILING,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars()
         };
         livingRoom.Items.Add(ceiling);
@@ -452,7 +452,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.LIVINGROOM_WINDOW,
             Description = Descriptions.LIVINGROOM_WINDOW,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         livingRoom.Items.Add(livingRoomWindows);
@@ -463,7 +463,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.SHUTTER,
             Description = Descriptions.SHUTTER,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(isSingular:false)
         };
         livingRoom.Items.Add(shutter);
@@ -474,7 +474,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.INSPECTION_WINDOW,
             Description = Descriptions.INSPECTION_WINDOW,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Neutrum)
         };
         livingRoom.Items.Add(inspectionWindows);
@@ -485,7 +485,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.COMBUSTION_CHAMBER,
             Description = Descriptions.COMBUSTION_CHAMBER,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars()
         };
         livingRoom.Items.Add(combustionChamber);
@@ -496,7 +496,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.CHIMNEY,
             Description = Descriptions.CHIMNEY,
             IsSurrounding = true,
-            IsPickAble = false,
+            IsPickable = false,
             Grammar = new Grammars(Genders.Male)
         };
         livingRoom.Items.Add(chimney);
