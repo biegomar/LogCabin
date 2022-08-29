@@ -42,7 +42,7 @@ internal static class BedRoomPrerequisites
             LighterSwitchedOnDescription = Descriptions.LIGHTER_ON
         };
 
-        AddUseEvents(lamp, eventProvider);
+        AddKindleEvents(lamp, eventProvider);
         AddPoorEvents(lamp, eventProvider);
         
         return lamp;
@@ -53,9 +53,9 @@ internal static class BedRoomPrerequisites
         room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
     }
     
-    private static void AddUseEvents(Item item, EventProvider eventProvider)
+    private static void AddKindleEvents(Item item, EventProvider eventProvider)
     {
-        item.Use += eventProvider.UseLightersOnThings;
+        item.Kindle += eventProvider.UseLightersOnThings;
         if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
         {
             eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);

@@ -19,7 +19,6 @@ internal static class LivingRoomPrerequisites
 
         livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
         livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
-        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.KINDLE, string.Empty);
         livingRoom.AddOptionalVerb(VerbKeys.DROP, OptionalVerbs.PUT, string.Empty);
         
         livingRoom.Items.Add(GetTable(eventProvider));
@@ -144,7 +143,7 @@ internal static class LivingRoomPrerequisites
         candle.Items.Add(GetIronKey());
 
         AddAfterTakeEvents(candle, eventProvider);
-        AddUseEvents(candle, eventProvider);
+        AddKindleEvents(candle, eventProvider);
         AddBeforeDropEvents(candle, eventProvider);
 
         return candle;
@@ -164,7 +163,7 @@ internal static class LivingRoomPrerequisites
         
         AddReadEvents(note, eventProvider);
         AddDropEvents(note, eventProvider);
-        AddUseEvents(note, eventProvider);
+        AddKindleEvents(note, eventProvider);
         
         return note;
     }
@@ -263,7 +262,7 @@ internal static class LivingRoomPrerequisites
             Grammar = new Grammars(Genders.Neutrum, isAbstract: true)
         };
 
-        AddUseEvents(wood, eventProvider);
+        AddKindleEvents(wood, eventProvider);
         AddPoorEvents(wood, eventProvider);
 
         return wood;
@@ -336,9 +335,9 @@ internal static class LivingRoomPrerequisites
         room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
     }
 
-    private static void AddUseEvents(Item item, EventProvider eventProvider)
+    private static void AddKindleEvents(Item item, EventProvider eventProvider)
     {
-        item.Use += eventProvider.UseLightersOnThings;
+        item.Kindle += eventProvider.UseLightersOnThings;
         if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
         {
             eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);

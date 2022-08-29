@@ -205,7 +205,7 @@ internal class EventProvider
         printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_OVER_WOOD);
     }
 
-    internal void UseLightersOnThings(object sender, UseItemEventArgs eventArgs)
+    internal void UseLightersOnThings(object sender, KindleItemEventArgs eventArgs)
     {
         if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
         {
@@ -217,7 +217,7 @@ internal class EventProvider
             {
                 if (!this.universe.ActivePlayer.OwnsItem(candle))
                 {
-                    throw new UseException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candle.AccusativeArticleName.LowerFirstChar()));     
+                    throw new KindleException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candle.AccusativeArticleName.LowerFirstChar()));     
                 }
                 
                 //... pile of wood
@@ -253,12 +253,12 @@ internal class EventProvider
                 {
                     if (!this.universe.ActivePlayer.OwnsItem(petroleumLamp))
                     {
-                        throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                        throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
                     }
                     
                     if (!petroleumLamp.IsLighterSwitchedOn)
                     {
-                        throw new UseException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLamp.AccusativeArticleName));
+                        throw new KindleException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLamp.AccusativeArticleName));
                     }
                 
                     //... pile of wood
@@ -297,12 +297,12 @@ internal class EventProvider
     {
         if (!this.isPetroleumInLamp)
         {
-            throw new UseException(Descriptions.NO_PETROLEUM_IN_LAMP);
+            throw new KindleException(Descriptions.NO_PETROLEUM_IN_LAMP);
         }
 
         if (lamp.IsLighterSwitchedOn)
         {
-            throw new UseException(Descriptions.PETROLEUM_LAMP_IS_BURNING);
+            throw new KindleException(Descriptions.PETROLEUM_LAMP_IS_BURNING);
         }
 
         lamp.IsLighterSwitchedOn = true;
@@ -334,7 +334,7 @@ internal class EventProvider
         {
             if (!this.universe.ActivePlayer.OwnsItem(note))
             {
-                throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
+                throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
             }
 
             this.universe.ActivePlayer.RemoveItem(note);
@@ -439,7 +439,7 @@ internal class EventProvider
     {
         if (!this.isPetroleumInStove && !this.isPaperInStove)
         {
-            throw new UseException(Descriptions.NO_FIRE_ACCELERATOR);
+            throw new KindleException(Descriptions.NO_FIRE_ACCELERATOR);
         }
     }
 
@@ -448,7 +448,7 @@ internal class EventProvider
         var stove = this.universe.ActiveLocation.GetItem(Keys.STOVE);
         if (stove is { IsClosed: true })
         {
-            throw new UseException(Descriptions.STOVE_MUST_BE_OPEN);
+            throw new KindleException(Descriptions.STOVE_MUST_BE_OPEN);
         }
     }
 
