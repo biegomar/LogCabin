@@ -387,6 +387,14 @@ internal class EventProvider
             throw new OpenException(Descriptions.CANT_OPEN_STOVE_ON_FIRE);
         }
     }
+
+    internal void SmellInLivingRoom(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Location {Key: Keys.LIVINGROOM})
+        {
+            throw new SmellException("Es liegt der feine Geruch von verbranntem Wachs in der Luft.");
+        }
+    }
     
     private void StartFireInStoveWithLighterAndWood()
     {
