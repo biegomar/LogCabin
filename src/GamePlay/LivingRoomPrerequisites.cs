@@ -216,9 +216,11 @@ internal static class LivingRoomPrerequisites
             Name = Items.CHEST,
             Description = Descriptions.CHEST,
             LockDescription = Descriptions.CHEST_LOCKED,
+            IsLocked = true,
+            IsLockable = true,
+            UnlockWithKey = Keys.IRON_KEY,
             IsPickable = false,
             IsSeatable = true,
-            IsLocked = true,
             IsClosed = true,
             IsCloseable = true
         };
