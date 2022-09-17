@@ -1,4 +1,5 @@
 using Heretic.InteractiveFiction.Exceptions;
+using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.GamePlay.EventSystem.EventArgs;
 using Heretic.InteractiveFiction.Objects;
 using Heretic.InteractiveFiction.Resources;
@@ -10,6 +11,7 @@ namespace LogCabin.GamePlay;
 internal class EventProvider
 {
     private readonly Universe universe;
+    private readonly ObjectHandler objectHandler;
     private readonly IPrintingSubsystem printingSubsystem;
     private bool isPaperInStove;
     private bool isPetroleumInStove;
@@ -22,6 +24,7 @@ internal class EventProvider
     {
         this.printingSubsystem = printingSubsystem;
         this.universe = universe;
+        this.objectHandler = new ObjectHandler(this.universe);
         this.waitCounter = 0;
     }
 
@@ -65,8 +68,8 @@ internal class EventProvider
     {
         if (sender is Universe)
         {
-            var candle = this.universe.GetObjectFromWorld(Keys.CANDLE);
-            var cookTop = this.universe.GetObjectFromWorld(Keys.COOKTOP);
+            var candle = this.objectHandler.GetObjectFromWorldByKey(Keys.CANDLE);
+            var cookTop = this.objectHandler.GetObjectFromWorldByKey(Keys.COOKTOP);
 
             if (cookTop.IsLighterSwitchedOn && cookTop.OwnsItem((Item)candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
             {
@@ -426,7 +429,7 @@ internal class EventProvider
 
     private void AssignEventForCombustionChamber()
     {
-        var combustionChamber = this.universe.GetObjectFromWorld(Keys.COMBUSTION_CHAMBER);
+        var combustionChamber = this.objectHandler.GetObjectFromWorldByKey(Keys.COMBUSTION_CHAMBER);
         combustionChamber.BeforeOpen += this.CantOpenStoveOnFire;
     }
 
