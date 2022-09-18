@@ -12,7 +12,7 @@ IPrintingSubsystem printingSubsystem = new ConsolePrinting();
 var universe = new Universe(printingSubsystem, resourceProvider);
 var eventProvider = new EventProvider(universe, printingSubsystem);
 IGamePrerequisitesAssembler gamePrerequisitesAssembler = new GamePrerequisitesAssembler(eventProvider);
-IGrammar grammar = new GermanGrammar();
+IGrammar grammar = new GermanGrammar(resourceProvider);
 var gameLoop = new GameLoop(printingSubsystem, universe, gamePrerequisitesAssembler, grammar);
 
 gameLoop.Run();
