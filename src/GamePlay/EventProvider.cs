@@ -27,6 +27,16 @@ internal class EventProvider
         this.objectHandler = new ObjectHandler(this.universe);
         this.waitCounter = 0;
     }
+    
+    internal void SetPlayersName(object sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Player)
+        {
+            this.universe.ActivePlayer.Name = eventArgs.ExternalItemKey;
+            this.universe.ActivePlayer.IsStranger = false;
+            printingSubsystem.ActivePlayer(this.universe.ActivePlayer);
+        }
+    }
 
     internal void UnhideMainEntrance(object sender, ContainerObjectEventArgs eventArgs)
     {
@@ -68,10 +78,10 @@ internal class EventProvider
     {
         if (sender is Universe)
         {
-            var candle = this.objectHandler.GetObjectFromWorldByKey(Keys.CANDLE);
-            var cookTop = this.objectHandler.GetObjectFromWorldByKey(Keys.COOKTOP);
+            var candleObject = this.objectHandler.GetObjectFromWorldByKey(Keys.CANDLE);
+            var cookTopObject = this.objectHandler.GetObjectFromWorldByKey(Keys.COOKTOP);
 
-            if (cookTop.IsLighterSwitchedOn && cookTop.OwnsItem((Item)candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
+            if (cookTopObject is Item { IsLighterSwitchedOn: true } cookTop && candleObject is Item candle && cookTop.OwnsItem(candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
             {
                 switch (waitCounter)
                 {

@@ -33,7 +33,7 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         };
 
         var activeLocation = livingRoom;
-        var activePlayer = PlayerPrerequisites.Get();
+        var activePlayer = PlayerPrerequisites.Get(this.eventProvider);
         var actualQuests = GetQuests();
         
         return new GamePrerequisites(map, activeLocation, activePlayer, null, actualQuests);
