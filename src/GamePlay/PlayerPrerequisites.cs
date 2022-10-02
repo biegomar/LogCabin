@@ -13,7 +13,7 @@ internal static class PlayerPrerequisites
             Key = Keys.PLAYER,
             Name = "",
             Description = Descriptions.PLAYER,
-            Grammar = new Grammars(Genders.Male, isPlayer:true)
+            Grammar = new IndividualObjectGrammar(Genders.Male, isPlayer:true)
         };
         
         AddToBeEvents(player, eventProvider);

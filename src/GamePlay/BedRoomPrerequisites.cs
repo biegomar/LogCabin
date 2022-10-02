@@ -15,7 +15,7 @@ internal static class BedRoomPrerequisites
             Key = Keys.BEDROOM,
             Name = Locations.BEDROOM,
             Description = Descriptions.BEDROOM,
-            Grammar = new Grammars(Genders.Neutrum)
+            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         
         bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);

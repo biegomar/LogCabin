@@ -13,7 +13,7 @@ internal static class AtticPrerequisites
             Key = Keys.ATTIC,
             Name = Locations.ATTIC,
             Description = Descriptions.ATTIC,
-            Grammar = new Grammars(Genders.Male)
+            Grammar = new IndividualObjectGrammar(Genders.Male)
         };
         
         AddChangeLocationEvents(attic, eventProvider);
