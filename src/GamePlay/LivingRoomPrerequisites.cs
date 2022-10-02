@@ -77,6 +77,7 @@ internal static class LivingRoomPrerequisites
             Key = Keys.LAMP_OIL_BUCKET,
             Name = Items.LAMP_OIL_BUCKET,
             Description = Descriptions.LAMP_OIL_BUCKET,
+            Adjectives = Adjectives.LAMP_OIL_BUCKET,
             FirstLookDescription = Descriptions.LAMP_OIL_BUCKET_FIRSTLOOK,
             ContainmentDescription = Descriptions.LAMP_OIL_BUCKET_CONTAINMENT,
             IsHidden = true
@@ -215,6 +216,7 @@ internal static class LivingRoomPrerequisites
             Key = Keys.CHEST,
             Name = Items.CHEST,
             Description = Descriptions.CHEST,
+            Adjectives = "groß",
             LockDescription = Descriptions.CHEST_LOCKED,
             IsLocked = true,
             IsLockable = true,
