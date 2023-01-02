@@ -11,8 +11,7 @@ internal class ResourceProvider : IResourceProvider
     public IDictionary<string, IEnumerable<string>> GetItemsFromResources()
     {
         var result = new Dictionary<string, IEnumerable<string>>();
-
-
+        
         ResourceSet resourceSet =
             Items.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
         if (resourceSet != null)
@@ -34,6 +33,25 @@ internal class ResourceProvider : IResourceProvider
 
         ResourceSet resourceSet =
             Characters.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        if (resourceSet != null)
+        {
+            foreach (DictionaryEntry entry in resourceSet)
+            {
+                var inputList = entry.Value?.ToString()?.Split('|').ToList();
+                var normalizedList = this.NormalizeResourceList(inputList);
+                result.Add(entry.Key.ToString()!, normalizedList);
+            }
+        }
+
+        return result;
+    }
+    
+    public IDictionary<string, IEnumerable<string>> GetLocationsFromResources()
+    {
+        var result = new Dictionary<string, IEnumerable<string>>();
+
+        ResourceSet resourceSet =
+            Locations.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
         if (resourceSet != null)
         {
             foreach (DictionaryEntry entry in resourceSet)
