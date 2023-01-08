@@ -1,6 +1,7 @@
 using Heretic.InteractiveFiction.Exceptions;
 using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.GamePlay.EventSystem.EventArgs;
+using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
 using Heretic.InteractiveFiction.Resources;
 using Heretic.InteractiveFiction.Subsystems;
@@ -57,13 +58,13 @@ internal class EventProvider
         }
     }
     
-    internal void ChangeRoomWithoutLight(object sender, ChangeLocationEventArgs eventArgs)
+    internal void EnterRoomWithoutLight(object sender, EnterLocationEventArgs eventArgs)
     {
         if (sender is Location)
         {
             if (!this.universe.ActivePlayer.Items.Any(x => x.IsLighter && x.IsLighterSwitchedOn))
             {
-                throw new BeforeChangeLocationException(Descriptions.CANT_LEAVE_ROOM_WITHOUT_LIGHT); 
+                throw new EnterLocationException(Descriptions.CANT_LEAVE_ROOM_WITHOUT_LIGHT); 
             }
         }
     }
@@ -81,7 +82,7 @@ internal class EventProvider
             var candleObject = this.objectHandler.GetObjectFromWorldByKey(Keys.CANDLE);
             var cookTopObject = this.objectHandler.GetObjectFromWorldByKey(Keys.COOKTOP);
 
-            if (cookTopObject is Item { IsLighterSwitchedOn: true } cookTop && candleObject is Item candle && cookTop.OwnsItem(candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
+            if (cookTopObject is Item { IsLighterSwitchedOn: true } cookTop && candleObject is Item candle && cookTop.OwnsObject(candle) && this.universe.ActiveLocation.Key == Keys.LIVINGROOM)
             {
                 switch (waitCounter)
                 {
@@ -156,7 +157,7 @@ internal class EventProvider
 
             if (petroleum != default && destinationItem != default)
             {
-                if (!this.universe.ActivePlayer.OwnsItem(petroleum))
+                if (!this.universe.ActivePlayer.OwnsObject(petroleum))
                 {
                     throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
                 }
@@ -192,7 +193,7 @@ internal class EventProvider
 
             if (petroleum != default && destinationItem != default)
             {
-                if (!this.universe.ActivePlayer.OwnsItem(petroleum) || !this.universe.ActivePlayer.OwnsItem(petroleum))
+                if (!this.universe.ActivePlayer.OwnsObject(petroleum) || !this.universe.ActivePlayer.OwnsObject(petroleum))
                 {
                     throw new UseException(BaseDescriptions.ITEM_NOT_OWNED);     
                 }
@@ -228,9 +229,10 @@ internal class EventProvider
             var candle = itemList.SingleOrDefault(i => i.Key == Keys.CANDLE);
             if (candle != default)
             {
-                if (!this.universe.ActivePlayer.OwnsItem(candle))
+                if (!this.universe.ActivePlayer.OwnsObject(candle))
                 {
-                    throw new KindleException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candle.AccusativeArticleName.LowerFirstChar()));     
+                    var candleName = ArticleHandler.GetNameWithArticleForObject(candle, GrammarCase.Accusative, lowerFirstCharacter: true);
+                    throw new KindleException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candleName));     
                 }
                 
                 //... pile of wood
@@ -264,14 +266,15 @@ internal class EventProvider
                 var petroleumLamp = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
                 if (petroleumLamp != default)
                 {
-                    if (!this.universe.ActivePlayer.OwnsItem(petroleumLamp))
+                    if (!this.universe.ActivePlayer.OwnsObject(petroleumLamp))
                     {
                         throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
                     }
                     
                     if (!petroleumLamp.IsLighterSwitchedOn)
                     {
-                        throw new KindleException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLamp.AccusativeArticleName));
+                        var petroleumLampName = ArticleHandler.GetNameWithArticleForObject(petroleumLamp, GrammarCase.Accusative);
+                        throw new KindleException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLampName));
                     }
                 
                     //... pile of wood
@@ -301,8 +304,9 @@ internal class EventProvider
 
         if (sender is Item senderItem && eventArgs.ItemToUse is Item itemToUse && senderItem.Key == itemToUse.Key)
         {
-            printingSubsystem.Resource(string.Format(Descriptions.FIRE_FIRE_WITH_FIRE, senderItem.AccusativeArticleName.LowerFirstChar(),
-                itemToUse.DativeArticleName.LowerFirstChar()));
+            var itemName = ArticleHandler.GetNameWithArticleForObject(itemToUse, GrammarCase.Dative, lowerFirstCharacter: true);
+            var senderItemName = ArticleHandler.GetNameWithArticleForObject(senderItem, GrammarCase.Accusative, lowerFirstCharacter: true);
+            printingSubsystem.Resource(string.Format(Descriptions.FIRE_FIRE_WITH_FIRE, senderItemName, itemName));
         }
     }
 
@@ -345,13 +349,14 @@ internal class EventProvider
         }
         else
         {
-            if (!this.universe.ActivePlayer.OwnsItem(note))
+            if (!this.universe.ActivePlayer.OwnsObject(note))
             {
                 throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
             }
 
             this.universe.ActivePlayer.RemoveItem(note);
-            printingSubsystem.FormattedResource(Descriptions.BURN_NOTE, lighter.AccusativeArticleName, true);
+            var lighterName = ArticleHandler.GetNameWithArticleForObject(lighter, GrammarCase.Accusative);
+            printingSubsystem.FormattedResource(Descriptions.BURN_NOTE, lighterName, true);
         }
     }
 

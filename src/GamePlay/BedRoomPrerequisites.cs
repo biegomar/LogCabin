@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using Heretic.InteractiveFiction.GamePlay;
+using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
 
@@ -14,7 +15,7 @@ internal static class BedRoomPrerequisites
             Key = Keys.BEDROOM,
             Name = Locations.BEDROOM,
             Description = Descriptions.BEDROOM,
-            Grammar = new Grammars(Genders.Neutrum)
+            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         
         bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
@@ -50,7 +51,7 @@ internal static class BedRoomPrerequisites
     
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
     {
-        room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
+        room.BeforeEnterLocation += eventProvider.EnterRoomWithoutLight;
     }
     
     private static void AddKindleEvents(Item item, EventProvider eventProvider)

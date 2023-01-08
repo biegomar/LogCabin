@@ -1,3 +1,4 @@
+using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
 
@@ -12,7 +13,7 @@ internal static class PlayerPrerequisites
             Key = Keys.PLAYER,
             Name = "",
             Description = Descriptions.PLAYER,
-            Grammar = new Grammars(Genders.Male, isPlayer:true)
+            Grammar = new IndividualObjectGrammar(Genders.Male)
         };
         
         AddToBeEvents(player, eventProvider);

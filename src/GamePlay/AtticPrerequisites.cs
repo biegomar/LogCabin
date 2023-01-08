@@ -1,3 +1,4 @@
+using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
 using LogCabin.Resources;
 
@@ -12,7 +13,7 @@ internal static class AtticPrerequisites
             Key = Keys.ATTIC,
             Name = Locations.ATTIC,
             Description = Descriptions.ATTIC,
-            Grammar = new Grammars(Genders.Male)
+            Grammar = new IndividualObjectGrammar(Genders.Male)
         };
         
         AddChangeLocationEvents(attic, eventProvider);
@@ -22,6 +23,6 @@ internal static class AtticPrerequisites
     
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
     {
-        room.BeforeChangeLocation += eventProvider.ChangeRoomWithoutLight;
+        room.BeforeEnterLocation += eventProvider.EnterRoomWithoutLight;
     }
 }
