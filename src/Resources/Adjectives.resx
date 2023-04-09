@@ -21,4 +21,7 @@
     <data name="LAMP_OIL_BUCKET" xml:space="preserve">
         <value>alt|verschmiert</value>
     </data>
+    <data name="CHEST" xml:space="preserve">
+        <value>groß</value>
+    </data>
 </root>

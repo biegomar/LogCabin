@@ -590,5 +590,41 @@ namespace LogCabin.Resources {
                 return ResourceManager.GetString("BOOKSHELF_CONTAINMENT", resourceCulture);
             }
         }
+        
+        internal static string CHEST_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("CHEST_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        internal static string TRY_TO_EAT_SAUSAGE {
+            get {
+                return ResourceManager.GetString("TRY_TO_EAT_SAUSAGE", resourceCulture);
+            }
+        }
+        
+        internal static string TABLE_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("TABLE_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        internal static string TABLE_CONTAINMENT_WITHOUT_CANDLE {
+            get {
+                return ResourceManager.GetString("TABLE_CONTAINMENT_WITHOUT_CANDLE", resourceCulture);
+            }
+        }
+        
+        internal static string UNLIGHT_NOT_POSSIBLE {
+            get {
+                return ResourceManager.GetString("UNLIGHT_NOT_POSSIBLE", resourceCulture);
+            }
+        }
+        
+        internal static string BLOW_OUT_NOT_POSSIBLE {
+            get {
+                return ResourceManager.GetString("BLOW_OUT_NOT_POSSIBLE", resourceCulture);
+            }
+        }
     }
 }

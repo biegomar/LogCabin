@@ -18,11 +18,9 @@ internal static class BedRoomPrerequisites
             Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         
-        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
-        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
-        bedRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.KINDLE, string.Empty);
-        bedRoom.AddOptionalVerb(VerbKeys.DROP, OptionalVerbs.PUT, string.Empty);
-        
+        bedRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.POOR, string.Empty);
+        bedRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+
         bedRoom.Items.Add(GetPetroleumLamp(eventProvider));
         
         AddChangeLocationEvents(bedRoom, eventProvider);
@@ -57,22 +55,13 @@ internal static class BedRoomPrerequisites
     private static void AddKindleEvents(Item item, EventProvider eventProvider)
     {
         item.Kindle += eventProvider.UseLightersOnThings;
-        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
-        {
-            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);
-        }
-        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.StartPetroleumLampWithCandle)))
-        {
-            eventProvider.ScoreBoard.Add(nameof(eventProvider.StartPetroleumLampWithCandle), 1);
-        }
+        eventProvider.RegisterScore(nameof(eventProvider.UseLightersOnThings), 1);
+        eventProvider.RegisterScore(nameof(eventProvider.StartPetroleumLampWithCandle), 1);
     }
     
     private static void AddPoorEvents(Item item, EventProvider eventProvider)
     {
         item.Use += eventProvider.PoorPetroleumInPetroleumLamp;
-        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.PoorPetroleumInPetroleumLamp)))
-        {
-            eventProvider.ScoreBoard.Add(nameof(eventProvider.PoorPetroleumInPetroleumLamp), 1);
-        }
+        eventProvider.RegisterScore(nameof(eventProvider.PoorPetroleumInPetroleumLamp), 1);
     }
 }

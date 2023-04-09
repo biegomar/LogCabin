@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
@@ -14,19 +13,19 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.LIVINGROOM,
             Name = Locations.LIVINGROOM,
-            Description = Descriptions.LIVINGROOM,
-            FirstLookDescription = Descriptions.CANDLE_CONTAINMENT
+            Description = Descriptions.LIVINGROOM
         };
 
-        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.POOR, string.Empty);
-        livingRoom.AddOptionalVerb(VerbKeys.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
-        livingRoom.AddOptionalVerb(VerbKeys.DROP, OptionalVerbs.PUT, string.Empty);
-        
+        livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.POOR, string.Empty);
+        livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+        livingRoom.AddOptionalVerb(VerbKey.SWITCHOFF, OptionalVerbs.BLOW, Descriptions.BLOW_OUT_NOT_POSSIBLE);
+        livingRoom.AddOptionalVerb(VerbKey.SWITCHOFF, OptionalVerbs.UNLIGHT, Descriptions.UNLIGHT_NOT_POSSIBLE);
+
         livingRoom.Items.Add(GetTable(eventProvider));
-        livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetKitchenCabinet(eventProvider));
         livingRoom.Items.Add(GetBookShelf(eventProvider));
+        livingRoom.Items.Add(GetChest());
         livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -50,13 +49,13 @@ internal static class LivingRoomPrerequisites
             Grammar = new IndividualObjectGrammar(Genders.Male)
         };
         
-        cabinet.Items.Add(GetSausage());
+        cabinet.Items.Add(GetSausage(eventProvider));
         cabinet.Items.Add(GetLampOilBucket(eventProvider));
 
         return cabinet;
     }
 
-    private static Item GetSausage()
+    private static Item GetSausage(EventProvider eventProvider)
     {
         var sausage = new Item
         {
@@ -65,8 +64,11 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.SAUSAGE,
             ContainmentDescription = Descriptions.SAUSAGE_CONTAINMENT,
             IsHidden = true,
-            Grammar = new IndividualObjectGrammar(Genders.Male)
+            IsEatable = true,
+            Grammar = new IndividualObjectGrammar()
         };
+        
+        AddEatEvents(sausage, eventProvider);
         
         return sausage;
     }
@@ -102,12 +104,18 @@ internal static class LivingRoomPrerequisites
 
         AddTakeEvents(petroleum, eventProvider);
         AddPoorEvents(petroleum, eventProvider);
+        AddPoorInLampEvents(petroleum, eventProvider);
         return petroleum;
     }
 
     private static void AddTakeEvents(Item petroleum, EventProvider eventProvider)
     {
         petroleum.BeforeTake += eventProvider.CantTakePetroleum;
+    }
+
+    private static void AddEatEvents(AHereticObject sausage, EventProvider eventProvider)
+    {
+        sausage.BeforeEat += eventProvider.TryToEatSausage;
     }
 
     private static Item GetTable(EventProvider eventProvider)
@@ -117,10 +125,10 @@ internal static class LivingRoomPrerequisites
             Key = Keys.TABLE,
             Name = Items.TABLE,
             Description = Descriptions.TABLE,
+            ContainmentDescription = Descriptions.TABLE_CONTAINMENT,
             IsPickable = false,
             IsContainer = true,
             IsSurfaceContainer = true,
-            IsShownInObjectList = false,
             Grammar = new IndividualObjectGrammar(Genders.Male)
         };
 
@@ -140,14 +148,15 @@ internal static class LivingRoomPrerequisites
             ContainmentDescription = Descriptions.CANDLE_CONTAINMENT,
             IsLighter = true,
             IsLighterSwitchedOn = true,
+            IsOnSurface = true,
             LighterSwitchedOnDescription = Descriptions.LIGHTER_ON
         };
         
         candle.Items.Add(GetIronKey());
 
-        AddAfterTakeEvents(candle, eventProvider);
+        AddCandleTakeEvents(candle, eventProvider);
         AddKindleEvents(candle, eventProvider);
-        AddBeforeDropEvents(candle, eventProvider);
+        AddCandleDropEvents(candle, eventProvider);
 
         return candle;
     }
@@ -161,6 +170,7 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.NOTE,
             IsHidden = true,
             IsReadable = true,
+            IsOnSurface = true,
             LetterContentDescription = Descriptions.NOTE_LETTER_CONTENT
         };
         
@@ -197,7 +207,8 @@ internal static class LivingRoomPrerequisites
             IsPickable = false,
             IsLocked = true,
             IsClosed = true,
-            IsCloseable = true
+            IsCloseable = true,
+            IsSurrounding = true
         };
         
         AddLookEvents(door, eventProvider);
@@ -217,15 +228,18 @@ internal static class LivingRoomPrerequisites
             Key = Keys.CHEST,
             Name = Items.CHEST,
             Description = Descriptions.CHEST,
-            Adjectives = "groß",
+            Adjectives = Adjectives.CHEST,
             LockDescription = Descriptions.CHEST_LOCKED,
+            ContainmentDescription = Descriptions.CHEST_CONTAINMENT,
             IsLocked = true,
             IsLockable = true,
             UnlockWithKey = Keys.IRON_KEY,
             IsPickable = false,
             IsSeatable = true,
             IsClosed = true,
-            IsCloseable = true
+            IsCloseable = true,
+            IsContainer = true,
+            IsSurfaceContainer = true
         };
 
         return chest;
@@ -246,14 +260,37 @@ internal static class LivingRoomPrerequisites
             IsClosed = true,
             IsCloseable = true,
             IsContainer = true,
+            IsSurfaceContainer = true,
             Grammar = new IndividualObjectGrammar(Genders.Male)
+        };
+        
+        var combustionChamber = new Item()
+        {
+            Key = Keys.COMBUSTION_CHAMBER,
+            Name = Items.COMBUSTION_CHAMBER,
+            Description = Descriptions.COMBUSTION_CHAMBER,
+            CloseDescription = Descriptions.STOVE_CLOSED,
+            OpenDescription = Descriptions.STOVE_OPEN,
+            IsSurrounding = true,
+            IsPickable = false,
+            IsCloseable = true,
+            IsClosed = true,
+            HideOnContainerClose = false,
+            IsContainer = true,
+            Grammar = new IndividualObjectGrammar()
         };
 
         AddPoorEvents(stove, eventProvider);
-        
-        stove.Items.Add(GetPileOfWood(eventProvider));
-        stove.LinkedTo.Add(GetCookTop(eventProvider));
+        AddAfterOpenAndCloseEvents(stove, eventProvider);
+        AddAfterOpenAndCloseEvents(combustionChamber, eventProvider);
 
+        var pileOfWood = GetPileOfWood(eventProvider);
+        
+        combustionChamber.Items.Add(pileOfWood);
+        
+        stove.Items.Add(pileOfWood);
+        stove.Items.Add(combustionChamber);
+        
         return stove;
     }
 
@@ -274,22 +311,6 @@ internal static class LivingRoomPrerequisites
         return wood;
     }
 
-    private static Item GetCookTop(EventProvider eventProvider)
-    {
-        var cookTop = new Item
-        {
-            Key = Keys.COOKTOP,
-            Name = Items.COOKTOP,
-            Description = Descriptions.COOKTOP,
-            LinkedToDescription = Descriptions.COOCKTOP_LINKEDTO,
-            IsPickable = false,
-            IsContainer = true,
-            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
-        };
-
-        return cookTop;
-    }
-    
     private static Item GetBooks(EventProvider eventProvider)
     {
         var books = new Item()
@@ -330,10 +351,11 @@ internal static class LivingRoomPrerequisites
         item.BeforeRead += eventProvider.ReadBooks;
     }
 
-    private static void AddAfterTakeEvents(Item item, EventProvider eventProvider)
+    private static void AddCandleTakeEvents(AHereticObject candle, EventProvider eventProvider)
     {
-        item.AfterTake += eventProvider.TakeCandle;
-        eventProvider.ScoreBoard.Add(nameof(eventProvider.TakeCandle), 1);
+        candle.BeforeTake += eventProvider.BeforeTakeCandle;
+        candle.Take += eventProvider.TakeCandle;
+        eventProvider.RegisterScore(nameof(eventProvider.TakeCandle), 1);
     }
 
     private static void AddChangeLocationEvents(Location room, EventProvider eventProvider)
@@ -344,32 +366,43 @@ internal static class LivingRoomPrerequisites
     private static void AddKindleEvents(Item item, EventProvider eventProvider)
     {
         item.Kindle += eventProvider.UseLightersOnThings;
-        if (!eventProvider.ScoreBoard.ContainsKey(nameof(eventProvider.UseLightersOnThings)))
-        {
-            eventProvider.ScoreBoard.Add(nameof(eventProvider.UseLightersOnThings), 1);
-        }
+        eventProvider.RegisterScore(nameof(eventProvider.UseLightersOnThings), 1);
     }
 
     private static void AddPoorEvents(Item item, EventProvider eventProvider)
     {
         item.Use += eventProvider.PoorPetroleumInStove;
+    }
+    
+    private static void AddPoorInLampEvents(Item item, EventProvider eventProvider)
+    {
         item.Use += eventProvider.PoorPetroleumInPetroleumLamp;
     }
     
-    private static void AddBeforeDropEvents(Item candle, EventProvider eventProvider)
+    private static void AddAfterOpenAndCloseEvents(Item item, EventProvider eventProvider)
+    {
+        item.AfterOpen += eventProvider.OpenStoveOrCombustionChamber;
+        item.AfterClose += eventProvider.CloseStoveOrCombustionChamber;
+    }
+    
+    private static void AddCandleDropEvents(Item candle, EventProvider eventProvider)
     {
         candle.BeforeDrop += eventProvider.CantDropCandleInStove;
+        
+        candle.AfterDrop += eventProvider.DropCandle;
+        candle.AfterPutOn+= eventProvider.DropCandle;
     }
     
     private static void AddReadEvents(Item note, EventProvider eventProvider)
     {
         note.AfterRead += eventProvider.ReadNote;
-        eventProvider.ScoreBoard.Add(nameof(eventProvider.ReadNote), 1);
+        eventProvider.RegisterScore(nameof(eventProvider.ReadNote), 1);
     }
     
     private static void AddDropEvents(Item note, EventProvider eventProvider)
     {
-        note.BeforeDrop += eventProvider.PutNoteInStove;
+        note.BeforeDrop += eventProvider.BeforeDropNoteInStove;
+        note.Drop += eventProvider.PutNoteInStove;
     }
 
     private static void AddSmellEvents(Location room, EventProvider eventProvider)
@@ -488,17 +521,6 @@ internal static class LivingRoomPrerequisites
             Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         livingRoom.Items.Add(inspectionWindows);
-        
-        var combustionChamber = new Item()
-        {
-            Key = Keys.COMBUSTION_CHAMBER,
-            Name = Items.COMBUSTION_CHAMBER,
-            Description = Descriptions.COMBUSTION_CHAMBER,
-            IsSurrounding = true,
-            IsPickable = false,
-            Grammar = new IndividualObjectGrammar()
-        };
-        livingRoom.Items.Add(combustionChamber);
 
         var chimney = new Item()
         {

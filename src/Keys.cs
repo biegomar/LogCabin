@@ -31,7 +31,6 @@ internal static class Keys
     internal const string STOVE = "STOVE";
     internal const string COMBUSTION_CHAMBER = "COMBUSTION_CHAMBER";
     internal const string CHIMNEY = "CHIMNEY";
-    internal const string COOKTOP = "COOKTOP";
     internal const string PILE_OF_WOOD = "PILE_OF_WOOD";
     internal const string KITCHEN_CABINET = "KITCHEN_CABINET";
     internal const string SAUSAGE = "SAUSAGE";

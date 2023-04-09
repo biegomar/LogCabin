@@ -50,5 +50,11 @@ namespace LogCabin.Resources {
                 return ResourceManager.GetString("LAMP_OIL_BUCKET", resourceCulture);
             }
         }
+        
+        internal static string CHEST {
+            get {
+                return ResourceManager.GetString("CHEST", resourceCulture);
+            }
+        }
     }
 }

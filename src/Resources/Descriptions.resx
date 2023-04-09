@@ -19,13 +19,13 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="LIVINGROOM" xml:space="preserve">
-        <value>Offensichtlich befindest Du Dich in einer Blockhütte. Alles um Dich herum, die Wände, der Boden, die Decke über Dir und ein großer Tisch, sind aus massivem Holz gefertigt.</value>
+        <value>Offensichtlich befindest Du Dich in einer Hütte, die aus massivem Holz gebaut ist.</value>
     </data>
     <data name="PLAYER" xml:space="preserve">
         <value>Das bist Du.</value>
     </data>
     <data name="OPENING" xml:space="preserve">
-        <value>Langsam öffnest Du Deine Augen. Ein pochender Schmerz durchdringt Deinen Schädel. Die Mischung aus Alkohol und diverser Partydrogen in der letzten Nacht scheint Dir nicht wirklich bekommen zu sein. So langsam gelingt es Dir, Deine Umgebung wahrzunehmen. Du liegst offensichtlich auf den harten Dielen eines Holzfußbodens. Behäbig setzt Du Dich auf und schaust Dich um. Irgendwo her spendet eine flackernde Lichtquelle ein spärliches Licht. Um Dich herum gibt es nichts, was Dir bekannt vorkommt. Langsam raffst Du Dich auf und stehst nun auf wackeligen Beinen. Wo bist Du? Und wie bist Du hier her gekommen?</value>
+        <value>Langsam öffnest Du Deine Augen und spürst einen pochenden Schmerz in Deinem Kopf. Die vergangene Nacht mit Alkohol und Partydrogen scheint Dir nicht gut bekommen zu sein. Du liegst auf den harten Dielen eines Holzfußbodens und setzt Dich behäbig auf. Die spärliche Beleuchtung verrät Dir nicht, wo Du bist. Verwirrt schaust Du Dich um und versuchst, Dich zu orientieren. Du fragst Dich, wo Du bist und wie Du in diese Situation geraten konntest. Du raffst Dich auf und stehst nun auf noch etwas wackeligen Beinen.</value>
     </data>
     <data name="CLOSING" xml:space="preserve">
         <value>Vielen Dank, dass Du 'Die Waldhütte' gespielt hast.</value>
@@ -64,13 +64,13 @@
         <value>Das Schlüsselloch ist der einzige sichtbare Hinweis auf den Schliessmechanismus der Truhe. Es ist mit einem geschnörkelten Schlüsselschild verziert und in das Schlüsselloch scheint ein recht großer Schlüssel hinein zu passen.</value>
     </data>
     <data name="TABLE" xml:space="preserve">
-        <value>Ein massiver Holztisch. Sieht sehr schwer aus.</value>
+        <value>Der Tisch hat eine robuste und langlebige Konstruktion und sieht durch die natürlichen Maserungen und Farben des Holzes sehr elegant aus. Es wirkt durch seine Größe und Materialbeschaffenheit sehr stabil und wertig.</value>
     </data>
     <data name="CANDLE" xml:space="preserve">
         <value>Eine große weiße Kerze, die bestimmt einige Tage brennen kann. </value>
     </data>
     <data name="CANDLE_CONTAINMENT" xml:space="preserve">
-        <value>Auf dem Tisch steht eine brennende Kerze, die ein spärliches Licht in den kalten Raum wirft.</value>
+        <value>Eine Kerze verbreitet ein spärliches Licht.</value>
     </data>
     <data name="CANT_LEAVE_ROOM_WITHOUT_LIGHT" xml:space="preserve">
         <value>Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?</value>
@@ -119,7 +119,7 @@ Um es kurz zu machen: bereite uns doch die Freude, Dir dabei zuzuschauen, wie Du
 Vielleicht bist Du ja der Erste, dem es gelingt? Und wenn nicht...na ja, das ist dann halt immer die unangenehme Seite an diesem Vergnügen. Aber Kopf hoch! Einer ist immer der Erste.
 
 Hochachtungsvoll.
-Nuit Macabre</value>
+Der Kult der Schwarzen Sonne</value>
     </data>
     <data name="SHUTTER" xml:space="preserve">
         <value>Die Fensterläden sind von Außen geschlossen und es dringt kein Licht in den Raum hinein.</value>
@@ -128,13 +128,13 @@ Nuit Macabre</value>
         <value>Das Sichtfenster des Ofens ist zwar leicht verrußt, aber es gibt dennoch den Blick frei auf die Brennkammer.</value>
     </data>
     <data name="STOVE_CONTAINMENT" xml:space="preserve">
-        <value>An der östlichen Wand steht ein alter Ofen, der mit Holz befeuert wird. Er dient wohl gleichermaßen zum Heizen, als auch zum Kochen.</value>
+        <value>An der östlichen Wand steht ein alter Ofen, der mit Holz befeuert wird und sowohl zum Heizen als auch zum Kochen dient.</value>
     </data>
     <data name="KITCHEN_CABINET" xml:space="preserve">
         <value>Das Regal besteht eigentlich nur aus zwei Brettern, die übereinander angebracht und an den Seiten jeweils verbunden sind.</value>
     </data>
     <data name="KITCHEN_CABINET_CONTAINMENT" xml:space="preserve">
-        <value>Über dem Ofen hängt ein kleiner offener Küchenschrank, der genug Platz für einige Küchenutensilien bieten könnte. Viel sieht man dort allerdings nicht.</value>
+        <value>Über dem Ofen hängt ein kleiner, offener Küchenschrank, der Platz für einige Küchenutensilien bietet, obwohl man nicht viel darin sieht.</value>
     </data>
     <data name="SAUSAGE" xml:space="preserve">
         <value>Ein Stück Dauerwurst, wahrscheinlich Salami. Es sieht schon leicht verdorben aus und Du würdest es nicht mehr essen wollen.</value>
@@ -207,10 +207,10 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
         <value>Das Ofenrohr ist ein handelsübliches, schwarz lackiertes Edelstahlrohr. Es ist fest mit dem Ofen und der Wand verbunden. Und ein Tipp: eine weitere Betrachtung des Gegenstandes wird Dich nicht weiter bringen!</value>
     </data>
     <data name="COOKTOP" xml:space="preserve">
-        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut. Ist der Ofen angefeuert, wird auch die Platte heiß. Eine Temperaturregulierung gibt es nicht. Die Temperatur ist einzig und allein von dem prasselnden Feuer des Ofens abhängig.</value>
+        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbunden. Ist der Ofen angefeuert, wird auch die Platte heiß. Eine Temperaturregulierung gibt es nicht. Die Temperatur ist einzig und allein von dem prasselnden Feuer des Ofens abhängig.</value>
     </data>
     <data name="COOCKTOP_LINKEDTO" xml:space="preserve">
-        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbaut und ermöglicht es, Speisen und andere Dinge zu erhitzen, sobald der Ofen befeuert wird.</value>
+        <value>Das gusseiserne Kochfeld ist fest mit dem Ofen verbunden und ermöglicht das Erhitzen von Speisen und anderen Dingen, sobald der Ofen befeuert wird.</value>
     </data>
     <data name="LIVINGROOM_WAIT" xml:space="preserve">
         <value>Die Kerze brennt ein kleines Stückchen weiter herunter.</value>
@@ -294,9 +294,27 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
         <value>Das Wachs ist nun vollständig verflüssigt und fliesst hinweg. Übrig bleibt ein großer Schlüssel aus Eisen.</value>
     </data>
     <data name="CENTRAL_MESSAGE_UNDERSTOOD" xml:space="preserve">
-        <value>Nun gut. Zumindest weißt Du nun schon mal, um WAS es hier geht. Doch wer die Typen sind weißt Du noch immer nicht. Oh Gott, was passiert, wenn Du hier nicht rauskommst...?</value>
+        <value>Du hast nun zumindest etwas über die Umstände erfahren, aber die Identitäten der Beteiligten bleiben im Dunkeln. Ein ungutes Gefühl beschleicht Dich bei dem Gedanken, dass Du hier tatsächlich nicht entkommen könntest. Wirst Du jemals herausfinden, wer diese Leute sind und was sie wirklich umtreibt oder wirst Du für immer in der Unwissenheit gefangen sein?</value>
     </data>
     <data name="BOOKSHELF_CONTAINMENT" xml:space="preserve">
         <value>An der westlichen Wand befindet sich ein schmales Bücherregal.</value>
+    </data>
+    <data name="CHEST_CONTAINMENT" xml:space="preserve">
+        <value>Du siehst außerdem eine große Holztruhe und eine Eingangstür.</value>
+    </data>
+    <data name="TRY_TO_EAT_SAUSAGE" xml:space="preserve">
+        <value>Ein widerlicher Gedanke. Das Stück ist definitiv nicht mehr für Menschen genießbar.</value>
+    </data>
+    <data name="TABLE_CONTAINMENT" xml:space="preserve">
+        <value>Im Raum befindet sich ein großer Tisch, auf dem eine brennende Kerze ein spärliches Licht verbreitet.</value>
+    </data>
+    <data name="TABLE_CONTAINMENT_WITHOUT_CANDLE" xml:space="preserve">
+        <value>Im Raum befindet sich ein großer Tisch.</value>
+    </data>
+    <data name="UNLIGHT_NOT_POSSIBLE" xml:space="preserve">
+        <value>Du kannst {0} nicht auspusten.</value>
+    </data>
+    <data name="BLOW_OUT_NOT_POSSIBLE" xml:space="preserve">
+        <value>Du kannst {0} nicht einfach auspusten.</value>
     </data>
 </root>

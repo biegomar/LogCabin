@@ -12,15 +12,17 @@ internal class ResourceProvider : IResourceProvider
     {
         var result = new Dictionary<string, IEnumerable<string>>();
         
-        ResourceSet resourceSet =
-            Items.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        var resourceSet = Items.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
         if (resourceSet != null)
         {
             foreach (DictionaryEntry entry in resourceSet)
             {
-                var inputList = entry.Value?.ToString()?.Split('|').ToList();
-                var normalizedList = this.NormalizeResourceList(inputList);
-                result.Add(entry.Key.ToString()!, normalizedList);
+                var inputList = entry.Value?.ToString()?.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                if (inputList?.Any() == true)
+                {
+                    var normalizedList = this.NormalizeResourceList(inputList);
+                    result.Add(entry.Key.ToString()!, normalizedList);
+                }
             }
         }
 
@@ -31,15 +33,17 @@ internal class ResourceProvider : IResourceProvider
     {
         var result = new Dictionary<string, IEnumerable<string>>();
 
-        ResourceSet resourceSet =
-            Characters.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        var resourceSet = Characters.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
         if (resourceSet != null)
         {
             foreach (DictionaryEntry entry in resourceSet)
             {
-                var inputList = entry.Value?.ToString()?.Split('|').ToList();
-                var normalizedList = this.NormalizeResourceList(inputList);
-                result.Add(entry.Key.ToString()!, normalizedList);
+                var inputList = entry.Value?.ToString()?.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                if (inputList?.Any() == true)
+                {
+                    var normalizedList = this.NormalizeResourceList(inputList);
+                    result.Add(entry.Key.ToString()!, normalizedList);
+                }
             }
         }
 
@@ -50,15 +54,17 @@ internal class ResourceProvider : IResourceProvider
     {
         var result = new Dictionary<string, IEnumerable<string>>();
 
-        ResourceSet resourceSet =
-            Locations.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+        var resourceSet = Locations.ResourceManager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
         if (resourceSet != null)
         {
             foreach (DictionaryEntry entry in resourceSet)
             {
-                var inputList = entry.Value?.ToString()?.Split('|').ToList();
-                var normalizedList = this.NormalizeResourceList(inputList);
-                result.Add(entry.Key.ToString()!, normalizedList);
+                var inputList = entry.Value?.ToString()?.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                if (inputList?.Any() == true)
+                {
+                    var normalizedList = this.NormalizeResourceList(inputList);
+                    result.Add(entry.Key.ToString()!, normalizedList);
+                }
             }
         }
 

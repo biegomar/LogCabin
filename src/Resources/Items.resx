@@ -64,13 +64,13 @@
         <value>Fensterläden|Fensterladen</value>
     </data>
     <data name="INSPECTION_WINDOW" xml:space="preserve">
-        <value>Sichtfenster</value>
+        <value>Sichtfenster|Sichtscheibe</value>
     </data>
     <data name="KITCHEN_CABINET" xml:space="preserve">
         <value>Küchenschrank|Küchenregal|Schrank</value>
     </data>
     <data name="SAUSAGE" xml:space="preserve">
-        <value>Wurstzipfel|Wurststück|Wurst|Salami</value>
+        <value>Wurst|SalamiWurstzipfel|Wurststück|Dauerwurst</value>
     </data>
     <data name="CHEST_LOCK" xml:space="preserve">
         <value>Einlassschloss|Schloss|Schloß|Einlassschloß|Kistenschloss|Kistenschloß</value>
