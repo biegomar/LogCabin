@@ -368,7 +368,7 @@ internal static class LivingRoomPrerequisites
         item.Kindle += eventProvider.UseLightersOnThings;
         eventProvider.RegisterScore(nameof(eventProvider.UseLightersOnThings), 1);
     }
-
+    
     private static void AddPoorEvents(Item item, EventProvider eventProvider)
     {
         item.Use += eventProvider.PoorPetroleumInStove;

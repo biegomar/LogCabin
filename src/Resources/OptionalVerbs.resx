@@ -28,6 +28,6 @@
         <value>Lösch|Lösche</value>
     </data>
     <data name="BLOW" xml:space="preserve">
-        <value>Puste:aus|Pusten:aus|Blase:aus|Blasen:aus</value>
+        <value>Puste:aus|Pusten:aus|Blas:aus|Blase:aus|Blasen:aus</value>
     </data>
 </root>
