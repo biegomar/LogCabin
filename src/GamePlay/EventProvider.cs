@@ -139,6 +139,8 @@ internal class EventProvider
                         candle.RemoveItem(ironKey);
                         
                         stove.Items.Add(ironKey);
+                        ironKey.IsOnSurface = true;
+                        
                         stove.RemoveItem(candle);
                         
                         this.scoreBoard.WinScore(nameof(WaitForCandleToMelt));
