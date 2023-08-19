@@ -231,6 +231,7 @@ internal static class LivingRoomPrerequisites
             Adjectives = Adjectives.CHEST,
             LockDescription = Descriptions.CHEST_LOCKED,
             ContainmentDescription = Descriptions.CHEST_CONTAINMENT,
+            CloseDescription = Descriptions.CHEST_CLOSED,
             IsLocked = true,
             IsLockable = true,
             UnlockWithKey = Keys.IRON_KEY,
@@ -261,6 +262,8 @@ internal static class LivingRoomPrerequisites
             IsCloseable = true,
             IsContainer = true,
             IsSurfaceContainer = true,
+            IsLighter = true,
+            LighterSwitchedOnDescription = Descriptions.STOVE_CLOSED_ON_FIRE,
             Grammar = new IndividualObjectGrammar(Genders.Male)
         };
         
