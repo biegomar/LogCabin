@@ -317,4 +317,13 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="BLOW_OUT_NOT_POSSIBLE" xml:space="preserve">
         <value>Du kannst {0} nicht einfach auspusten.</value>
     </data>
+    <data name="STOVE_CLOSED_ON_FIRE" xml:space="preserve">
+        <value>Ein prasselndes Feuer taucht den Raum in ein behagliches Licht und verbreitet eine wohlige Wärme.</value>
+    </data>
+    <data name="LIVINGROOM_SMELL" xml:space="preserve">
+        <value>Es liegt der feine Geruch von verbranntem Wachs in der Luft.</value>
+    </data>
+    <data name="CHEST_CLOSED" xml:space="preserve">
+        <value>Die Truhe ist geschlossen.</value>
+    </data>
 </root>
