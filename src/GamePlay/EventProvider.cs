@@ -469,8 +469,12 @@ internal class EventProvider
 
     internal void CantDropCandleInStove(object? sender, DropItemEventArgs eventArgs)
     {
-        if (sender is Item { Key: Keys.CANDLE } && eventArgs.ItemToUse is Item {Key: Keys.STOVE})
+        if (sender is Item { Key: Keys.CANDLE })
         {
+            if (eventArgs.ItemToUse is Item {Key: Keys.STOVE or Keys.COMBUSTION_CHAMBER, IsClosed: true})
+            {
+                throw new DropException(Descriptions.STOVE_MUST_BE_OPEN);
+            }
             throw new DropException(Descriptions.CANT_DROP_CANDLE_IN_STOVE);
         }
     }
@@ -517,7 +521,7 @@ internal class EventProvider
     {
         if (sender is Location {Key: Keys.LIVINGROOM})
         {
-            throw new SmellException("Es liegt der feine Geruch von verbranntem Wachs in der Luft.");
+            throw new SmellException(Descriptions.LIVINGROOM_SMELL);
         }
     }
     
