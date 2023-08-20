@@ -1,0 +1,9 @@
+l tisch
+l notiz
+lies notiz
+nimm sie
+i
+nimm die kerze
+öffne den ofen
+lege die notiz in den ofen
+entzünde die notiz mit der kerze

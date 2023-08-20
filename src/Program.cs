@@ -1,9 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Heretic.InteractiveFiction.GamePlay;
-using LogCabin.GamePlay;
+using LogCabin.Cli;
+using PowerArgs;
 
-IGamePrerequisitesAssembler gamePrerequisitesAssembler = new GamePrerequisitesAssembler();
-var gameLoop = new GameLoop(gamePrerequisitesAssembler);
-
-gameLoop.Run();
+try
+{
+    Args.InvokeMain<CommandHandler>(args);
+}
+catch (ArgException ex)
+{
+    Console.WriteLine(ex.Message);
+    Console.WriteLine(ArgUsage.GenerateUsageFromTemplate<CommandHandler>());
+}
