@@ -266,7 +266,20 @@ internal static class LivingRoomPrerequisites
             LighterSwitchedOnDescription = Descriptions.STOVE_CLOSED_ON_FIRE,
             Grammar = new IndividualObjectGrammar(Genders.Male)
         };
+
+        AddPoorEvents(stove, eventProvider);
+        AddAfterOpenAndCloseEvents(stove, eventProvider);
         
+        var pileOfWood = GetPileOfWood(eventProvider);
+        var combustionChamber = GetCombustionChamber(eventProvider, pileOfWood);
+        stove.Items.Add(combustionChamber);
+        stove.Items.Add(pileOfWood);
+        
+        return stove;
+    }
+
+    private static Item GetCombustionChamber(EventProvider eventProvider, Item pileOfWood)
+    {
         var combustionChamber = new Item()
         {
             Key = Keys.COMBUSTION_CHAMBER,
@@ -282,19 +295,12 @@ internal static class LivingRoomPrerequisites
             IsContainer = true,
             Grammar = new IndividualObjectGrammar()
         };
-
-        AddPoorEvents(stove, eventProvider);
-        AddAfterOpenAndCloseEvents(stove, eventProvider);
-        AddAfterOpenAndCloseEvents(combustionChamber, eventProvider);
-
-        var pileOfWood = GetPileOfWood(eventProvider);
         
         combustionChamber.Items.Add(pileOfWood);
         
-        stove.Items.Add(pileOfWood);
-        stove.Items.Add(combustionChamber);
-        
-        return stove;
+        AddAfterOpenAndCloseEvents(combustionChamber, eventProvider);
+
+        return combustionChamber;
     }
 
     private static Item GetPileOfWood(EventProvider eventProvider)
