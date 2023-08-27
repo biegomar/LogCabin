@@ -326,4 +326,22 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="CHEST_CLOSED" xml:space="preserve">
         <value>Die Truhe ist geschlossen.</value>
     </data>
+    <data name="MATCHBOX" xml:space="preserve">
+        <value>Dies ist eine Streichholzschachtel mit langen Zündhölzern.</value>
+    </data>
+    <data name="MATCHBOX_CONTAINMENT" xml:space="preserve">
+        <value>Auf dem Truhenboden siehst Du eine Streichholzschachtel.</value>
+    </data>
+    <data name="MATCH" xml:space="preserve">
+        <value>Es ist ein handelsübliches Streichholz.</value>
+    </data>
+    <data name="MATCH_CONTAINMENT" xml:space="preserve">
+        <value>In der Box befinden sich noch {0} Streichhölzer.</value>
+    </data>
+    <data name="MATCH_CONTAINMENT_EMPTY" xml:space="preserve">
+        <value>Es befinden sich keine Streichhölzer mehr in der Schachtel.</value>
+    </data>
+    <data name="BURNING_MATCH" xml:space="preserve">
+        <value>Es ist eines der Streichhölzer aus der Schachtel. Es brennt.</value>
+    </data>
 </root>

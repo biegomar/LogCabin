@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Heretic.InteractiveFiction.GamePlay;
 using Heretic.InteractiveFiction.Grammars;
 using Heretic.InteractiveFiction.Objects;
@@ -25,7 +26,7 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetStove(eventProvider));
         livingRoom.Items.Add(GetKitchenCabinet(eventProvider));
         livingRoom.Items.Add(GetBookShelf(eventProvider));
-        livingRoom.Items.Add(GetChest());
+        livingRoom.Items.Add(GetChest(eventProvider));
         livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
@@ -221,7 +222,7 @@ internal static class LivingRoomPrerequisites
         door.Look += eventProvider.UnhideMainEntrance;
     }
 
-    private static Item GetChest()
+    private static Item GetChest(EventProvider eventProvider)
     {
         var chest = new Item()
         {
@@ -242,8 +243,66 @@ internal static class LivingRoomPrerequisites
             IsContainer = true,
             IsSurfaceContainer = true
         };
+        
+        chest.Items.Add(GetMatchBox(eventProvider));
 
         return chest;
+    }
+    
+    private static Item GetMatchBox(EventProvider eventProvider)
+    {
+        var matchBox = new Item()
+        {
+            Key = Keys.MATCHBOX,
+            Name = Items.MATCHBOX,
+            Description = Descriptions.MATCHBOX,
+            ContainmentDescription = Descriptions.MATCHBOX_CONTAINMENT,
+            IsContainer = true,
+            IsClosed = false
+        };
+        
+        matchBox.Items.Add(GetMatch(eventProvider));
+        matchBox.Items.Add(GetBurningMatch(eventProvider));
+
+        return matchBox;
+    }
+
+    private static Func<string> GetMatchContainmentDescription(EventProvider eventProvider)
+    {
+        return () => string.Format(Descriptions.MATCH_CONTAINMENT, eventProvider.CountOfMatchesInBox);
+    }
+    
+    private static Item GetMatch(EventProvider eventProvider)
+    {
+        var match = new Item()
+        {
+            Key = Keys.MATCH,
+            Name = Items.MATCH,
+            Adjectives = Adjectives.MATCH,
+            Description = Descriptions.MATCH,
+            //ContainmentDescription = GetMatchContainmentDescription(eventProvider),
+            ContainerEmptyDescription = Descriptions.MATCH_CONTAINMENT_EMPTY,
+            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
+        };
+
+        return match;
+    }
+    
+    private static Item GetBurningMatch(EventProvider eventProvider)
+    {
+        var match = new Item()
+        {
+            Key = Keys.BURNING_MATCH,
+            //Name = Items.BURNING_MATCH,
+            //Adjectives = Adjectives.BURNING_MATCH,
+            Description = Descriptions.BURNING_MATCH,
+            ContainmentDescription = GetMatchContainmentDescription(eventProvider),
+            IsUnveilable = false,
+            IsHidden = false,
+            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
+        };
+
+        return match;
     }
 
     private static Item GetStove(EventProvider eventProvider)

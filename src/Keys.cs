@@ -37,6 +37,9 @@ internal static class Keys
     internal const string PETROLEUM = "PETROLEUM";
     internal const string LAMP_OIL_BUCKET = "LAMP_OIL_BUCKET";
     internal const string INSPECTION_WINDOW = "INSPECTION_WINDOW";
+    internal const string MATCHBOX = "MATCHBOX";
+    internal const string MATCH = "MATCH";
+    internal const string BURNING_MATCH = "BURNING_MATCH";
 
     //Bedroom
     internal const string BEDROOM = "BEDROOM";

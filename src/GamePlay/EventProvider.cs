@@ -19,7 +19,10 @@ internal class EventProvider
     private bool isPetroleumInStove;
     private bool isPetroleumInLamp;
     private int waitCounter;
-    
+    private int matchesInBox;
+
+    internal int CountOfMatchesInBox => this.matchesInBox;
+
     internal EventProvider(Universe universe, IPrintingSubsystem printingSubsystem, ScoreBoard scoreBoard)
     {
         this.printingSubsystem = printingSubsystem;
@@ -27,9 +30,15 @@ internal class EventProvider
         this.universe = universe;
         this.objectHandler = new ObjectHandler(this.universe);
         this.waitCounter = 0;
+        this.matchesInBox = 25;
         this.isPaperInStove = false;
         this.isPetroleumInStove= false;
         this.isPetroleumInLamp= false;
+    }
+
+    internal void TakeAMatchFromTheBox()
+    {
+        this.matchesInBox--;
     }
     
     internal void RegisterScore(string key, int value)

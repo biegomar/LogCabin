@@ -168,6 +168,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Es ist eines der Streichhölzer aus der Schachtel. Es brennt..
+        /// </summary>
+        internal static string BURNING_MATCH {
+            get {
+                return ResourceManager.GetString("BURNING_MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eine große weiße Kerze, die bestimmt einige Tage brennen kann. .
         /// </summary>
         internal static string CANDLE {
@@ -579,6 +588,51 @@ namespace LogCabin.Resources {
         internal static string LIVINGROOM_WINDOW {
             get {
                 return ResourceManager.GetString("LIVINGROOM_WINDOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es ist ein handelsübliches Streichholz..
+        /// </summary>
+        internal static string MATCH {
+            get {
+                return ResourceManager.GetString("MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In der Box befinden sich noch {0} Streichhölzer..
+        /// </summary>
+        internal static string MATCH_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("MATCH_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es befinden sich keine Streichhölzer mehr in der Schachtel..
+        /// </summary>
+        internal static string MATCH_CONTAINMENT_EMPTY {
+            get {
+                return ResourceManager.GetString("MATCH_CONTAINMENT_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dies ist eine Streichholzschachtel mit langen Zündhölzern..
+        /// </summary>
+        internal static string MATCHBOX {
+            get {
+                return ResourceManager.GetString("MATCHBOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auf dem Truhenboden siehst Du eine Streichholzschachtel..
+        /// </summary>
+        internal static string MATCHBOX_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("MATCHBOX_CONTAINMENT", resourceCulture);
             }
         }
         
