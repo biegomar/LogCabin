@@ -1,0 +1,17 @@
+l tisch
+l notiz
+lies notiz
+nimm sie
+i
+nimm die kerze
+öffne den ofen
+lege die notiz in den ofen
+entzünde die notiz mit der kerze
+stelle kerze auf ofen
+warte
+warte
+nimm den schlüssel
+schliesse die truhe mit dem schlüssel auf
+öffne die truhe
+l sie
+l streichholzschachtel
