@@ -601,6 +601,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das Streichholz brennt bereits..
+        /// </summary>
+        internal static string MATCH_ALREADY_BURNING {
+            get {
+                return ResourceManager.GetString("MATCH_ALREADY_BURNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es brennt..
+        /// </summary>
+        internal static string MATCH_BURNING {
+            get {
+                return ResourceManager.GetString("MATCH_BURNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In der Box befinden sich noch {0} Streichhölzer..
         /// </summary>
         internal static string MATCH_CONTAINMENT {

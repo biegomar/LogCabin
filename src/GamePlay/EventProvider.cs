@@ -120,6 +120,110 @@ internal class EventProvider
         }
     }
 
+    internal void AfterDropMatchInMatchBox(object? sender, DropItemEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.MATCH } match)
+        {
+            if (eventArgs.ItemToUse is Item {Key: Keys.MATCHBOX} matchBox)
+            {
+                if (matchBox.OwnsObject(match))
+                {
+                    match.IsShownInObjectList = false;
+                    matchBox.Spare["CountOfMatchesInBox"] = (int)matchBox.Spare["CountOfMatchesInBox"] + 1;    
+                }
+            }
+            else
+            {
+                match.IsShownInObjectList = true;
+            }
+        }
+    }
+    
+    internal void BeforeDropMatchInMatchBox(object? sender, DropItemEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.MATCH } match)
+        {
+            if (eventArgs.ItemToUse is Item {Key: Keys.MATCHBOX} matchBox)
+            {
+                if (!this.universe.ActivePlayer.OwnsObject(matchBox))
+                {
+                    throw new DropException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, matchBox.Name));
+                }
+                else if (match.IsLighterSwitchedOn)
+                {
+                    if ((int)matchBox.Spare["CountOfMatchesInBox"] == 0)
+                    {
+                        throw new DropException(
+                            "Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen.");    
+                    }
+                    
+                    throw new DropException(
+                        "WAS? Da sind noch andere Streichhölzer in der Schachtel. Das gäbe aber mal ein schönes Feuerwerk!");
+                }
+            }
+            else
+            {
+                if (match.IsLighterSwitchedOn)
+                {
+                    throw new DropException(
+                        "Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen.");
+                }
+            }
+        }
+    }
+
+    internal void KindleMatch(object? sender, KindleItemEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.MATCH} match)
+        {
+            if (!this.universe.ActivePlayer.OwnsObject(match))
+            {
+                throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);
+            }
+            
+            if (match.IsLighterSwitchedOn)
+            {
+                throw new KindleException(Descriptions.MATCH_ALREADY_BURNING);
+            }
+            
+            if (eventArgs.ItemToUse is Item {Key: Keys.MATCHBOX} matchbox)
+            {
+                if (!this.universe.ActivePlayer.OwnsObject(matchbox))
+                {
+                    throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);
+                }
+
+                match.IsLighterSwitchedOn = true;
+                this.printingSubsystem.Resource("Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich.");
+            }
+            else if (eventArgs.ItemToUse is Item {Key: Keys.PETROLEUM_LAMP} lamp)
+            {
+                if (!this.universe.ActivePlayer.OwnsObject(lamp))
+                {
+                    throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);
+                }
+
+                if (lamp.IsLighterSwitchedOn)
+                {
+                    match.IsLighterSwitchedOn = true;
+                    this.printingSubsystem.Resource("Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen.");
+                }
+                else
+                {
+                    throw new KindleException(Descriptions.PETROLEUM_LAMP_NOT_BURNING);
+                }
+            }
+            else if (eventArgs.ItemToUse == default)
+            {
+                throw new KindleException(BaseDescriptions.HOW_TO_KINDLE);
+            }
+            else
+            {
+                throw new KindleException(BaseDescriptions.DOES_NOT_WORK);
+            }
+        }
+    }
+
     internal void EnterRoomWithoutLight(object? sender, EnterLocationEventArgs eventArgs)
     {
         if (sender is Location)

@@ -24,9 +24,6 @@
     <data name="CHEST" xml:space="preserve">
         <value>groß</value>
     </data>
-    <data name="MATCH" xml:space="preserve">
-        <value>lang</value>
-    </data>
     <data name="BURNING_MATCH" xml:space="preserve">
         <value>brennend</value>
     </data>

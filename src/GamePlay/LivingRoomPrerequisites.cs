@@ -276,7 +276,7 @@ internal static class LivingRoomPrerequisites
     
     private static Func<string> GetMatchBoxEmptyDescription(Item matchBox)
     {
-        return () => (int)matchBox.Spare["CountOfMatchesInBox"] == 0
+        return () => (int)matchBox.Spare["CountOfMatchesInBox"] >= 1
             ? string.Empty
             : Descriptions.MATCH_CONTAINMENT_EMPTY;
     }
@@ -287,12 +287,17 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.MATCH,
             Name = Items.MATCH,
-            Adjectives = Adjectives.MATCH,
             Description = Descriptions.MATCH,
+            IsLighter = true,
+            IsLighterSwitchedOn = false,
+            LighterSwitchedOnDescription = Descriptions.MATCH_BURNING,
+            IsShownInObjectList = false,
             Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         
         AddTakeEventsForMatch(match, eventProvider);
+        AddAfterDropEventsForMatch(match, eventProvider);
+        AddKindleEventsForMatch(match, eventProvider);
 
         return match;
     }
@@ -300,6 +305,17 @@ internal static class LivingRoomPrerequisites
     private static void AddTakeEventsForMatch(Item match, EventProvider eventProvider)
     {
         match.BeforeTake += eventProvider.GetNextMatchFromMatchBox;
+    }
+    
+    private static void AddAfterDropEventsForMatch(Item match, EventProvider eventProvider)
+    {
+        match.BeforeDrop += eventProvider.BeforeDropMatchInMatchBox;
+        match.AfterDrop += eventProvider.AfterDropMatchInMatchBox;
+    }
+
+    private static void AddKindleEventsForMatch(Item match, EventProvider eventProvider)
+    {
+        match.Kindle += eventProvider.KindleMatch;
     }
 
     private static Item GetStove(EventProvider eventProvider)

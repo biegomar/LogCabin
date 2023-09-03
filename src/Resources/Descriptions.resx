@@ -344,4 +344,10 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="BURNING_MATCH" xml:space="preserve">
         <value>Es ist eines der Streichhölzer aus der Schachtel. Es brennt.</value>
     </data>
+    <data name="MATCH_ALREADY_BURNING" xml:space="preserve">
+        <value>Das Streichholz brennt bereits.</value>
+    </data>
+    <data name="MATCH_BURNING" xml:space="preserve">
+        <value>Es brennt.</value>
+    </data>
 </root>

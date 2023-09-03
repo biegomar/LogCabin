@@ -85,14 +85,5 @@ namespace LogCabin.Resources {
                 return ResourceManager.GetString("LAMP_OIL_BUCKET", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to lang.
-        /// </summary>
-        internal static string MATCH {
-            get {
-                return ResourceManager.GetString("MATCH", resourceCulture);
-            }
-        }
     }
 }
