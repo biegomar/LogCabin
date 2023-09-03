@@ -78,15 +78,6 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Streichholzchen|Zündholzchen.
-        /// </summary>
-        internal static string BURNING_MATCH {
-            get {
-                return ResourceManager.GetString("BURNING_MATCH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Kerze.
         /// </summary>
         internal static string CANDLE {

@@ -619,7 +619,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dies ist eine Streichholzschachtel mit langen Zündhölzern..
+        ///   Looks up a localized string similar to Dies ist eine Streichholzschachtel mit langen Zündhölzern. In ihr befinden sich noch {0} Streichhölzer..
         /// </summary>
         internal static string MATCHBOX {
             get {

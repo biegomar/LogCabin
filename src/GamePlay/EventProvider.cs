@@ -19,10 +19,7 @@ internal class EventProvider
     private bool isPetroleumInStove;
     private bool isPetroleumInLamp;
     private int waitCounter;
-    private int matchesInBox;
-
-    internal int CountOfMatchesInBox => this.matchesInBox;
-
+    
     internal EventProvider(Universe universe, IPrintingSubsystem printingSubsystem, ScoreBoard scoreBoard)
     {
         this.printingSubsystem = printingSubsystem;
@@ -30,15 +27,9 @@ internal class EventProvider
         this.universe = universe;
         this.objectHandler = new ObjectHandler(this.universe);
         this.waitCounter = 0;
-        this.matchesInBox = 25;
         this.isPaperInStove = false;
         this.isPetroleumInStove= false;
         this.isPetroleumInLamp= false;
-    }
-
-    internal void TakeAMatchFromTheBox()
-    {
-        this.matchesInBox--;
     }
     
     internal void RegisterScore(string key, int value)
@@ -97,6 +88,34 @@ internal class EventProvider
             if (eventArgs.ItemToUse is Item {Key: Keys.TABLE} table)
             {
                 table.ContainmentDescription = Descriptions.TABLE_CONTAINMENT;
+            }
+        }
+    }
+    
+    internal void GetNextMatchFromMatchBox(object? sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.MATCH } match)
+        {
+            if (this.universe.ActivePlayer.OwnsObject(match))
+            {
+                throw new TakeException(
+                    "Du hast bereits ein Streichholz in der Hand. Ein weiteres benötigst Du nicht.");
+            }
+
+            var matchBox = this.objectHandler.GetObjectFromWorldByKey(Keys.MATCHBOX);
+            
+            if (matchBox != null)
+            {
+                if ((int)matchBox.Spare["CountOfMatchesInBox"] == 0)
+                {
+                    throw new TakeException(
+                        "Es sind keine Streichhölzer mehr vorhanden.");
+                }
+
+                if (matchBox.OwnsObject(match))
+                {
+                    matchBox.Spare["CountOfMatchesInBox"] = (int)matchBox.Spare["CountOfMatchesInBox"] - 1;    
+                }
             }
         }
     }

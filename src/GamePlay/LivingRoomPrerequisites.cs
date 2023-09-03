@@ -255,21 +255,30 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.MATCHBOX,
             Name = Items.MATCHBOX,
-            Description = Descriptions.MATCHBOX,
             ContainmentDescription = Descriptions.MATCHBOX_CONTAINMENT,
             IsContainer = true,
             IsClosed = false
         };
         
+        matchBox.Spare.Add("CountOfMatchesInBox", 25);
+        matchBox.Description = GetMatchBoxDescription(matchBox);
+        matchBox.ContainerEmptyDescription = GetMatchBoxEmptyDescription(matchBox);
+        
         matchBox.Items.Add(GetMatch(eventProvider));
-        matchBox.Items.Add(GetBurningMatch(eventProvider));
 
         return matchBox;
     }
 
-    private static Func<string> GetMatchContainmentDescription(EventProvider eventProvider)
+    private static Func<string> GetMatchBoxDescription(Item matchBox)
     {
-        return () => string.Format(Descriptions.MATCH_CONTAINMENT, eventProvider.CountOfMatchesInBox);
+        return () => string.Format(Descriptions.MATCHBOX, (int)matchBox.Spare["CountOfMatchesInBox"]);
+    }
+    
+    private static Func<string> GetMatchBoxEmptyDescription(Item matchBox)
+    {
+        return () => (int)matchBox.Spare["CountOfMatchesInBox"] == 0
+            ? string.Empty
+            : Descriptions.MATCH_CONTAINMENT_EMPTY;
     }
     
     private static Item GetMatch(EventProvider eventProvider)
@@ -280,29 +289,17 @@ internal static class LivingRoomPrerequisites
             Name = Items.MATCH,
             Adjectives = Adjectives.MATCH,
             Description = Descriptions.MATCH,
-            //ContainmentDescription = GetMatchContainmentDescription(eventProvider),
-            ContainerEmptyDescription = Descriptions.MATCH_CONTAINMENT_EMPTY,
             Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
+        
+        AddTakeEventsForMatch(match, eventProvider);
 
         return match;
     }
-    
-    private static Item GetBurningMatch(EventProvider eventProvider)
-    {
-        var match = new Item()
-        {
-            Key = Keys.BURNING_MATCH,
-            //Name = Items.BURNING_MATCH,
-            //Adjectives = Adjectives.BURNING_MATCH,
-            Description = Descriptions.BURNING_MATCH,
-            ContainmentDescription = GetMatchContainmentDescription(eventProvider),
-            IsUnveilable = false,
-            IsHidden = false,
-            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
-        };
 
-        return match;
+    private static void AddTakeEventsForMatch(Item match, EventProvider eventProvider)
+    {
+        match.BeforeTake += eventProvider.GetNextMatchFromMatchBox;
     }
 
     private static Item GetStove(EventProvider eventProvider)

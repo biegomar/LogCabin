@@ -327,7 +327,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
         <value>Die Truhe ist geschlossen.</value>
     </data>
     <data name="MATCHBOX" xml:space="preserve">
-        <value>Dies ist eine Streichholzschachtel mit langen Zündhölzern.</value>
+        <value>Dies ist eine Streichholzschachtel mit langen Zündhölzern. In ihr befinden sich noch {0} Streichhölzer.</value>
     </data>
     <data name="MATCHBOX_CONTAINMENT" xml:space="preserve">
         <value>Auf dem Truhenboden siehst Du eine Streichholzschachtel.</value>

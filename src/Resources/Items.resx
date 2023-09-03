@@ -108,7 +108,4 @@
     <data name="MATCH" xml:space="preserve">
         <value>Streichholz|Zündholz</value>
     </data>
-    <data name="BURNING_MATCH" xml:space="preserve">
-        <value>Streichholzchen|Zündholzchen</value>
-    </data>
 </root>
