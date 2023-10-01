@@ -295,9 +295,12 @@ internal static class LivingRoomPrerequisites
             Grammar = new IndividualObjectGrammar(Genders.Neutrum)
         };
         
+        match.Spare.Add("NumberOfGameLoopBeforeDying", (int)10);
+        
         AddTakeEventsForMatch(match, eventProvider);
         AddAfterDropEventsForMatch(match, eventProvider);
         AddKindleEventsForMatch(match, eventProvider);
+        AddGameLoopEventsForMatch(match, eventProvider);
 
         return match;
     }
@@ -316,6 +319,11 @@ internal static class LivingRoomPrerequisites
     private static void AddKindleEventsForMatch(Item match, EventProvider eventProvider)
     {
         match.Kindle += eventProvider.KindleMatch;
+    }
+    
+    private static void AddGameLoopEventsForMatch(Item match, EventProvider eventProvider)
+    {
+        match.NextGameLoop += eventProvider.GetNextMatchFromMatchBoxAfterGameLoop;
     }
 
     private static Item GetStove(EventProvider eventProvider)

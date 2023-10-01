@@ -96,7 +96,7 @@ internal class EventProvider
     {
         if (sender is Item { Key: Keys.MATCH } match)
         {
-            if (this.universe.ActivePlayer.OwnsObject(match))
+            if (this.universe.ActivePlayer.Items.Contains(match))
             {
                 throw new TakeException(
                     "Du hast bereits ein Streichholz in der Hand. Ein weiteres benötigst Du nicht.");
@@ -115,6 +115,41 @@ internal class EventProvider
                 if (matchBox.OwnsObject(match))
                 {
                     matchBox.Spare["CountOfMatchesInBox"] = (int)matchBox.Spare["CountOfMatchesInBox"] - 1;    
+                }
+            }
+        }
+    }
+    
+    internal void GetNextMatchFromMatchBoxAfterGameLoop(object? sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item { Key: Keys.MATCH } match)
+        {
+            var matchBox = this.objectHandler.GetObjectFromWorldByKey(Keys.MATCHBOX);
+
+            if (matchBox != null)
+            {
+                var countOfMatchesInBox = (int)matchBox.Spare["CountOfMatchesInBox"];
+                var numberOfGameLoopBeforeDying = (int)match.Spare["NumberOfGameLoopBeforeDying"];
+                
+                match.Spare["NumberOfGameLoopBeforeDying"] = (int)match.Spare["NumberOfGameLoopBeforeDying"] - 1;
+
+                if (numberOfGameLoopBeforeDying == 5)
+                {
+                    this.printingSubsystem.Resource("Das Streichholz in Deiner Hand ist zur Hälfte abgebrannt.");
+                } else if (numberOfGameLoopBeforeDying == 0)
+                {
+                    if (countOfMatchesInBox > 0)
+                    {
+                        this.printingSubsystem.Resource("Das Streichholz in Deiner Hand ist abgebrannt. Damit Du weiterhin Licht hast, nimmst Du ein weiteres Streichholz aus der Schachtel und zündest es an.");
+                        
+                        matchBox.Spare["CountOfMatchesInBox"] = (int)matchBox.Spare["CountOfMatchesInBox"] - 1;
+                        match.Spare["NumberOfGameLoopBeforeDying"] = (int)10;
+
+                        if (countOfMatchesInBox < 10)
+                        {
+                            this.printingSubsystem.Resource("Es sind nicht mehr so viele Streichhölzer in der Schachtel. Du solltest langsam schauen, ob es nicht noch eine andere Lichtquelle gibt.");
+                        }
+                    }    
                 }
             }
         }
@@ -195,6 +230,7 @@ internal class EventProvider
 
                 match.IsLighterSwitchedOn = true;
                 this.printingSubsystem.Resource("Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich.");
+                this.universe.NextGameLoop += match.HandleNextGameLoop;
             }
             else if (eventArgs.ItemToUse is Item {Key: Keys.PETROLEUM_LAMP} lamp)
             {
@@ -207,6 +243,7 @@ internal class EventProvider
                 {
                     match.IsLighterSwitchedOn = true;
                     this.printingSubsystem.Resource("Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen.");
+                    this.universe.NextGameLoop += match.HandleNextGameLoop;
                 }
                 else
                 {
