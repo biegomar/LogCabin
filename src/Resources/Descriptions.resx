@@ -371,4 +371,10 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="CANT_DROP_MATCH_IN_BOX" xml:space="preserve">
         <value>WAS? Da sind noch andere Streichhölzer in der Schachtel. Das gäbe aber mal ein schönes Feuerwerk!</value>
     </data>
+    <data name="KINDLE_MATCH_WITH_BOX" xml:space="preserve">
+        <value>Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich.</value>
+    </data>
+    <data name="KINDLE_MATCH_WITH_LAMP" xml:space="preserve">
+        <value>Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen.</value>
+    </data>
 </root>

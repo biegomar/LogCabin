@@ -224,7 +224,7 @@ internal class EventProvider
                 }
 
                 match.IsLighterSwitchedOn = true;
-                this.printingSubsystem.Resource("Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich.");
+                this.printingSubsystem.Resource(Descriptions.KINDLE_MATCH_WITH_BOX);
                 this.universe.NextGameLoop += match.HandleNextGameLoop;
             }
             else if (eventArgs.ItemToUse is Item {Key: Keys.PETROLEUM_LAMP} lamp)
@@ -237,7 +237,7 @@ internal class EventProvider
                 if (lamp.IsLighterSwitchedOn)
                 {
                     match.IsLighterSwitchedOn = true;
-                    this.printingSubsystem.Resource("Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen.");
+                    this.printingSubsystem.Resource(Descriptions.KINDLE_MATCH_WITH_LAMP);
                     this.universe.NextGameLoop += match.HandleNextGameLoop;
                 }
                 else

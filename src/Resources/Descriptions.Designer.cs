@@ -511,6 +511,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich..
+        /// </summary>
+        internal static string KINDLE_MATCH_WITH_BOX {
+            get {
+                return ResourceManager.GetString("KINDLE_MATCH_WITH_BOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen..
+        /// </summary>
+        internal static string KINDLE_MATCH_WITH_LAMP {
+            get {
+                return ResourceManager.GetString("KINDLE_MATCH_WITH_LAMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Das Regal besteht eigentlich nur aus zwei Brettern, die übereinander angebracht und an den Seiten jeweils verbunden sind..
         /// </summary>
         internal static string KITCHEN_CABINET {
