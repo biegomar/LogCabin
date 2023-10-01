@@ -350,4 +350,25 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="MATCH_BURNING" xml:space="preserve">
         <value>Es brennt.</value>
     </data>
+    <data name="MATCH_PARTIALY_BURNED" xml:space="preserve">
+        <value>Das Streichholz in Deiner Hand ist zur Hälfte abgebrannt.</value>
+    </data>
+    <data name="MATCH_BURNED" xml:space="preserve">
+        <value>Das Streichholz in Deiner Hand ist abgebrannt. Damit Du weiterhin Licht hast, nimmst Du ein weiteres Streichholz aus der Schachtel und zündest es an.</value>
+    </data>
+    <data name="MATCHES_RUNNING_LOW" xml:space="preserve">
+        <value>Es sind nicht mehr so viele Streichhölzer in der Schachtel. Du solltest langsam schauen, ob es nicht noch eine andere Lichtquelle gibt.</value>
+    </data>
+    <data name="NO_MATCHES_LEFT" xml:space="preserve">
+        <value>Es sind keine Streichhölzer mehr vorhanden.</value>
+    </data>
+    <data name="MATCH_ALREADY_TAKEN" xml:space="preserve">
+        <value>Du hast bereits ein Streichholz in der Hand. Ein weiteres benötigst Du nicht.</value>
+    </data>
+    <data name="CANT_DROP_MATCH" xml:space="preserve">
+        <value>Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen.</value>
+    </data>
+    <data name="CANT_DROP_MATCH_IN_BOX" xml:space="preserve">
+        <value>WAS? Da sind noch andere Streichhölzer in der Schachtel. Das gäbe aber mal ein schönes Feuerwerk!</value>
+    </data>
 </root>

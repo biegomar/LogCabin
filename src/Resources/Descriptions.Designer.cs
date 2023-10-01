@@ -213,6 +213,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen..
+        /// </summary>
+        internal static string CANT_DROP_MATCH {
+            get {
+                return ResourceManager.GetString("CANT_DROP_MATCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WAS? Da sind noch andere Streichhölzer in der Schachtel. Das gäbe aber mal ein schönes Feuerwerk!.
+        /// </summary>
+        internal static string CANT_DROP_MATCH_IN_BOX {
+            get {
+                return ResourceManager.GetString("CANT_DROP_MATCH_IN_BOX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Der Raum, den Du betreten willst ist stockdunkel. Vielleicht nimmst Du irgendeine Lichtquelle mit?.
         /// </summary>
         internal static string CANT_LEAVE_ROOM_WITHOUT_LIGHT {
@@ -610,6 +628,24 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Du hast bereits ein Streichholz in der Hand. Ein weiteres benötigst Du nicht..
+        /// </summary>
+        internal static string MATCH_ALREADY_TAKEN {
+            get {
+                return ResourceManager.GetString("MATCH_ALREADY_TAKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Das Streichholz in Deiner Hand ist abgebrannt. Damit Du weiterhin Licht hast, nimmst Du ein weiteres Streichholz aus der Schachtel und zündest es an..
+        /// </summary>
+        internal static string MATCH_BURNED {
+            get {
+                return ResourceManager.GetString("MATCH_BURNED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Es brennt..
         /// </summary>
         internal static string MATCH_BURNING {
@@ -637,6 +673,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Das Streichholz in Deiner Hand ist zur Hälfte abgebrannt..
+        /// </summary>
+        internal static string MATCH_PARTIALY_BURNED {
+            get {
+                return ResourceManager.GetString("MATCH_PARTIALY_BURNED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dies ist eine Streichholzschachtel mit langen Zündhölzern. In ihr befinden sich noch {0} Streichhölzer..
         /// </summary>
         internal static string MATCHBOX {
@@ -651,6 +696,15 @@ namespace LogCabin.Resources {
         internal static string MATCHBOX_CONTAINMENT {
             get {
                 return ResourceManager.GetString("MATCHBOX_CONTAINMENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es sind nicht mehr so viele Streichhölzer in der Schachtel. Du solltest langsam schauen, ob es nicht noch eine andere Lichtquelle gibt..
+        /// </summary>
+        internal static string MATCHES_RUNNING_LOW {
+            get {
+                return ResourceManager.GetString("MATCHES_RUNNING_LOW", resourceCulture);
             }
         }
         
@@ -687,6 +741,15 @@ namespace LogCabin.Resources {
         internal static string NO_FIRE_ACCELERATOR {
             get {
                 return ResourceManager.GetString("NO_FIRE_ACCELERATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es sind keine Streichhölzer mehr vorhanden..
+        /// </summary>
+        internal static string NO_MATCHES_LEFT {
+            get {
+                return ResourceManager.GetString("NO_MATCHES_LEFT", resourceCulture);
             }
         }
         

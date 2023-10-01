@@ -98,8 +98,7 @@ internal class EventProvider
         {
             if (this.universe.ActivePlayer.Items.Contains(match))
             {
-                throw new TakeException(
-                    "Du hast bereits ein Streichholz in der Hand. Ein weiteres benötigst Du nicht.");
+                throw new TakeException(Descriptions.MATCH_ALREADY_TAKEN);
             }
 
             var matchBox = this.objectHandler.GetObjectFromWorldByKey(Keys.MATCHBOX);
@@ -108,8 +107,7 @@ internal class EventProvider
             {
                 if ((int)matchBox.Spare["CountOfMatchesInBox"] == 0)
                 {
-                    throw new TakeException(
-                        "Es sind keine Streichhölzer mehr vorhanden.");
+                    throw new TakeException(Descriptions.NO_MATCHES_LEFT);
                 }
 
                 if (matchBox.OwnsObject(match))
@@ -135,19 +133,19 @@ internal class EventProvider
 
                 if (numberOfGameLoopBeforeDying == 5)
                 {
-                    this.printingSubsystem.Resource("Das Streichholz in Deiner Hand ist zur Hälfte abgebrannt.");
+                    this.printingSubsystem.Resource(Descriptions.MATCH_PARTIALY_BURNED);
                 } else if (numberOfGameLoopBeforeDying == 0)
                 {
                     if (countOfMatchesInBox > 0)
                     {
-                        this.printingSubsystem.Resource("Das Streichholz in Deiner Hand ist abgebrannt. Damit Du weiterhin Licht hast, nimmst Du ein weiteres Streichholz aus der Schachtel und zündest es an.");
+                        this.printingSubsystem.Resource(Descriptions.MATCH_BURNED);
                         
                         matchBox.Spare["CountOfMatchesInBox"] = (int)matchBox.Spare["CountOfMatchesInBox"] - 1;
                         match.Spare["NumberOfGameLoopBeforeDying"] = (int)10;
 
                         if (countOfMatchesInBox < 10)
                         {
-                            this.printingSubsystem.Resource("Es sind nicht mehr so viele Streichhölzer in der Schachtel. Du solltest langsam schauen, ob es nicht noch eine andere Lichtquelle gibt.");
+                            this.printingSubsystem.Resource(Descriptions.MATCHES_RUNNING_LOW);
                         }
                     }    
                 }
@@ -188,20 +186,17 @@ internal class EventProvider
                 {
                     if ((int)matchBox.Spare["CountOfMatchesInBox"] == 0)
                     {
-                        throw new DropException(
-                            "Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen.");    
+                        throw new DropException(Descriptions.CANT_DROP_MATCH);    
                     }
                     
-                    throw new DropException(
-                        "WAS? Da sind noch andere Streichhölzer in der Schachtel. Das gäbe aber mal ein schönes Feuerwerk!");
+                    throw new DropException(Descriptions.CANT_DROP_MATCH_IN_BOX);
                 }
             }
             else
             {
                 if (match.IsLighterSwitchedOn)
                 {
-                    throw new DropException(
-                        "Da hier fast alles aus Holz ist, lässt Du das brennende Streichholz besser nicht fallen.");
+                    throw new DropException(Descriptions.CANT_DROP_MATCH);
                 }
             }
         }
