@@ -26,12 +26,18 @@ internal class EventProvider
         this.scoreBoard = scoreBoard;
         this.universe = universe;
         this.objectHandler = new ObjectHandler(this.universe);
+        
+        InitializeStates();
+    }
+
+    private void InitializeStates()
+    {
         this.waitCounter = 0;
         this.isPaperInStove = false;
-        this.isPetroleumInStove= false;
-        this.isPetroleumInLamp= false;
+        this.isPetroleumInStove = false;
+        this.isPetroleumInLamp = false;
     }
-    
+
     internal void RegisterScore(string key, int value)
     {
         this.scoreBoard.RegisterScore(key, value);
