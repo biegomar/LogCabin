@@ -266,7 +266,7 @@ internal class EventProvider
     {
         if (sender is Location)
         {
-            if (!this.universe.ActivePlayer.Items.Any(x => x.IsLighter && x.IsLighterSwitchedOn))
+            if (!HasPlayerSwitchedOnLighter())
             {
                 throw new EnterLocationException(Descriptions.CANT_LEAVE_ROOM_WITHOUT_LIGHT); 
             }
@@ -754,5 +754,10 @@ internal class EventProvider
         chamber?.Items.Remove(chamber.Items.Single(i => i.Key is Keys.NOTE));
         
         this.isPaperInStove = false;
+    }
+    
+    private bool HasPlayerSwitchedOnLighter()
+    {
+        return this.universe.ActivePlayer.Items.Any(x => x.IsLighter && x.IsLighterSwitchedOn);
     }
 }
