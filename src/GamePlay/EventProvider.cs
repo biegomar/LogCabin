@@ -497,90 +497,69 @@ internal class EventProvider
             printingSubsystem.Resource(Descriptions.POOR_PETROLEUM_OVER_WOOD);    
         }
     }
-
-    internal void UseLightersOnThings(object? sender, KindleItemEventArgs eventArgs)
+    
+    internal void UseCandleOrMatchOnLamp(object? sender, KindleItemEventArgs eventArgs)
     {
-        if (sender is Item itemOne && eventArgs.ItemToUse is Item itemTwo && itemOne.Key != itemTwo.Key)
+        if (sender is Item {Key: Keys.PETROLEUM_LAMP} lamp && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.MATCH} lighter && lighter.Key != lamp.Key)
         {
-            var itemList = new List<Item> { itemOne, itemTwo };
-            
-            //Candle and...
-            var candle = itemList.SingleOrDefault(i => i.Key == Keys.CANDLE);
-            if (candle != default)
-            {
-                if (!this.universe.ActivePlayer.OwnsObject(candle))
-                {
-                    var candleName = ArticleHandler.GetNameWithArticleForObject(candle, GrammarCase.Accusative, lowerFirstCharacter: true);
-                    throw new KindleException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, candleName));     
-                }
-                
-                //... pile of wood
-                var pileOfWood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
-                if (pileOfWood != default)
-                {
-                    StartFireInStoveWithLighterAndWood();
-                }
-                else
-                {
-                    //... note
-                    var note = itemList.SingleOrDefault(i => i.Key == Keys.NOTE);
-                    if (note != default)
-                    {
-                        StartFireInStoveWithLighterAndNote(candle, note);
-                    }
-                    else
-                    {
-                        //... petroleum lamp
-                        var lamp = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
-                        if (lamp != default)
-                        {
-                            StartPetroleumLampWithCandle(lamp);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                //Petroleum lamp and...
-                var petroleumLamp = itemList.SingleOrDefault(i => i.Key == Keys.PETROLEUM_LAMP);
-                if (petroleumLamp != default)
-                {
-                    if (!this.universe.ActivePlayer.OwnsObject(petroleumLamp))
-                    {
-                        throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
-                    }
-                    
-                    if (!petroleumLamp.IsLighterSwitchedOn)
-                    {
-                        var petroleumLampName = ArticleHandler.GetNameWithArticleForObject(petroleumLamp, GrammarCase.Accusative);
-                        throw new KindleException(string.Format(Descriptions.PETROLEUM_LAMP_NOT_BURNING, petroleumLampName));
-                    }
-                
-                    //... pile of wood
-                    var pileOfWood = itemList.SingleOrDefault(i => i.Key == Keys.PILE_OF_WOOD);
-                    if (pileOfWood != default)
-                    {
-                        StartFireInStoveWithLighterAndWood();
-                    }
-                    else
-                    {
-                        //... note
-                        var note = itemList.SingleOrDefault(i => i.Key == Keys.NOTE);
-                        if (note != default)
-                        {
-                            StartFireInStoveWithLighterAndNote(petroleumLamp, note);
-                        }
-                    } 
-                }
-            }
-        }
+            CheckIfItemIsOwned(lighter);
 
+            StartPetroleumLamp(lamp);
+        }
+        
         if (eventArgs.ItemToUse == default)
         {
             printingSubsystem.Resource(Descriptions.HOW_TO_DO);
-            return;
         }
+        
+        CheckIfTryToKindleItself(sender, eventArgs);
+    }
+    
+    internal void UseCandleOrLampOnPileOfWood(object? sender, KindleItemEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.PILE_OF_WOOD} wood && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != wood.Key)
+        {
+            CheckIfItemIsOwned(lighter);
 
+            StartFireInStoveWithLighterAndWood();
+        }
+        else if (eventArgs.ItemToUse == default)
+        {
+            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+        }
+        
+        CheckIfTryToKindleItself(sender, eventArgs);
+    }
+    
+    internal void UseCandleOrLampOnNote(object? sender, KindleItemEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.NOTE} note && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != note.Key)
+        {
+            CheckIfItemIsOwned(lighter);
+
+            StartFireInStoveWithLighterAndNote(lighter, note);
+        }
+        else if (eventArgs.ItemToUse == default)
+        {
+            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+        }
+        
+        CheckIfTryToKindleItself(sender, eventArgs);
+    }
+    
+    private void CheckIfItemIsOwned(Item item)
+    {
+        if (!this.universe.ActivePlayer.OwnsObject(item))
+        {
+            var name =
+                ArticleHandler.GetNameWithArticleForObject(item, GrammarCase.Accusative,
+                    lowerFirstCharacter: true);
+            throw new KindleException(string.Format(BaseDescriptions.ITEM_NOT_OWNED_FORMATTED, name));
+        }
+    }
+
+    private void CheckIfTryToKindleItself(object? sender, KindleItemEventArgs eventArgs)
+    {
         if (sender is Item senderItem && eventArgs.ItemToUse is Item itemToUse && senderItem.Key == itemToUse.Key)
         {
             var itemName = ArticleHandler.GetNameWithArticleForObject(itemToUse, GrammarCase.Dative, lowerFirstCharacter: true);
@@ -588,8 +567,8 @@ internal class EventProvider
             printingSubsystem.Resource(string.Format(Descriptions.FIRE_FIRE_WITH_FIRE, senderItemName, itemName));
         }
     }
-
-    internal void StartPetroleumLampWithCandle(Item lamp)
+    
+    internal void StartPetroleumLamp(Item lamp)
     {
         if (!this.isPetroleumInLamp)
         {
@@ -603,40 +582,10 @@ internal class EventProvider
 
         lamp.IsLighterSwitchedOn = true;
         printingSubsystem.Resource(Descriptions.PETROLEUM_LAMP_SWITCH_ON);
-        this.scoreBoard.WinScore(nameof(StartPetroleumLampWithCandle));
+        this.scoreBoard.WinScore(nameof(StartPetroleumLamp));
     }
 
-    private void StartFireInStoveWithLighterAndNote(Item lighter, Item note)
-    {
-        if (this.isPaperInStove)
-        {
-            CheckIfStoveIsOpen();
-            
-            RemovePaperFromStove();
-            
-            printingSubsystem.Resource(Descriptions.NOTE_BURNED);
-            printingSubsystem.Resource(Descriptions.FIRE_STARTER);
-        
-            CloseStoveAndCombustionChamber(true);
-
-            IndicateThatStoveIsHot();
-            
-            this.scoreBoard.WinScore(nameof(UseLightersOnThings));
-            this.universe.SolveQuest(MetaData.QUEST_II);
-        }
-        else
-        {
-            if (!this.universe.ActivePlayer.OwnsObject(note))
-            {
-                throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
-            }
-
-            this.universe.ActivePlayer.RemoveItem(note);
-            var lighterName = ArticleHandler.GetNameWithArticleForObject(lighter, GrammarCase.Accusative);
-            printingSubsystem.FormattedResource(Descriptions.BURN_NOTE, lighterName, true);
-        }
-    }
-
+    
     internal void CantDropCandleInStove(object? sender, DropItemEventArgs eventArgs)
     {
         if (sender is Item { Key: Keys.CANDLE })
@@ -717,7 +666,42 @@ internal class EventProvider
 
         IndicateThatStoveIsHot();
 
-        this.scoreBoard.WinScore(nameof(UseLightersOnThings));
+        StoveStarted();
+    }
+    
+    private void StartFireInStoveWithLighterAndNote(Item lighter, Item note)
+    {
+        if (this.isPaperInStove)
+        {
+            CheckIfStoveIsOpen();
+            
+            RemovePaperFromStove();
+            
+            printingSubsystem.Resource(Descriptions.NOTE_BURNED);
+            printingSubsystem.Resource(Descriptions.FIRE_STARTER);
+        
+            CloseStoveAndCombustionChamber(true);
+
+            IndicateThatStoveIsHot();
+            
+            StoveStarted();
+        }
+        else
+        {
+            if (!this.universe.ActivePlayer.OwnsObject(note))
+            {
+                throw new KindleException(BaseDescriptions.ITEM_NOT_OWNED);     
+            }
+
+            this.universe.ActivePlayer.RemoveItem(note);
+            var lighterName = ArticleHandler.GetNameWithArticleForObject(lighter, GrammarCase.Accusative);
+            printingSubsystem.FormattedResource(Descriptions.BURN_NOTE, lighterName, true);
+        }
+    }
+
+    internal void StoveStarted()
+    {
+        this.scoreBoard.WinScore(nameof(StoveStarted));
         this.universe.SolveQuest(MetaData.QUEST_II);
     }
 

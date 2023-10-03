@@ -52,11 +52,10 @@ internal static class BedRoomPrerequisites
         room.BeforeEnterLocation += eventProvider.EnterRoomWithoutLight;
     }
     
-    private static void AddKindleEvents(Item item, EventProvider eventProvider)
+    private static void AddKindleEvents(Item lamp, EventProvider eventProvider)
     {
-        item.Kindle += eventProvider.UseLightersOnThings;
-        eventProvider.RegisterScore(nameof(eventProvider.UseLightersOnThings), 1);
-        eventProvider.RegisterScore(nameof(eventProvider.StartPetroleumLampWithCandle), 1);
+        lamp.Kindle += eventProvider.UseCandleOrMatchOnLamp;
+        eventProvider.RegisterScore(nameof(eventProvider.StartPetroleumLamp), 1);
     }
     
     private static void AddPoorEvents(Item item, EventProvider eventProvider)

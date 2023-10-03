@@ -156,7 +156,6 @@ internal static class LivingRoomPrerequisites
         candle.Items.Add(GetIronKey());
 
         AddCandleTakeEvents(candle, eventProvider);
-        AddKindleEvents(candle, eventProvider);
         AddCandleDropEvents(candle, eventProvider);
 
         return candle;
@@ -177,7 +176,7 @@ internal static class LivingRoomPrerequisites
         
         AddReadEvents(note, eventProvider);
         AddDropEvents(note, eventProvider);
-        AddKindleEvents(note, eventProvider);
+        AddKindleEventsForNote(note, eventProvider);
         
         return note;
     }
@@ -393,9 +392,9 @@ internal static class LivingRoomPrerequisites
             IsPickable = false,
             Grammar = new IndividualObjectGrammar(Genders.Neutrum, isAbstract: true)
         };
-
-        AddKindleEvents(wood, eventProvider);
+        
         AddPoorEvents(wood, eventProvider);
+        AddKindleEventsForWood(wood, eventProvider);
 
         return wood;
     }
@@ -451,11 +450,17 @@ internal static class LivingRoomPrerequisites
     {
         room.BeforeEnterLocation += eventProvider.EnterRoomWithoutLight;
     }
-
-    private static void AddKindleEvents(Item item, EventProvider eventProvider)
+    
+    private static void AddKindleEventsForWood(Item item, EventProvider eventProvider)
     {
-        item.Kindle += eventProvider.UseLightersOnThings;
-        eventProvider.RegisterScore(nameof(eventProvider.UseLightersOnThings), 1);
+        item.Kindle += eventProvider.UseCandleOrLampOnPileOfWood;
+        eventProvider.RegisterScore(nameof(eventProvider.StoveStarted), 1);
+    }
+    
+    private static void AddKindleEventsForNote(Item item, EventProvider eventProvider)
+    {
+        item.Kindle += eventProvider.UseCandleOrLampOnNote;
+        eventProvider.RegisterScore(nameof(eventProvider.StoveStarted), 1);
     }
     
     private static void AddPoorEvents(Item item, EventProvider eventProvider)
