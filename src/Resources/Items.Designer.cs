@@ -321,7 +321,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wand|Wände.
+        ///   Looks up a localized string similar to Wand|Wände|Holzwand|Holzwände.
         /// </summary>
         internal static string WALL {
             get {

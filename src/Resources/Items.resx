@@ -49,7 +49,7 @@
         <value>Fenster</value>
     </data>
     <data name="WALL" xml:space="preserve">
-        <value>Wand|Wände</value>
+        <value>Wand|Wände|Holzwand|Holzwände</value>
     </data>
     <data name="FLOOR" xml:space="preserve">
         <value>Fußboden|Boden</value>
