@@ -14,7 +14,8 @@ internal static class LivingRoomPrerequisites
         {
             Key = Keys.LIVINGROOM,
             Name = Locations.LIVINGROOM,
-            Description = Descriptions.LIVINGROOM
+            Description = Descriptions.LIVINGROOM,
+            SmellDescription = Descriptions.LIVINGROOM_SMELL
         };
 
         livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.POOR, string.Empty);
@@ -64,6 +65,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.SAUSAGE,
             Description = Descriptions.SAUSAGE,
             ContainmentDescription = Descriptions.SAUSAGE_CONTAINMENT,
+            SmellDescription = "Die Wurst stinkt!",
             IsHidden = true,
             IsEatable = true,
             Grammar = new IndividualObjectGrammar()
