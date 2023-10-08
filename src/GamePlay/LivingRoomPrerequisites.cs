@@ -20,6 +20,7 @@ internal static class LivingRoomPrerequisites
 
         livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.POOR, string.Empty);
         livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.HOLD, Descriptions.NOTHING_TO_HOLD);
+        livingRoom.AddOptionalVerb(VerbKey.USE, OptionalVerbs.RUB, string.Empty);
         livingRoom.AddOptionalVerb(VerbKey.SWITCHOFF, OptionalVerbs.BLOW, Descriptions.BLOW_OUT_NOT_POSSIBLE);
         livingRoom.AddOptionalVerb(VerbKey.SWITCHOFF, OptionalVerbs.UNLIGHT, Descriptions.UNLIGHT_NOT_POSSIBLE);
 
@@ -228,8 +229,16 @@ internal static class LivingRoomPrerequisites
             IsPickable = false,
             IsHidden = true
         };
+        
+        AddRubEvents(succulent, eventProvider);
 
         return succulent;
+    }
+    
+    private static void AddRubEvents(Item succulent, EventProvider eventProvider)
+    {
+        succulent.Use += eventProvider.RubOnSucculent;
+        eventProvider.RegisterScore(nameof(eventProvider.RubOnSucculent), 1);
     }
     
     private static Item GetDoor(EventProvider eventProvider)

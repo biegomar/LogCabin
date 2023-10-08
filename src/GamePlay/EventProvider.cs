@@ -18,6 +18,7 @@ internal class EventProvider
     private bool isPaperInStove;
     private bool isPetroleumInStove;
     private bool isPetroleumInLamp;
+    private bool succulentRubbed;
     private int waitCounter;
     
     internal EventProvider(Universe universe, IPrintingSubsystem printingSubsystem, ScoreBoard scoreBoard)
@@ -36,6 +37,7 @@ internal class EventProvider
         this.isPaperInStove = false;
         this.isPetroleumInStove = false;
         this.isPetroleumInLamp = false;
+        this.succulentRubbed = false;
     }
 
     internal void RegisterScore(string key, int value)
@@ -627,6 +629,18 @@ internal class EventProvider
         {
             Description desc = this.GetBookTitle();
             throw new ReadException(desc);
+        }
+    }
+
+    internal void RubOnSucculent(object? sender, UseItemEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.SUCCULENT})
+        {
+            printingSubsystem.Resource(
+                "Die reibst an der Sukkulente und die zähe Flüssigkeit in ihren Blättern legt sich wie ein feiner Handschuh um Deine Hände.");
+
+            this.succulentRubbed = true;
+            this.scoreBoard.WinScore(nameof(RubOnSucculent));
         }
     }
     
