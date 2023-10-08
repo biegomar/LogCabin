@@ -401,4 +401,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="COOL_WITH_SUCCULENT" xml:space="preserve">
         <value>Cool, die Sukkulentenflüssigkeit an Deinen Händen schützt Dich vor der Hitze des Schlüssels!</value>
     </data>
+    <data name="RUB_SUCCULENT_AGAIN" xml:space="preserve">
+        <value>Du hast die Pflanze bei Deinem ersten Versuch ziemlich ausgequetscht! Nochmal kannst Du das nicht machen.</value>
+    </data>
 </root>

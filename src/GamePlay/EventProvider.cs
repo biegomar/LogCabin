@@ -636,10 +636,17 @@ internal class EventProvider
     {
         if (sender is Item {Key: Keys.SUCCULENT})
         {
-            printingSubsystem.Resource(Descriptions.RUB_SUCCULENT);
+            if (!succulentRubbed)
+            {
+                printingSubsystem.Resource(Descriptions.RUB_SUCCULENT);
 
-            this.succulentRubbed = true;
-            this.scoreBoard.WinScore(nameof(RubOnSucculent));
+                this.succulentRubbed = true;
+                this.scoreBoard.WinScore(nameof(RubOnSucculent));    
+            }
+            else
+            {
+                printingSubsystem.Resource(Descriptions.RUB_SUCCULENT_AGAIN);
+            }
         }
     }
 

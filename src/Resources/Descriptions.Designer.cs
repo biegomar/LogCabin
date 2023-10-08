@@ -1010,6 +1010,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Du hast die Pflanze bei Deinem ersten Versuch ziemlich ausgequetscht! Nochmal kannst Du das nicht machen..
+        /// </summary>
+        internal static string RUB_SUCCULENT_AGAIN {
+            get {
+                return ResourceManager.GetString("RUB_SUCCULENT_AGAIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ein Stück Dauerwurst, wahrscheinlich Salami. Es sieht schon leicht verdorben aus und Du würdest es nicht mehr essen wollen..
         /// </summary>
         internal static string SAUSAGE {
