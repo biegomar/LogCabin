@@ -86,6 +86,7 @@ internal static class LivingRoomPrerequisites
             Adjectives = Adjectives.LAMP_OIL_BUCKET,
             FirstLookDescription = Descriptions.LAMP_OIL_BUCKET_FIRSTLOOK,
             ContainmentDescription = Descriptions.LAMP_OIL_BUCKET_CONTAINMENT,
+            SmellDescription = Descriptions.LAMP_OIL_BUCKET_FIRSTLOOK,
             IsHidden = true
         };
         
