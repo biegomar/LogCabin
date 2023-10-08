@@ -636,8 +636,7 @@ internal class EventProvider
     {
         if (sender is Item {Key: Keys.SUCCULENT})
         {
-            printingSubsystem.Resource(
-                "Die reibst an der Sukkulente und die zähe Flüssigkeit in ihren Blättern legt sich wie ein feiner Handschuh um Deine Hände.");
+            printingSubsystem.Resource(Descriptions.RUB_SUCCULENT);
 
             this.succulentRubbed = true;
             this.scoreBoard.WinScore(nameof(RubOnSucculent));
@@ -650,11 +649,10 @@ internal class EventProvider
         {
             if (!this.succulentRubbed)
             {
-                throw new TakeException("Der Schlüssel ist viel zu heiß, um ihn einfach so anzufassen!");
+                throw new TakeException(Descriptions.IRONKEY_TOO_HOT);
             }
             
-            printingSubsystem.Resource(
-                "Cool, die Sukkulentenflüssigkeit an Deinen Händen schützt Dich vor der Hitze des Schlüssels!");
+            printingSubsystem.Resource(Descriptions.COOL_WITH_SUCCULENT);
         }
     }
     

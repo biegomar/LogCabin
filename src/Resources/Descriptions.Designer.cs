@@ -375,6 +375,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cool, die Sukkulentenflüssigkeit an Deinen Händen schützt Dich vor der Hitze des Schlüssels!.
+        /// </summary>
+        internal static string COOL_WITH_SUCCULENT {
+            get {
+                return ResourceManager.GetString("COOL_WITH_SUCCULENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Geschrieben von Marc Biegota..
         /// </summary>
         internal static string CREDITS {
@@ -489,6 +498,15 @@ namespace LogCabin.Resources {
         internal static string IRON_KEY {
             get {
                 return ResourceManager.GetString("IRON_KEY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Der Schlüssel ist viel zu heiß, um ihn einfach so anzufassen!.
+        /// </summary>
+        internal static string IRONKEY_TOO_HOT {
+            get {
+                return ResourceManager.GetString("IRONKEY_TOO_HOT", resourceCulture);
             }
         }
         
@@ -979,6 +997,15 @@ namespace LogCabin.Resources {
         internal static string POOR_PETROLEUM_OVER_WOOD {
             get {
                 return ResourceManager.GetString("POOR_PETROLEUM_OVER_WOOD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Die reibst an der Sukkulente und die zähe Flüssigkeit in ihren Blättern legt sich wie ein feiner Handschuh um Deine Hände..
+        /// </summary>
+        internal static string RUB_SUCCULENT {
+            get {
+                return ResourceManager.GetString("RUB_SUCCULENT", resourceCulture);
             }
         }
         

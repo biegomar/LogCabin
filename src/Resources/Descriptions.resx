@@ -392,4 +392,13 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="SUCCULENT_CONTAINMENT" xml:space="preserve">
         <value>Auf der Fensterbank steht eine Pflanze.</value>
     </data>
+    <data name="RUB_SUCCULENT" xml:space="preserve">
+        <value>Die reibst an der Sukkulente und die zähe Flüssigkeit in ihren Blättern legt sich wie ein feiner Handschuh um Deine Hände.</value>
+    </data>
+    <data name="IRONKEY_TOO_HOT" xml:space="preserve">
+        <value>Der Schlüssel ist viel zu heiß, um ihn einfach so anzufassen!</value>
+    </data>
+    <data name="COOL_WITH_SUCCULENT" xml:space="preserve">
+        <value>Cool, die Sukkulentenflüssigkeit an Deinen Händen schützt Dich vor der Hitze des Schlüssels!</value>
+    </data>
 </root>
