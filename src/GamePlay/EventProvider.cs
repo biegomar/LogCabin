@@ -639,9 +639,7 @@ internal class EventProvider
             if (!succulentRubbed)
             {
                 printingSubsystem.Resource(Descriptions.RUB_SUCCULENT);
-
                 this.succulentRubbed = true;
-                this.scoreBoard.WinScore(nameof(RubOnSucculent));    
             }
             else
             {
@@ -652,7 +650,7 @@ internal class EventProvider
 
     internal void BeforeTakeIronKey(object? sender, ContainerObjectEventArgs eventArgs)
     {
-        if (sender is Item {Key: Keys.IRON_KEY})
+        if (sender is Item {Key: Keys.IRON_KEY} ironKey)
         {
             if (!this.succulentRubbed)
             {
@@ -660,6 +658,8 @@ internal class EventProvider
             }
             
             printingSubsystem.Resource(Descriptions.COOL_WITH_SUCCULENT);
+            ironKey.BeforeTake -= BeforeTakeIronKey;
+            this.scoreBoard.WinScore(nameof(RubOnSucculent));
         }
     }
     
