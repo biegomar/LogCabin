@@ -466,7 +466,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wie genau möchtest Du das tun?.
+        ///   Looks up a localized string similar to Womit möchtest Du {0} anzünden?.
         /// </summary>
         internal static string HOW_TO_DO {
             get {

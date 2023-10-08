@@ -500,16 +500,18 @@ internal class EventProvider
     
     internal void UseCandleOrMatchOnLamp(object? sender, KindleItemEventArgs eventArgs)
     {
-        if (sender is Item {Key: Keys.PETROLEUM_LAMP} lamp && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.MATCH} lighter && lighter.Key != lamp.Key)
+        if (sender is Item {Key: Keys.PETROLEUM_LAMP} lamp)
         {
-            CheckIfItemIsOwned(lighter);
+            if (eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.MATCH} lighter && lighter.Key != lamp.Key)
+            {
+                CheckIfItemIsOwned(lighter);
 
-            StartPetroleumLamp(lamp);
-        }
-        
-        if (eventArgs.ItemToUse == default)
-        {
-            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+                StartPetroleumLamp(lamp);
+            }
+            else if (eventArgs.ItemToUse == default)
+            {
+                PrintHowToDoIt(lamp);
+            }
         }
         
         CheckIfTryToKindleItself(sender, eventArgs);
@@ -517,15 +519,18 @@ internal class EventProvider
     
     internal void UseCandleOrLampOnPileOfWood(object? sender, KindleItemEventArgs eventArgs)
     {
-        if (sender is Item {Key: Keys.PILE_OF_WOOD} wood && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != wood.Key)
+        if (sender is Item {Key: Keys.PILE_OF_WOOD} wood)
         {
-            CheckIfItemIsOwned(lighter);
+            if (eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != wood.Key)
+            {
+                CheckIfItemIsOwned(lighter);
 
-            StartFireInStoveWithLighterAndWood();
-        }
-        else if (eventArgs.ItemToUse == default)
-        {
-            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+                StartFireInStoveWithLighterAndWood();
+            }
+            else if (eventArgs.ItemToUse == default)
+            {
+                PrintHowToDoIt(wood);
+            }
         }
         
         CheckIfTryToKindleItself(sender, eventArgs);
@@ -533,20 +538,30 @@ internal class EventProvider
     
     internal void UseCandleOrLampOnNote(object? sender, KindleItemEventArgs eventArgs)
     {
-        if (sender is Item {Key: Keys.NOTE} note && eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != note.Key)
+        if (sender is Item {Key: Keys.NOTE} note)
         {
-            CheckIfItemIsOwned(lighter);
+            if (eventArgs.ItemToUse is Item {Key: Keys.CANDLE or Keys.PETROLEUM_LAMP} lighter && lighter.Key != note.Key)
+            {
+                CheckIfItemIsOwned(lighter);
 
-            StartFireInStoveWithLighterAndNote(lighter, note);
-        }
-        else if (eventArgs.ItemToUse == default)
-        {
-            printingSubsystem.Resource(Descriptions.HOW_TO_DO);
+                StartFireInStoveWithLighterAndNote(lighter, note);
+            }
+            else if (eventArgs.ItemToUse == default)
+            {
+                PrintHowToDoIt(note);
+            }
         }
         
         CheckIfTryToKindleItself(sender, eventArgs);
     }
-    
+
+    private void PrintHowToDoIt(Item item)
+    {
+        var name =
+            ArticleHandler.GetNameWithArticleForObject(item, GrammarCase.Accusative,
+                lowerFirstCharacter: true);
+        throw new KindleException(string.Format(Descriptions.HOW_TO_DO, name));
+    }
     private void CheckIfItemIsOwned(Item item)
     {
         if (!this.universe.ActivePlayer.OwnsObject(item))

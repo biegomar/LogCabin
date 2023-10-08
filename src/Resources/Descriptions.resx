@@ -279,7 +279,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
         <value>Doch die massive Holztür versperrt Dir den Weg.</value>
     </data>
     <data name="HOW_TO_DO" xml:space="preserve">
-        <value>Wie genau möchtest Du das tun?</value>
+        <value>Womit möchtest Du {0} anzünden?</value>
     </data>
     <data name="FIRE_FIRE_WITH_FIRE" xml:space="preserve">
         <value>Du willst wirklich {0} mit {1} anzünden? Wie soll das gehen?</value>
