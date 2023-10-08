@@ -64,7 +64,7 @@ internal static class LivingRoomPrerequisites
             Name = Items.SAUSAGE,
             Description = Descriptions.SAUSAGE,
             ContainmentDescription = Descriptions.SAUSAGE_CONTAINMENT,
-            SmellDescription = "Die Wurst stinkt!",
+            SmellDescription = Descriptions.SMELL_SAUSAGE,
             IsHidden = true,
             IsEatable = true,
             Grammar = new IndividualObjectGrammar()

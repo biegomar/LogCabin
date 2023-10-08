@@ -1001,6 +1001,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Die Wurst riecht echt übel! Probieren würde ich sie nicht..
+        /// </summary>
+        internal static string SMELL_SAUSAGE {
+            get {
+                return ResourceManager.GetString("SMELL_SAUSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Der Küchenherd wird mit Scheitholz befeuert und das rustikale Äußere versetzt Dich zurück in vergangene Zeiten. Der Herd besitzt eine Tür mit Sichtscheibe, die den Zugang zur Brennkammer ermöglicht. Ein Ofenrohr ist mit dem Ofen verbunden und wird durch die Holzwand nach draußen geführt. Vermutlich führt es dort in einen Kamin, der dafür sorgt, dass der Rauch gut abziehen kann..
         /// </summary>
         internal static string STOVE {

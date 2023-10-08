@@ -377,4 +377,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="KINDLE_MATCH_WITH_LAMP" xml:space="preserve">
         <value>Du hälst die Flamme der Petroleumlampe kurz an das Streichholz und es fängt sofort an zu brennen.</value>
     </data>
+    <data name="SMELL_SAUSAGE" xml:space="preserve">
+        <value>Die Wurst riecht echt übel! Probieren würde ich sie nicht.</value>
+    </data>
 </root>
