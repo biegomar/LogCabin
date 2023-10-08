@@ -65,6 +65,7 @@ internal static class LivingRoomPrerequisites
             Description = Descriptions.SAUSAGE,
             ContainmentDescription = Descriptions.SAUSAGE_CONTAINMENT,
             SmellDescription = Descriptions.SMELL_SAUSAGE,
+            TasteDescription = Descriptions.TASTE_SAUSAGE,
             IsHidden = true,
             IsEatable = true,
             Grammar = new IndividualObjectGrammar()

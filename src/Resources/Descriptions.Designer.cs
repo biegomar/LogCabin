@@ -1100,6 +1100,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uhh! Nein. Das ekelige Stück Wurst solltest Du besser nicht in den Mund nehmen..
+        /// </summary>
+        internal static string TASTE_SAUSAGE {
+            get {
+                return ResourceManager.GetString("TASTE_SAUSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ein widerlicher Gedanke. Das Stück ist definitiv nicht mehr für Menschen genießbar..
         /// </summary>
         internal static string TRY_TO_EAT_SAUSAGE {

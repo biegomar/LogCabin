@@ -380,4 +380,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     <data name="SMELL_SAUSAGE" xml:space="preserve">
         <value>Die Wurst riecht echt übel! Probieren würde ich sie nicht.</value>
     </data>
+    <data name="TASTE_SAUSAGE" xml:space="preserve">
+        <value>Uhh! Nein. Das ekelige Stück Wurst solltest Du besser nicht in den Mund nehmen.</value>
+    </data>
 </root>
