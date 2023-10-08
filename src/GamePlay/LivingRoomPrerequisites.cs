@@ -158,7 +158,7 @@ internal static class LivingRoomPrerequisites
             LighterSwitchedOnDescription = Descriptions.LIGHTER_ON
         };
         
-        candle.Items.Add(GetIronKey());
+        candle.Items.Add(GetIronKey(eventProvider));
 
         AddCandleTakeEvents(candle, eventProvider);
         AddCandleDropEvents(candle, eventProvider);
@@ -186,7 +186,7 @@ internal static class LivingRoomPrerequisites
         return note;
     }
 
-    private static Item GetIronKey()
+    private static Item GetIronKey(EventProvider eventProvider)
     {
         var ironKey = new Item()
         {
@@ -197,8 +197,15 @@ internal static class LivingRoomPrerequisites
             IsUnveilable = false,
             Grammar = new IndividualObjectGrammar(Genders.Male)
         };
+        
+        AddTakeEventsForKey(ironKey, eventProvider);
 
         return ironKey;
+    }
+    
+    private static void AddTakeEventsForKey(Item ironKey, EventProvider eventProvider)
+    {
+        ironKey.BeforeTake += eventProvider.BeforeTakeIronKey;
     }
 
     private static Item GetWindow(EventProvider eventProvider)

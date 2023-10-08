@@ -643,6 +643,20 @@ internal class EventProvider
             this.scoreBoard.WinScore(nameof(RubOnSucculent));
         }
     }
+
+    internal void BeforeTakeIronKey(object? sender, ContainerObjectEventArgs eventArgs)
+    {
+        if (sender is Item {Key: Keys.IRON_KEY})
+        {
+            if (!this.succulentRubbed)
+            {
+                throw new TakeException("Der Schlüssel ist viel zu heiß, um ihn einfach so anzufassen!");
+            }
+            
+            printingSubsystem.Resource(
+                "Cool, die Sukkulentenflüssigkeit an Deinen Händen schützt Dich vor der Hitze des Schlüssels!");
+        }
+    }
     
     internal Func<string> GetBookTitle()
     {
