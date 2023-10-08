@@ -31,7 +31,6 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetDoor(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
-        AddSmellEvents(livingRoom, eventProvider);
         
         AddSurroundings(livingRoom);
 
@@ -499,11 +498,6 @@ internal static class LivingRoomPrerequisites
     {
         note.BeforeDrop += eventProvider.BeforeDropNoteInStove;
         note.Drop += eventProvider.PutNoteInStove;
-    }
-
-    private static void AddSmellEvents(Location room, EventProvider eventProvider)
-    {
-        room.Smell += eventProvider.SmellInLivingRoom;
     }
 
     private static void AddSurroundings(Location livingRoom)

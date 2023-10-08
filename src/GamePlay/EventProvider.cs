@@ -636,14 +636,6 @@ internal class EventProvider
         }
     }
 
-    internal void SmellInLivingRoom(object? sender, ContainerObjectEventArgs eventArgs)
-    {
-        if (sender is Location {Key: Keys.LIVINGROOM})
-        {
-            throw new SmellException(Descriptions.LIVINGROOM_SMELL);
-        }
-    }
-    
     private void StartFireInStoveWithLighterAndWood()
     {
         CheckIfStoveIsOpen();
