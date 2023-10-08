@@ -108,4 +108,7 @@
     <data name="MATCH" xml:space="preserve">
         <value>Streichholz|Zündholz</value>
     </data>
+    <data name="SUCCULENT" xml:space="preserve">
+        <value>Pflanze|Topfpflanze|Sukkulente|Blume</value>
+    </data>
 </root>

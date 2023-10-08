@@ -303,7 +303,7 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Du siehst außerdem eine große Holztruhe und eine Eingangstür..
+        ///   Looks up a localized string similar to Du siehst außerdem eine große Holztruhe, ein Fenster und eine Eingangstür..
         /// </summary>
         internal static string CHEST_CONTAINMENT {
             get {
@@ -1078,6 +1078,24 @@ namespace LogCabin.Resources {
         internal static string STOVE_OPEN {
             get {
                 return ResourceManager.GetString("STOVE_OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bei der Pflanze handelt es sich wohl um eine Sukkulente. Sie sieht sehr saftig und wasserreich aus..
+        /// </summary>
+        internal static string SUCCULENT {
+            get {
+                return ResourceManager.GetString("SUCCULENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auf der Fensterbank steht eine Pflanze..
+        /// </summary>
+        internal static string SUCCULENT_CONTAINMENT {
+            get {
+                return ResourceManager.GetString("SUCCULENT_CONTAINMENT", resourceCulture);
             }
         }
         

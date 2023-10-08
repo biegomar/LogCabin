@@ -312,6 +312,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pflanze|Topfpflanze|Sukkulente|Blume.
+        /// </summary>
+        internal static string SUCCULENT {
+            get {
+                return ResourceManager.GetString("SUCCULENT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Holztisch|Tisch.
         /// </summary>
         internal static string TABLE {

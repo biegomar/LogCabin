@@ -39,6 +39,7 @@ internal static class Keys
     internal const string INSPECTION_WINDOW = "INSPECTION_WINDOW";
     internal const string MATCHBOX = "MATCHBOX";
     internal const string MATCH = "MATCH";
+    internal const string SUCCULENT = "SUCCULENT";
 
     //Bedroom
     internal const string BEDROOM = "BEDROOM";

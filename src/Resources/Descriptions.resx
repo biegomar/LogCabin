@@ -300,7 +300,7 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
         <value>An der westlichen Wand befindet sich ein schmales Bücherregal.</value>
     </data>
     <data name="CHEST_CONTAINMENT" xml:space="preserve">
-        <value>Du siehst außerdem eine große Holztruhe und eine Eingangstür.</value>
+        <value>Du siehst außerdem eine große Holztruhe, ein Fenster und eine Eingangstür.</value>
     </data>
     <data name="TRY_TO_EAT_SAUSAGE" xml:space="preserve">
         <value>Ein widerlicher Gedanke. Das Stück ist definitiv nicht mehr für Menschen genießbar.</value>
@@ -385,5 +385,11 @@ Schon nach kurzer Zeit merkst Du, wie der Ofen heiß wird und sich wohlige Wärm
     </data>
     <data name="KINDLE_ERROR_MESSAGE" xml:space="preserve">
         <value>Da hier so ziemlich alles aus Holz ist, würde ich mir gut überlegen, was ich anzünde oder nicht. Also: nein!</value>
+    </data>
+    <data name="SUCCULENT" xml:space="preserve">
+        <value>Bei der Pflanze handelt es sich wohl um eine Sukkulente. Sie sieht sehr saftig und wasserreich aus.</value>
+    </data>
+    <data name="SUCCULENT_CONTAINMENT" xml:space="preserve">
+        <value>Auf der Fensterbank steht eine Pflanze.</value>
     </data>
 </root>

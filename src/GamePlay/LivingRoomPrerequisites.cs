@@ -29,6 +29,7 @@ internal static class LivingRoomPrerequisites
         livingRoom.Items.Add(GetBookShelf(eventProvider));
         livingRoom.Items.Add(GetChest(eventProvider));
         livingRoom.Items.Add(GetDoor(eventProvider));
+        livingRoom.Items.Add(GetWindow(eventProvider));
 
         AddChangeLocationEvents(livingRoom, eventProvider);
         
@@ -197,6 +198,38 @@ internal static class LivingRoomPrerequisites
         };
 
         return ironKey;
+    }
+
+    private static Item GetWindow(EventProvider eventProvider)
+    {
+        var livingRoomWindows = new Item()
+        {
+            Key = Keys.LIVINGROOM_WINDOW,
+            Name = Items.LIVINGROOM_WINDOW,
+            Description = Descriptions.LIVINGROOM_WINDOW,
+            IsSurrounding = true,
+            IsPickable = false,
+            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
+        };
+        
+        livingRoomWindows.Items.Add(GetSucculent(eventProvider));
+
+        return livingRoomWindows;
+    }
+
+    private static Item GetSucculent(EventProvider eventProvider)
+    {
+        var succulent = new Item()
+        {
+            Key = Keys.SUCCULENT,
+            Name = Items.SUCCULENT,
+            Description = Descriptions.SUCCULENT,
+            ContainmentDescription = Descriptions.SUCCULENT_CONTAINMENT,
+            IsPickable = false,
+            IsHidden = true
+        };
+
+        return succulent;
     }
     
     private static Item GetDoor(EventProvider eventProvider)
@@ -580,17 +613,6 @@ internal static class LivingRoomPrerequisites
             Grammar = new IndividualObjectGrammar()
         };
         livingRoom.Items.Add(ceiling);
-        
-        var livingRoomWindows = new Item()
-        {
-            Key = Keys.LIVINGROOM_WINDOW,
-            Name = Items.LIVINGROOM_WINDOW,
-            Description = Descriptions.LIVINGROOM_WINDOW,
-            IsSurrounding = true,
-            IsPickable = false,
-            Grammar = new IndividualObjectGrammar(Genders.Neutrum)
-        };
-        livingRoom.Items.Add(livingRoomWindows);
         
         var shutter = new Item()
         {
