@@ -511,6 +511,15 @@ namespace LogCabin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Da hier so ziemlich alles aus Holz ist, würde ich mir gut überlegen, was ich anzünde oder nicht. Also: nein!.
+        /// </summary>
+        internal static string KINDLE_ERROR_MESSAGE {
+            get {
+                return ResourceManager.GetString("KINDLE_ERROR_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Du reibst das Streichholz mit seinem Schwefelkopf an der entsprechenden Fläche der Schachtel und es entzündet sich..
         /// </summary>
         internal static string KINDLE_MATCH_WITH_BOX {

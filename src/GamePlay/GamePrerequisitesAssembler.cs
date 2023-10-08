@@ -24,20 +24,6 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
         InitializeSystem();
     }
 
-    private void InitializeSystem()
-    {
-        this.resourceProvider = new ResourceProvider();
-        this.printingSubsystem = new ConsolePrinting();
-
-        this.universe = new Universe(printingSubsystem, resourceProvider);
-        this.scoreBoard = new ScoreBoard(printingSubsystem);
-        this.eventProvider = new EventProvider(universe, printingSubsystem, scoreBoard);
-
-        this.verbHandler = new GermanVerbHandler(universe, resourceProvider);
-        this.grammar = new GermanGrammar(resourceProvider, verbHandler);
-        this.helpSubsystem = new BaseHelpSubsystem(grammar, printingSubsystem);
-    }
-
     public IPrintingSubsystem PrintingSubsystem
     {
         get => printingSubsystem;
@@ -112,6 +98,28 @@ internal sealed class GamePrerequisitesAssembler: IGamePrerequisitesAssembler
     public void Restart()
     {
         InitializeSystem();
+    }
+    
+    private void InitializeSystem()
+    {
+        this.resourceProvider = new ResourceProvider();
+        this.printingSubsystem = new ConsolePrinting();
+
+        this.universe = new Universe(printingSubsystem, resourceProvider);
+        this.scoreBoard = new ScoreBoard(printingSubsystem);
+        this.eventProvider = new EventProvider(universe, printingSubsystem, scoreBoard);
+
+        this.verbHandler = new GermanVerbHandler(universe, resourceProvider);
+        this.AssignNewErrorMessagesToVerbs();
+        
+        this.grammar = new GermanGrammar(resourceProvider, verbHandler);
+        this.helpSubsystem = new BaseHelpSubsystem(grammar, printingSubsystem);
+    }
+
+    private void AssignNewErrorMessagesToVerbs()
+    {
+        var kindle = this.verbHandler.Verbs.First(x => x.Key == VerbKey.KINDLE);
+        kindle.ErrorMessage = Descriptions.KINDLE_ERROR_MESSAGE;
     }
 
     private static ICollection<string> GetQuests()
